@@ -894,9 +894,154 @@ function App() {
             </ul>
           </div>
         </div>  */}
-        <div>
+        {/* <div>
           < AlternatingSections />
+
+        </div> */}
+          <div className="bg-white text-gray-800 p-8 max-w-5xl mx-auto font-sans center">
+      {/* Header */}
+      <div className="bg-yellow-300 rounded-md p-6 mb-10 max-w-[550px]">
+        <h2 className="font-semibold text-lg mb-3">Grade-wise Pathway</h2>
+        <ul className="list-disc list-inside space-y-2 text-sm">
+          <li>
+            <span className="font-semibold">Foundation (KG-2):</span> Maker time, simple
+            machines, patterns, storytelling with block coding.
+          </li>
+          <li>
+            <span className="font-semibold">Preparatory (3-5):</span> Robotics starters,
+            circuits, Scratch apps, deep thinking mini-challenges.
+          </li>
+          <li>
+            <span className="font-semibold">Middle (6-8):</span> IoT builds, Python,
+            3D design/printing, drones (simulated), public speaking projects.
+          </li>
+          <li>
+            <span className="font-semibold">Secondary (9-12):</span> Capstone projects
+            integrating AI/ML, data, automation, and digital media portfolios.
+          </li>
+        </ul>
+      </div>
+
+      {/* How the Program Runs */}
+      <div className="mb-10 max-w-[600px]">
+        <h3 className="font-semibold text-lg mb-4">How the Program Runs</h3>
+        <ul className="list-disc list-inside space-y-3 text-sm">
+          <li>
+            <span className="font-semibold">Weekly lab sessions</span> embedded into the
+            times table; flexible plans for club hours and timesaves.
+          </li>
+          <li>
+            <span className="font-semibold">Certified Facilitators (Any academy)</span>{" "}
+            co-teach with TSUS faculty for smooth delivery and classroom integration.
+          </li>
+          <li>
+            <span className="font-semibold">Sunday & SIM for staff, students, and
+            educators;</span> age-appropriate kits.
+          </li>
+          <li>
+            <span className="font-semibold">Showcases & Hack days</span> each term—
+            parents invited.
+          </li>
+          <li>
+            <span className="font-semibold">Assessment & Portfolio:</span> rubrics for
+            creativity, collaboration, problem-solving; each child builds a digital
+            portfolio of projects.
+          </li>
+        </ul>
+      </div>
+
+      {/* Outcomes You Can Expect */}
+      <div className="bg-yellow-300 rounded-md p-6 mb-10 max-w-[550px]">
+        <h3 className="font-semibold text-lg mb-3">Outcomes You Can Expect</h3>
+        <ul className="list-disc list-inside space-y-2 text-sm">
+          <li>Conceptual clarity via experiments and models.</li>
+          <li>Stronger problem-solving & logical reasoning.</li>
+          <li>Tech fluency (skillsets/aptitudes), STEAM awareness.</li>
+          <li>Communication & leadership through demos, pitches and team roles.</li>
+          <li>Real-world application mindset – ideas that move from paper to prototype.</li>
+        </ul>
+      </div>
+
+      {/* What Makes TSUS STEAM Different */}
+      <div className="mb-10 max-w-[600px]">
+        <h3 className="font-semibold text-lg mb-4">What Makes TSUS STEAM Different</h3>
+        <ul className="list-disc list-inside space-y-3 text-sm">
+          <li>
+            End-to-end lab experience—infrastructure, curriculum, facilitators, and
+            teacher upskilling, not just kits.
+          </li>
+          <li>
+            Curriculum that scales across grades with 400+ hands-on topics plus
+            coverage typical of best-in-class experiential programs.
+          </li>
+          <li>
+            Integration with regular lessons so learning isn’t an “extra class” but a
+            better way to learn the same concepts.
+          </li>
+        </ul>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="max-w-[600px]">
+        <h3 className="font-semibold text-xl mb-6">Frequently Asked Questions</h3>
+
+        {/* Question 1 */}
+        <div className="mb-5 p-4 border border-gray-300 rounded-md">
+          <h4 className="font-semibold flex items-center mb-2">
+            <span className="mr-2 bg-yellow-200 rounded-full w-6 h-6 flex items-center justify-center text-yellow-600 font-bold">
+              ?
+            </span>
+            Is prior coding experience needed?
+          </h4>
+          <p className="text-sm">
+            No, the start with block coding and gradually progress to text-based
+            languages.
+          </p>
         </div>
+
+        {/* Question 2 */}
+        <div className="mb-5 p-4 border border-gray-300 rounded-md">
+          <h4 className="font-semibold flex items-center mb-2">
+            <span className="mr-2 bg-yellow-200 rounded-full w-6 h-6 flex items-center justify-center text-yellow-600 font-bold">
+              ?
+            </span>
+            Is it safe?
+          </h4>
+          <p className="text-sm">
+            Yes, all activities follow strict safety SOPs, drone flying is
+            simulation-first and geo-restricted.
+          </p>
+        </div>
+
+        {/* Question 3 */}
+        <div className="mb-5 p-4 border border-gray-300 rounded-md">
+          <h4 className="font-semibold flex items-center mb-2">
+            <span className="mr-2 bg-yellow-200 rounded-full w-6 h-6 flex items-center justify-center text-yellow-600 font-bold">
+              ?
+            </span>
+            Will this add pressure?
+          </h4>
+          <p className="text-sm">
+            The lab replaces passive learning with active learning – many students
+            find it easier and more engaging.
+          </p>
+        </div>
+
+        {/* Question 4 */}
+        <div className="p-4 border border-gray-300 rounded-md">
+          <h4 className="font-semibold flex items-center mb-2">
+            <span className="mr-2 bg-yellow-200 rounded-full w-6 h-6 flex items-center justify-center text-yellow-600 font-bold">
+              ?
+            </span>
+            How is this different from a computer period?
+          </h4>
+          <p className="text-sm">
+            STEAM integrates science, math, engineering + emerging tech in
+            orthodoxy-free ways with physical tools and team exercises.
+          </p>
+        </div>
+      </div>
+    </div>
 
         <div className="py-20 bg-[#F5F5F5]">
           <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl p-10">
