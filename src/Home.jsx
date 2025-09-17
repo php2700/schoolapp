@@ -55,11 +55,81 @@ import Arrowdown from './assets/home/Arrowdown.png'
 import aks2 from './assets/home/freqask2.png'
 import aks3 from './assets/home/freqaks3.png'
 import aks4 from './assets/home/freqask4.png'
+import frqVecter from './assets/home/freqaskvecter.png'
+import blue from './assets/home/blueVecter.png'
+import yellow from './assets/home/yellowVector.png'
 
 
 
 import { HiMenu, HiX } from "react-icons/hi";
 function homepage() {
+
+ const pathways = [
+    {
+      grade: "Foundational (K-II):",
+      description: "Tinker time, simple machines, patterns, storytelling with block coding."
+    },
+    {
+      grade: "Preparatory (III-V):",
+      description: "Robotics starters, circuits, Scratch apps, design thinking mini-challenges."
+    },
+    {
+      grade: "Middle (VI-VIII):",
+      description: "IoT builds, Python, 3D design/printing, drones (simulated), public-speaking projects."
+    },
+    {
+      grade: "Secondary (IX-XII):",
+      description: "Capstone projects integrating AI/ML, data, automation, and digital media portfolios."
+    },
+    
+  ];
+   const pathways2 = [
+    {
+      grade: "Weekly Lab Sessions",
+      description: " embedded into the timetable; flexible plans for club hours and intensives."
+    },
+    {
+      grade: "Certified Facilitators",
+      description: "(Myra Academy) co-teach with TSUS faculty for smooth delivery and classroom integration."
+    },
+    {
+      grade: "Safety & SOPs",
+      description: " for tools, drones, and electronics; age-appropriate kits."
+    },
+    {
+      grade: "ssessment & Portfolio",
+      description: "rubrics for creativity, collaboration, problem-solving; each child builds a digital portfolio of projects"
+    },
+    
+  ];
+  
+ const pathways3 = [
+    {
+      grade: "Conceptual clarity",
+      description: "via experiments and models."
+    },
+    {
+      grade: "Stronger problem-solving & logical reasoning. ",
+      description: "across grades with 400+ hands-on topics style coverage typical of best-in-class experiential programs."
+    },
+    {
+      grade: "Tech fluency",
+      description: " (AI/Robotics/IoT/3D, AR/VR exposure)."
+    },
+        {
+      grade: "Communication & leadership",
+      description: " through demos, pitches and team roles." 
+    },
+      {
+      grade: "C Real-world application ",
+      description: " mindset—ideas that move from paper to prototype. " 
+    },
+   
+   
+    
+  ];
+
+
   const [isOpen, setIsOpen] = useState(false);
   const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
   return (
@@ -622,7 +692,7 @@ function homepage() {
       {/* ---------------- STEAM LAB SECTION ---------------- */}
       <section className="py-16 bg-[#F5F5F5]">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="font-poppins font-bold text-[48px] md:text-[36px] leading-[120%] tracking-[0.5px] text-[#25337C] mb-12">
+          <h2 className="font-['Poppins'] font-bold text-[48px] md:text-[36px] leading-[120%] tracking-[0.5px] text-[#25337C] mb-12">
             Why a STEAM Lab at TSUS?
           </h2>
 
@@ -649,10 +719,10 @@ function homepage() {
                     className="bg-[#25337C] p-3 rounded-lg inline-block w-15 h-15 object-contain" // Adjust w- and h- as needed
                   />
                 </div>
-                <h3 className=" font-poppins text-[22px] md:text-[26px] font-semibold text-[#000000] tracking-[0.5px] mb-3">
+                <h3 className=" font-['Poppins'] text-[22px] md:text-[26px] font-semibold text-[#000000] tracking-[0.5px] leading-[100%] mb-3">
                   Hands-on Makerspace
                 </h3>
-                <p className="text-[text-[#191919] text-sm leading-relaxed">
+                <p className=" font-['Poppins'] text-[text-[#191919] text-[14px] leading-relaxed">
                   With practical kits, tools, and digital platforms that turn classroom
                   theory into tangible projects.
                 </p>
@@ -687,10 +757,10 @@ function homepage() {
                     className="bg-[#25337C] p-3 rounded-lg inline-block w-15 h-15 object-contain" // Adjust w- and h- as needed
                   />
                 </div>
-                <h3 className="font-poppins text-[22px] md:text-[26px] font-semibold text-[#000000] tracking-[0.5px] mb-3">
+                <h3 className="font-['Poppins']s text-[22px] md:text-[26px] font-semibold text-[#000000] tracking-[0.5px] leading-[100%] mb-3">
                   Three-pillar Learning
                 </h3>
-                <ul className="text-gray-700 text-sm leading-relaxed list-disc pl-5 space-y-1">
+                <ol className="font-['Poppins'] text-[text-[#191919] text-[14px] leading-relaxed  list-decimal">
                   <li>
                     <b>Concept Mastery</b>: Clarify tough topics through experiments.
                   </li>
@@ -700,7 +770,7 @@ function homepage() {
                   <li>
                     <b>Emerging Technologies</b>: AI, AR/VR, 3D printing for future-ready exposure.
                   </li>
-                </ul>
+                </ol>
               </div>
             </div>
 
@@ -744,10 +814,10 @@ function homepage() {
                     className="bg-[#25337C] p-3 rounded-lg inline-block w-15 h-15 object-contain" // Adjust w- and h- as needed
                   />
                 </div>
-                <h3 className="font-poppins text-[22px] md:text-[26px] font-semibold text-[#000000] tracking-[0.5px] mb-3">
+                <h3 className="ffont-['Poppins'] text-[22px] md:text-[26px] font-semibold text-[#000000] tracking-[0.5px] leading-[100%] mb-3">
                   Aligned with NEP 2020
                 </h3>
-                <p className="text-[#191919] text-sm leading-relaxed">
+                <p className="font-['Poppins'] text-[text-[#191919] text-[14px] leading-relaxed">
                   Spirit of multidisciplinary, inquiry-driven, project-based learning.
                 </p>
               </div>
@@ -759,9 +829,31 @@ function homepage() {
       </section>
 
       {/* ---------------- WHAT STUDENTS EXPERIENCE ---------------- */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="font-poppins font-bold text-[32px] md:text-[36px] leading-[120%] tracking-[0.5px] text-[#25337C] mb-12">
+      <section className="relative py-20 bg-white">
+         <img
+    src={yellow}
+    alt="yellow decoration"
+    className="absolute top-8 left-8 w-4 h-4"
+  />
+  <img
+    src={blue}
+    alt="blue decoration"
+    className="absolute top-16 left-15 w-9 h-9"
+  />
+
+  {/* Right center decorative shapes */}
+  <img
+    src={blue}
+    alt="blue decoration"
+    className="absolute top-1/2 right-32 transform -translate-y-1/2 w-9 h-9"
+  />
+  <img
+    src={yellow}
+    alt="yellow decoration"
+    className="absolute top-[55%] right-20 transform -translate-y-1/2 w-4 h-4"
+  />
+        <div className="max-w-7xl mx-auto px-6 text-center ">
+          <h2 className="font-['Poppins'] font-semibold text-[48px] leading-[100%] tracking-[0.5px] text-center text-[#25337C] mb-12">
             What Students Experience
           </h2>
 
@@ -775,10 +867,10 @@ function homepage() {
                 className="w-full h-40 object-cover"
               />
               <div className="p-6 text-left">
-                <h3 className="font-poppins font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000] mb-3">
+                <h3 className="font-['Poppins'] font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000]">
                   AI & Robotics
                 </h3>
-                <p className="font-poppins font-normal text-[14px] leading-[100%] tracking-[0.5px] text-[#191919]">
+                <p className="font-['Poppins'] font-normal text-[14px]  text-[#191919]">
                   Build and program autonomous bots; test sensors; learn simple ML
                   concepts through age-appropriate activities.
                 </p>
@@ -794,10 +886,10 @@ function homepage() {
                 className="w-full h-40 object-cover"
               />
               <div className="p-6 text-left">
-                <h3 className="font-poppins font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000] mb-3">
+                <h3 className="font-['Poppins'] font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000]">
                   Coding & App Design
                 </h3>
-                <p className="font-poppins font-normal text-[14px] leading-[100%] tracking-[0.5px] text-[#191919]">
+                <p className="font-['Poppins'] font-normal text-[14px]  text-[#191919]">
                   Block-based coding in early years → Python/JavaScript in middle &
                   senior grades. UI/UX basics; publish simple apps and websites.
                 </p>
@@ -812,11 +904,11 @@ function homepage() {
                 className="w-full h-40 object-cover"
               />
               <div className="p-6 text-left">
-                <h3 className="font-poppins font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000] mb-3">
+                <h3 className="font-['Poppins'] font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000]">
                   IoT & Automation
                 </h3>
-                <p className="font-poppins font-normal text-[14px] leading-[100%] tracking-[0.5px] text-[#191919]">
-                  Write up microcontrollers; read sensor data; automate everyday
+                <p className="font-['Poppins'] font-normal text-[14px]  text-[#191919]">
+                  Wire up microcontrollers; read sensor data; automate everyday
                   tasks.
                 </p>
               </div>
@@ -830,10 +922,10 @@ function homepage() {
                 className="w-full h-40 object-cover"
               />
               <div className="p-6 text-left">
-                <h3 className="font-poppins font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000] mb-3">
+                <h3 className="font-['Poppins'] font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000]">
                   Drone Tech & Aerodynamics
                 </h3>
-                <p className="font-poppins font-normal text-[14px] leading-[100%] tracking-[0.5px] text-[#191919]">
+                <p className="font-['Poppins'] font-normal text-[14px]  text-[#191919]">
                   Safety-first flight basics; simulations; components and
                   regulations (awareness sessions).
                 </p>
@@ -848,12 +940,12 @@ function homepage() {
                 className="w-full h-40 object-cover"
               />
               <div className="p-6 text-left">
-                <h3 className="font-poppins font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000] mb-3">
+                <h3 className="font-['Poppins'] font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000]">
                   AR/VR & Simulations
                 </h3>
-                <p className="font-poppins font-normal text-[14px] leading-[100%] tracking-[0.5px] text-[#191919]">
-                  Explore immersive content → virtual field trips, interactive
-                  science models — “so complex ideas ‘click’.”
+                <p className="font-['Poppins'] font-normal text-[14px]  text-[#191919]">
+                  Explore immersive content - virtual field trips, interactive
+                  science models — so complex ideas "click”.
                 </p>
               </div>
             </div>
@@ -866,12 +958,12 @@ function homepage() {
                 className="w-full h-40 object-cover"
               />
               <div className="p-6 text-left">
-                <h3 className="font-poppins font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000] mb-3">
+                <h3 className="font-['Poppins'] font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000]">
                   Digital Creation & Communication
                 </h3>
-                <p className="font-poppins font-normal text-[14px] leading-[100%] tracking-[0.5px] text-[#191919]">
-                  Content creation, video editing, presentations, education &
-                  enterprise—because ideas matter only when shared clearly.
+                <p className="font-['Poppins'] font-normal text-[14px]  text-[#191919]">
+                  Content creation, video editing, presentations, elocution &
+                  extempore because-ideas matter only when shared clearly.
                 </p>
               </div>
             </div>
@@ -879,84 +971,86 @@ function homepage() {
           </div>
         </div>
       </section>
+
       {/* new section */}
       {/* ---------------- STEAM PROGRAM SECTION ---------------- */}
-      <section className="w-full py-16 bg-white flex flex-col items-center justify-center text-center px-6">
-        {/* Title */}
-        <h2 className=" font-poppins text-2xl md:text-3xl font-bold text-[#25337C] mb-10">
-          Grade-wise Pathway
-        </h2>
+ <section className="flex justify-center py-2 px-4">
+      <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden flex">
+        {/* Left Yellow Accent */}
+        <div className="w-8 md:w-12 bg-yellow-400"></div> {/* Adjust width as needed */}
 
-        {/* Grade Pathway */}
-        <ul className="font-poppins max-w-4xl text-[000] space-y-3 text-sm md:text-base list-disc">
-          <li><strong>Foundational (KG-II):</strong> Theme time, simple machines, patterns, storytelling, intro block coding.</li>
-          <li><strong>Preparatory (III-V):</strong> Block-based animation, circuits & electronics, design-thinking, challenges.</li>
-          <li><strong>Middle (VI-VIII):</strong> AI exploration, 3D designing, Arduino programming, guided projects.</li>
-          <li><strong>Secondary (IX-XII):</strong> Capstone projects integrating <strong>AI/ML</strong>  , data science, automation, digital portfolio.</li>
-        </ul>
+        {/* Content Area */}
+        <div className="p-6 md:p-10 flex-grow">
+          <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6"> 
+            Grade-wise Pathway
+          </h2>
 
-        {/* How Program Runs */}
-        <h2 className=" font-poppins text-2xl md:text-3xl font-bold text-[#25337C] mt-14 mb-6">
-          How the Program Runs
-        </h2>
-        <ul className=" font-poppins max-w-4xl text-[000] space-y-3 text-sm md:text-base list-disc ">
-          <li>
-            <strong>Weekly Lab Sessions:</strong> Hands-on STEM activities in classrooms, flexible plans per school.
-          </li>
-          <li><strong>Weekly Lab Sessions:</strong> Hands-on STEM activities in classrooms, flexible plans per school.</li>
-          <li><strong>Certified Facilitators:</strong> By TCS iON, trained to deliver coding & STEM activities.</li>
-          <li><strong>Safety in Labs:</strong> Tools curated for age-appropriate use.</li>
-          <li><strong>Resources & Kits:</strong> DIY components + project kits.</li>
-          <li><strong>Assessment & Portfolio:</strong> Creativity, collaboration, problem-solving, coding portfolio.</li>
-        </ul>
-
-        {/* Outcomes */}
-        <h2 className=" font-poppins  text-2xl md:text-3xl font-bold text-[#25337C] mt-14 mb-6">
-          Outcomes You Can Expect
-        </h2>
-        <div className="font-poppins max-w-4xl text-[000] space-y-3 text-sm md:text-base">
-          <p> <strong>Conceptual clarity</strong> via experiments & models</p>
-          <p><strong>Stronger problem-solving</strong> & logical reasoning</p>
-          <p> <strong>Tech fluency</strong> (AI, robotics, IoT, AR/VR exposure)</p>
-          <p> <strong>Communication & teamwork</strong> via group projects</p>
-          <p><strong>Real-world application mindset</strong> to take ideas from paper to prototype</p>
+          <ul className="space-y-4">
+            {pathways.map((item, index) => (
+              <li key={index} className="flex items-start">
+                 <span className="text-[#000000] font-semibold mr-2">•</span> {/* Bullet point */}
+                <p className="font-['Poppins'] text-[#000000] text-[16px] leading-relaxed">
+                  <span className="font-semibold text-[#000000]">{item.grade}</span> {item.description}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
+      </div>
+    </section>
 
-        {/* What Makes TSUS STEAM Different */}
-        <h2 className=" font-poppins  text-2xl md:text-3xl font-bold text-[#25337C] mt-14 mb-6">
-          What Makes TSUS STEAM Different
-        </h2>
-        <div className="font-poppins max-w-4xl text-[000] space-y-3 text-sm md:text-base">
-          <p> <strong>End-to-end learning experience:</strong> Curriculum, facilitators, hardware kits, & AI-powered platform.</p>
-          <p> <strong>Curriculum linked to NEP 2020:</strong> Helps bridge industry-relevant future skills.</p>
-          <p> <strong>Integration with regular lessons:</strong> Students learn faster & apply concepts easily.</p>
+
+     <section className="flex justify-center py-1 px-4">
+      <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden flex">
+        {/* Left Yellow Accent */}
+        <div className="w-8 md:w-12 bg-yellow-400"></div> {/* Adjust width as needed */}
+
+        {/* Content Area */}
+        <div className="p-6 md:p-10 flex-grow">
+          <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6"> {/* Adjust color and font as per image */}
+            How the Program Runs
+          </h2>
+
+          <ul className="space-y-4">
+            {pathways2.map((item, index) => (
+              <li key={index} className="flex items-start">
+                <span className="text-[#000000] font-semibold mr-2">•</span> {/* Bullet point */}
+                <p className="font-['Poppins'] text-[#000000] text-[16px] leading-relaxed">
+                  <span className="font-semibold text-[#000000]">{item.grade}</span> {item.description}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
+      </div>
+    </section>
+     <section className="flex justify-center py-2 px-4">
+      <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden flex">
+        {/* Left Yellow Accent */}
+        <div className="w-8 md:w-12 bg-yellow-400"></div> {/* Adjust width as needed */}
 
-        {/* FAQ Section */}
-        {/* <h2 className="text-2xl md:text-3xl font-bold text-[#25337C] mt-14 mb-6">
-    Frequently Asked Questions
-  </h2>
-  <div className="max-w-3xl text-left space-y-4">
-    <details className="p-4 border rounded-lg bg-white shadow">
-      <summary className="cursor-pointer font-semibold">Is prior coding experience needed?</summary>
-      <p className="mt-2 text-gray-600">No, we start from scratch and gradually progress.</p>
-    </details>
-    <details className="p-4 border rounded-lg bg-white shadow">
-      <summary className="cursor-pointer font-semibold">Is it safe?</summary>
-      <p className="mt-2 text-gray-600">Yes, labs use age-appropriate safe materials.</p>
-    </details>
-    <details className="p-4 border rounded-lg bg-white shadow">
-      <summary className="cursor-pointer font-semibold">Will this add pressure?</summary>
-      <p className="mt-2 text-gray-600">Not at all, sessions are project-based and fun.</p>
-    </details>
-    <details className="p-4 border rounded-lg bg-white shadow">
-      <summary className="cursor-pointer font-semibold">How is this different from a computer period?</summary>
-      <p className="mt-2 text-gray-600">This is skill-based experiential learning with AI, Robotics, and Design Thinking.</p>
-    </details>
-  </div> */}
-        {/* ---------------- FAQ SECTION ---------------- */}w-full bg-white py-16 px-6 md:px-12 lg:px-20
+        {/* Content Area */}
+        <div className="p-6 md:p-10 flex-grow">
+          <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6"> {/* Adjust color and font as per image */}
+            Outcomes You Can Expect
+          </h2>
+
+          <ul className="space-y-4">
+            {pathways3.map((item, index) => (
+              <li key={index} className="flex items-start">
+                 <span className="text-[#000000] font-semibold mr-2">•</span> {/* Bullet point */}
+                <p className="font-['Poppins'] text-[#000000] text-[16px] leading-relaxed">
+                  <span className="font-semibold text-[#000000]">{item.grade}</span> {item.description}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+      {/* ---------------- FAQ SECTION ---------------- */}
         <section className="w-full bg-white  flex items-center py-16 px-6 md:px-12 lg:px-20 ">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2  items-center">
 
             {/* Left Content */}
             <div className="flex flex-col justify-center text-left">
@@ -967,6 +1061,7 @@ function homepage() {
                 Get answers to common questions about <br />
                 our <span className="font-semibold text-[#191919]">The Shri Ram Universal School.</span>
               </p>
+
             </div>
 
             {/* Right FAQ Boxes */}
@@ -1043,20 +1138,22 @@ function homepage() {
 
             </div>
           </div>
+          
         </section>
+                       <div className="mt-[-100px]"> 
+        <img src={frqVecter} alt="Descriptive Alt Text" className="w-40 h-auto" /> {/* Adjust w-40 as needed */}
+      </div>
 
-
-      </section>
 
 
       {/* ---------------- PROGRAM DETAILS SECTION ---------------- */}
       <section className="py-2 bg-white">
         <div className="py-20 bg-[#F5F5F5]">
           <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl p-10">
-            <h2 className="text-3xl font-bold text-center text-[#25337C] mb-2">
+            <h2 className="font-['Poppins'] font-bold text-[48px] leading-[40px] tracking-[0px] text-center text-[#25337C] mb-2">
               Enquire Now
             </h2>
-            <p className="text-[#475569] text-center mb-8 font-normal text-[18.33px] leading-[28px] tracking-[0px]">
+            <p className=" font-['Inter'] text-[#475569] text-center mb-8 font-normal text-[18.33px] leading-[28px] tracking-[0px]">
               Take the first step towards your child’s bright future
             </p>
 
@@ -1064,7 +1161,7 @@ function homepage() {
               {/* Row 1 - First/Last Name */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col">
-                  <label htmlFor="firstName" className="mb-2 text-sm font-medium text-[#334155]">
+                  <label htmlFor="firstName" className=" font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]">
                     First Name
                   </label>
                   <input
@@ -1075,7 +1172,7 @@ function homepage() {
                 </div>
 
                 <div className="flex flex-col">
-                  <label htmlFor="lastName" className="mb-2 text-sm font-medium text-gray-700">
+                  <label htmlFor="lastName" className="font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]">
                     Last Name
                   </label>
                   <input
@@ -1089,7 +1186,7 @@ function homepage() {
               {/* Row 2 - Email / Phone */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col">
-                  <label htmlFor="email" className="mb-2 text-sm font-medium text-gray-700">
+                  <label htmlFor="email" className="font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]">
                     Email Address
                   </label>
                   <input
@@ -1100,7 +1197,7 @@ function homepage() {
                 </div>
 
                 <div className="flex flex-col">
-                  <label htmlFor="phone" className="mb-2 text-sm font-medium text-gray-700">
+                  <label htmlFor="phone" className="font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]">
                     Phone Number
                   </label>
                   <input
@@ -1113,7 +1210,7 @@ function homepage() {
 
               {/* Row 3 - Class */}
               <div className="flex flex-col">
-                <label htmlFor="class" className="mb-2 text-sm font-medium text-gray-700">
+                <label htmlFor="class" className="font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]">
                   Class
                 </label>
                 <input
@@ -1125,11 +1222,12 @@ function homepage() {
 
               {/* Row 4 - Message */}
               <div className="flex flex-col">
-                <label htmlFor="message" className="mb-2 text-sm font-medium text-gray-700">
+                <label htmlFor="message" className="font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]">
                   Message
                 </label>
                 <textarea
                   id="message"
+                  placeholder="Tell Us about your enquiry"
                   rows="4"
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#25337C] outline-none"
                 ></textarea>
@@ -1138,7 +1236,7 @@ function homepage() {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-[#25337C] text-white font-semibold py-3 rounded-lg hover:bg-[#1d295d] transition"
+                className=" font-['Inter'] w-full bg-[#25337C] text-white font-semibold py-3 rounded-lg hover:bg-[#1d295d] transition"
               >
                 Submit Enquiry
               </button>
@@ -1148,7 +1246,7 @@ function homepage() {
 
       </section>
       {/* ---------------- ENQUIRE NOW SECTION ---------------- */}
-      <section className="py-25 bg-gray-50">
+      <section className="py-25 bg-white">
 
       </section>
 

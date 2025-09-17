@@ -17,8 +17,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/about" element={<AboutUs />} /> */}
-        <Route path="/about" element={<LeadershipTeamPage />} />
+        {/* <Route path="/shree" element={<AboutUs />} /> */}
+        <Route path="/about" element={< LeadershipTeamPage/>} />
 
         {/* aur pages add kar sakte ho */}
       </Routes>
