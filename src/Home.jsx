@@ -64,7 +64,7 @@ import yellow from './assets/home/yellowVector.png'
 import { HiMenu, HiX } from "react-icons/hi";
 function homepage() {
 
- const pathways = [
+  const pathways = [
     {
       grade: "Foundational (K-II):",
       description: "Tinker time, simple machines, patterns, storytelling with block coding."
@@ -81,9 +81,9 @@ function homepage() {
       grade: "Secondary (IX-XII):",
       description: "Capstone projects integrating AI/ML, data, automation, and digital media portfolios."
     },
-    
+
   ];
-   const pathways2 = [
+  const pathways2 = [
     {
       grade: "Weekly Lab Sessions",
       description: " embedded into the timetable; flexible plans for club hours and intensives."
@@ -100,10 +100,10 @@ function homepage() {
       grade: "ssessment & Portfolio",
       description: "rubrics for creativity, collaboration, problem-solving; each child builds a digital portfolio of projects"
     },
-    
+
   ];
-  
- const pathways3 = [
+
+  const pathways3 = [
     {
       grade: "Conceptual clarity",
       description: "via experiments and models."
@@ -116,17 +116,17 @@ function homepage() {
       grade: "Tech fluency",
       description: " (AI/Robotics/IoT/3D, AR/VR exposure)."
     },
-        {
+    {
       grade: "Communication & leadership",
-      description: " through demos, pitches and team roles." 
+      description: " through demos, pitches and team roles."
     },
-      {
+    {
       grade: "C Real-world application ",
-      description: " mindset—ideas that move from paper to prototype. " 
+      description: " mindset—ideas that move from paper to prototype. "
     },
-   
-   
-    
+
+
+
   ];
 
 
@@ -200,10 +200,15 @@ function homepage() {
               </Link>
             </li>
             <li className="flex items-center gap-2 px-4 md:px-0 py-2 md:py-0 hover:text-blue-600 cursor-pointer">
-              The Shri Way <img src={Arrow} alt="dropdown icon" className="w-2 h-2" />
+              {/* The Shri Way <img src={Arrow} alt="dropdown icon" className="w-2 h-2" /> */}
+              <Link to="/shriWay" className="flex items-center gap-2">
+                The Shri Way <img src={Arrow} alt="dropdown icon" className="w-2 h-2" />
+              </Link>
             </li>
             <li className="flex items-center gap-2 px-4 md:px-0 py-2 md:py-0 hover:text-blue-600 cursor-pointer">
+               <Link to="/Learning" className="flex items-center gap-2">
               Learning <img src={Arrow} alt="dropdown icon" className="w-2 h-2" />
+              </Link>
             </li>
             <li className="px-4 md:px-0 py-2 md:py-0 hover:text-blue-600 cursor-pointer">Facilities</li>
             <li className="flex items-center gap-2 px-4 md:px-0 py-2 md:py-0 hover:text-blue-600 cursor-pointer">
@@ -211,9 +216,12 @@ function homepage() {
             </li>
             <li className="px-4 md:px-0 py-2 md:py-0 hover:text-blue-600 cursor-pointer">Gallery</li>
             <li className="px-4 md:px-0 py-2 md:py-0">
-              <button className="bg-blue-800 text-white px-4 md:px-6 py-2 rounded-lg font-semibold hover:bg-blue-900 w-full md:w-auto">
+              <Link
+                to="/contact-us"
+                className="bg-blue-800 text-white px-4 md:px-6 py-2 rounded-lg font-semibold hover:bg-blue-900 w-full md:w-auto inline-block text-center cursor-pointer"
+              >
                 Contact us
-              </button>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -396,6 +404,11 @@ function homepage() {
             The Shri Educators
           </button>
           <br />
+          <div className="flex justify-center mt-8 px-4">
+            <p className="max-w-3xl text-gray-700 text-lg leading-relaxed">
+              would act as facilitators and guide the students in their learning using activities, audio-visual stimuli, projects and presentations. The focus would remain on creating awareness in the students and providing them with experiences that they could apply to real-life situations
+            </p>
+          </div>
 
           {/* Images + Logo */}
           <div className="relative flex justify-center items-center mt-10 w-full h-[200px] mt-[188px]">
@@ -403,7 +416,7 @@ function homepage() {
             <img
               src={Leftpipe}
               alt="Left Image"
-              className="absolute left-0 top-1/2 -translate-y-1/2 w-156 h-162 object-contain z-0 -mt-[160px]"
+              className="absolute left-0 top-1/2 -translate-y-1/2 w-200 h-162 object-contain z-0 -mt-[300px]"
             />
 
             {/* Right Side Image (Behind Educator) */}
@@ -830,28 +843,28 @@ function homepage() {
 
       {/* ---------------- WHAT STUDENTS EXPERIENCE ---------------- */}
       <section className="relative py-20 bg-white">
-         <img
-    src={yellow}
-    alt="yellow decoration"
-    className="absolute top-8 left-8 w-4 h-4"
-  />
-  <img
-    src={blue}
-    alt="blue decoration"
-    className="absolute top-16 left-15 w-9 h-9"
-  />
+        <img
+          src={yellow}
+          alt="yellow decoration"
+          className="absolute top-8 left-8 w-4 h-4"
+        />
+        <img
+          src={blue}
+          alt="blue decoration"
+          className="absolute top-16 left-15 w-9 h-9"
+        />
 
-  {/* Right center decorative shapes */}
-  <img
-    src={blue}
-    alt="blue decoration"
-    className="absolute top-1/2 right-32 transform -translate-y-1/2 w-9 h-9"
-  />
-  <img
-    src={yellow}
-    alt="yellow decoration"
-    className="absolute top-[55%] right-20 transform -translate-y-1/2 w-4 h-4"
-  />
+        {/* Right center decorative shapes */}
+        <img
+          src={blue}
+          alt="blue decoration"
+          className="absolute top-1/2 right-32 transform -translate-y-1/2 w-9 h-9"
+        />
+        <img
+          src={yellow}
+          alt="yellow decoration"
+          className="absolute top-[55%] right-20 transform -translate-y-1/2 w-4 h-4"
+        />
         <div className="max-w-7xl mx-auto px-6 text-center ">
           <h2 className="font-['Poppins'] font-semibold text-[48px] leading-[100%] tracking-[0.5px] text-center text-[#25337C] mb-12">
             What Students Experience
@@ -974,173 +987,173 @@ function homepage() {
 
       {/* new section */}
       {/* ---------------- STEAM PROGRAM SECTION ---------------- */}
- <section className="flex justify-center py-2 px-4">
-      <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden flex">
-        {/* Left Yellow Accent */}
-        <div className="w-8 md:w-12 bg-yellow-400"></div> {/* Adjust width as needed */}
+      <section className="flex justify-center py-2 px-4">
+        <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden flex">
+          {/* Left Yellow Accent */}
+          <div className="w-8 md:w-12 bg-yellow-400"></div> {/* Adjust width as needed */}
 
-        {/* Content Area */}
-        <div className="p-6 md:p-10 flex-grow">
-          <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6"> 
-            Grade-wise Pathway
-          </h2>
+          {/* Content Area */}
+          <div className="p-6 md:p-10 flex-grow">
+            <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6">
+              Grade-wise Pathway
+            </h2>
 
-          <ul className="space-y-4">
-            {pathways.map((item, index) => (
-              <li key={index} className="flex items-start">
-                 <span className="text-[#000000] font-semibold mr-2">•</span> {/* Bullet point */}
-                <p className="font-['Poppins'] text-[#000000] text-[16px] leading-relaxed">
-                  <span className="font-semibold text-[#000000]">{item.grade}</span> {item.description}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-
-
-     <section className="flex justify-center py-1 px-4">
-      <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden flex">
-        {/* Left Yellow Accent */}
-        <div className="w-8 md:w-12 bg-yellow-400"></div> {/* Adjust width as needed */}
-
-        {/* Content Area */}
-        <div className="p-6 md:p-10 flex-grow">
-          <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6"> {/* Adjust color and font as per image */}
-            How the Program Runs
-          </h2>
-
-          <ul className="space-y-4">
-            {pathways2.map((item, index) => (
-              <li key={index} className="flex items-start">
-                <span className="text-[#000000] font-semibold mr-2">•</span> {/* Bullet point */}
-                <p className="font-['Poppins'] text-[#000000] text-[16px] leading-relaxed">
-                  <span className="font-semibold text-[#000000]">{item.grade}</span> {item.description}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-     <section className="flex justify-center py-2 px-4">
-      <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden flex">
-        {/* Left Yellow Accent */}
-        <div className="w-8 md:w-12 bg-yellow-400"></div> {/* Adjust width as needed */}
-
-        {/* Content Area */}
-        <div className="p-6 md:p-10 flex-grow">
-          <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6"> {/* Adjust color and font as per image */}
-            Outcomes You Can Expect
-          </h2>
-
-          <ul className="space-y-4">
-            {pathways3.map((item, index) => (
-              <li key={index} className="flex items-start">
-                 <span className="text-[#000000] font-semibold mr-2">•</span> {/* Bullet point */}
-                <p className="font-['Poppins'] text-[#000000] text-[16px] leading-relaxed">
-                  <span className="font-semibold text-[#000000]">{item.grade}</span> {item.description}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-      {/* ---------------- FAQ SECTION ---------------- */}
-        <section className="w-full bg-white  flex items-center py-16 px-6 md:px-12 lg:px-20 ">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2  items-center">
-
-            {/* Left Content */}
-            <div className="flex flex-col justify-center text-left">
-              <h2 className="font-poppins font-semibold text-[48px] leading-[48px] tracking-[0.5px] text-[#25337C] mb-4">
-                Frequently Asked <br /> Questions
-              </h2>
-              <p className=" font-poppins text-[#191919] text-[16px]">
-                Get answers to common questions about <br />
-                our <span className="font-semibold text-[#191919]">The Shri Ram Universal School.</span>
-              </p>
-
-            </div>
-
-            {/* Right FAQ Boxes */}
-            <div className="space-y-4">
-
-              {/* Single FAQ */}
-              <details className="group bg-white rounded-xl shadow-md p-5 cursor-pointer">
-                <summary className="flex justify-between items-center font-semibold text-gray-800">
-                  <div className="flex items-center gap-3 font-poppins font-medium text-[20px] leading-[20px] tracking-[0.5px]">
-                    <span className="bg-[#F3D805] text-[#000000] rounded-full w-9 h-9 flex items-center justify-center">
-                      <img src={ask1} alt="icon" className="h-6 w-6" />
-                    </span>
-                    Is prior coding experience needed?
-                  </div>
-                  <span className="transition-transform duration-300 group-open:rotate-180">
-                    <img src={Arrowdown} alt="arrow" className="h-5 w-5 text-[#000000]" />
-                  </span>
-                </summary>
-                <p className="mt-3 text-gray-600 text-sm">
-                  No. We start with block coding and gradually progress to text-based languages.
-                </p>
-              </details>
-
-              <details className="group bg-white rounded-xl shadow-md p-5 cursor-pointer">
-                <summary className="flex justify-between items-center font-semibold text-gray-800">
-                  <div className="flex items-center gap-3 font-poppins font-medium text-[20px] leading-[20px] tracking-[0.5px]">
-                    <span className="bg-[#F3D805] text-[#000000] rounded-full w-9 h-9 flex items-center justify-center">
-                      <img src={aks2} alt="icon" className="h-6 w-6" />
-                    </span>
-                    Is it safe?
-                  </div>
-                  <span className="transition-transform duration-300 group-open:rotate-180">
-                    <img src={Arrowdown} alt="arrow" className="h-5 w-5 text-[#000000]" />
-                  </span>
-                </summary>
-                <p className="mt-3 text-gray-600 text-sm">
-                  Yes. All activities follow strict safety SOPs; drone flying is simulation-first and age-restricted.
-                </p>
-              </details>
-
-              <details className="group bg-white rounded-xl shadow-md p-5 cursor-pointer">
-                <summary className="flex justify-between items-center font-semibold text-gray-800">
-                  <div className="flex items-center gap-3 font-poppins font-medium text-[20px] leading-[20px] tracking-[0.5px]">
-                    <span className="bg-[#F3D805] text-[#000000] rounded-full w-9 h-9 flex items-center justify-center">
-                      <img src={aks3} alt="icon" className="h-6 w-6" />
-                    </span>
-                    Will this add pressure?
-                  </div>
-                  <span className="transition-transform duration-300 group-open:rotate-180">
-                    <img src={Arrowdown} alt="arrow" className="h-5 w-5 text-[#000000]" />
-                  </span>
-                </summary>
-                <p className="mt-3 text-gray-600 text-sm">
-                  The lab replaces passive learning with active learning—many students find it easier and more engaging.
-                </p>
-              </details>
-
-              <details className="group bg-white rounded-xl shadow-md p-5 cursor-pointer">
-                <summary className="flex justify-between items-center font-semibold text-gray-800">
-                  <div className="flex items-center gap-3 font-poppins font-medium text-[20px] leading-[20px] tracking-[0.5px]">
-                    <span className="bg-[#F3D805] text-[#000000] rounded-full w-9 h-9 flex items-center justify-center">
-                      <img src={aks4} alt="icon" className="h-6 w-6" />
-                    </span>
-                    How is this different from a computer period?
-                  </div>
-                  <span className="transition-transform duration-300 group-open:rotate-180">
-                    <img src={Arrowdown} alt="arrow" className="h-5 w-5 text-[#000000]" />
-                  </span>
-                </summary>
-                <p className="mt-3 text-gray-600 text-sm">
-                  STEAM integrates science/math + engineering + emerging tech in a makerspace with physical builds, not just screens.
-                </p>
-              </details>
-
-            </div>
+            <ul className="space-y-4">
+              {pathways.map((item, index) => (
+                <li key={index} className="flex items-start">
+                  <span className="text-[#000000] font-semibold mr-2">•</span> {/* Bullet point */}
+                  <p className="font-['Poppins'] text-[#000000] text-[16px] leading-relaxed">
+                    <span className="font-semibold text-[#000000]">{item.grade}</span> {item.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
-          
-        </section>
-                       <div className="mt-[-100px]"> 
+        </div>
+      </section>
+
+
+      <section className="flex justify-center py-1 px-4">
+        <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden flex">
+          {/* Left Yellow Accent */}
+          <div className="w-8 md:w-12 bg-yellow-400"></div> {/* Adjust width as needed */}
+
+          {/* Content Area */}
+          <div className="p-6 md:p-10 flex-grow">
+            <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6"> {/* Adjust color and font as per image */}
+              How the Program Runs
+            </h2>
+
+            <ul className="space-y-4">
+              {pathways2.map((item, index) => (
+                <li key={index} className="flex items-start">
+                  <span className="text-[#000000] font-semibold mr-2">•</span> {/* Bullet point */}
+                  <p className="font-['Poppins'] text-[#000000] text-[16px] leading-relaxed">
+                    <span className="font-semibold text-[#000000]">{item.grade}</span> {item.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section className="flex justify-center py-2 px-4">
+        <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden flex">
+          {/* Left Yellow Accent */}
+          <div className="w-8 md:w-12 bg-yellow-400"></div> {/* Adjust width as needed */}
+
+          {/* Content Area */}
+          <div className="p-6 md:p-10 flex-grow">
+            <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6"> {/* Adjust color and font as per image */}
+              Outcomes You Can Expect
+            </h2>
+
+            <ul className="space-y-4">
+              {pathways3.map((item, index) => (
+                <li key={index} className="flex items-start">
+                  <span className="text-[#000000] font-semibold mr-2">•</span> {/* Bullet point */}
+                  <p className="font-['Poppins'] text-[#000000] text-[16px] leading-relaxed">
+                    <span className="font-semibold text-[#000000]">{item.grade}</span> {item.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+      {/* ---------------- FAQ SECTION ---------------- */}
+      <section className="w-full bg-white  flex items-center py-16 px-6 md:px-12 lg:px-20 ">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2  items-center">
+
+          {/* Left Content */}
+          <div className="flex flex-col justify-center text-left">
+            <h2 className="font-poppins font-semibold text-[48px] leading-[48px] tracking-[0.5px] text-[#25337C] mb-4">
+              Frequently Asked <br /> Questions
+            </h2>
+            <p className=" font-poppins text-[#191919] text-[16px]">
+              Get answers to common questions about <br />
+              our <span className="font-semibold text-[#191919]">The Shri Ram Universal School.</span>
+            </p>
+
+          </div>
+
+          {/* Right FAQ Boxes */}
+          <div className="space-y-4">
+
+            {/* Single FAQ */}
+            <details className="group bg-white rounded-xl shadow-md p-5 cursor-pointer">
+              <summary className="flex justify-between items-center font-semibold text-gray-800">
+                <div className="flex items-center gap-3 font-poppins font-medium text-[20px] leading-[20px] tracking-[0.5px]">
+                  <span className="bg-[#F3D805] text-[#000000] rounded-full w-9 h-9 flex items-center justify-center">
+                    <img src={ask1} alt="icon" className="h-6 w-6" />
+                  </span>
+                  Is prior coding experience needed?
+                </div>
+                <span className="transition-transform duration-300 group-open:rotate-180">
+                  <img src={Arrowdown} alt="arrow" className="h-5 w-5 text-[#000000]" />
+                </span>
+              </summary>
+              <p className="mt-3 text-gray-600 text-sm">
+                No. We start with block coding and gradually progress to text-based languages.
+              </p>
+            </details>
+
+            <details className="group bg-white rounded-xl shadow-md p-5 cursor-pointer">
+              <summary className="flex justify-between items-center font-semibold text-gray-800">
+                <div className="flex items-center gap-3 font-poppins font-medium text-[20px] leading-[20px] tracking-[0.5px]">
+                  <span className="bg-[#F3D805] text-[#000000] rounded-full w-9 h-9 flex items-center justify-center">
+                    <img src={aks2} alt="icon" className="h-6 w-6" />
+                  </span>
+                  Is it safe?
+                </div>
+                <span className="transition-transform duration-300 group-open:rotate-180">
+                  <img src={Arrowdown} alt="arrow" className="h-5 w-5 text-[#000000]" />
+                </span>
+              </summary>
+              <p className="mt-3 text-gray-600 text-sm">
+                Yes. All activities follow strict safety SOPs; drone flying is simulation-first and age-restricted.
+              </p>
+            </details>
+
+            <details className="group bg-white rounded-xl shadow-md p-5 cursor-pointer">
+              <summary className="flex justify-between items-center font-semibold text-gray-800">
+                <div className="flex items-center gap-3 font-poppins font-medium text-[20px] leading-[20px] tracking-[0.5px]">
+                  <span className="bg-[#F3D805] text-[#000000] rounded-full w-9 h-9 flex items-center justify-center">
+                    <img src={aks3} alt="icon" className="h-6 w-6" />
+                  </span>
+                  Will this add pressure?
+                </div>
+                <span className="transition-transform duration-300 group-open:rotate-180">
+                  <img src={Arrowdown} alt="arrow" className="h-5 w-5 text-[#000000]" />
+                </span>
+              </summary>
+              <p className="mt-3 text-gray-600 text-sm">
+                The lab replaces passive learning with active learning—many students find it easier and more engaging.
+              </p>
+            </details>
+
+            <details className="group bg-white rounded-xl shadow-md p-5 cursor-pointer">
+              <summary className="flex justify-between items-center font-semibold text-gray-800">
+                <div className="flex items-center gap-3 font-poppins font-medium text-[20px] leading-[20px] tracking-[0.5px]">
+                  <span className="bg-[#F3D805] text-[#000000] rounded-full w-9 h-9 flex items-center justify-center">
+                    <img src={aks4} alt="icon" className="h-6 w-6" />
+                  </span>
+                  How is this different from a computer period?
+                </div>
+                <span className="transition-transform duration-300 group-open:rotate-180">
+                  <img src={Arrowdown} alt="arrow" className="h-5 w-5 text-[#000000]" />
+                </span>
+              </summary>
+              <p className="mt-3 text-gray-600 text-sm">
+                STEAM integrates science/math + engineering + emerging tech in a makerspace with physical builds, not just screens.
+              </p>
+            </details>
+
+          </div>
+        </div>
+
+      </section>
+      <div className="mt-[-100px]">
         <img src={frqVecter} alt="Descriptive Alt Text" className="w-40 h-auto" /> {/* Adjust w-40 as needed */}
       </div>
 

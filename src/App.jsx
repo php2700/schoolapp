@@ -7,6 +7,9 @@ import AboutUs from "./AboutUs/abouttsus";
 import Navbar from '../component/Navbar'
 import Header from "../component/Header";
 import LeadershipTeamPage from "./AboutUs/leadership";
+import MeaningOfShriPage from './Shreeway/meanningshree'
+import ContactUsPage from './Contactus/contact'
+import LearningPage from './Learning/learn'
 // import Footer from "./Footer";
 
 function App() {
@@ -19,6 +22,11 @@ function App() {
         <Route path="/" element={<Home />} />
         {/* <Route path="/shree" element={<AboutUs />} /> */}
         <Route path="/about" element={< LeadershipTeamPage/>} />
+         <Route path="/shriWay" element={< MeaningOfShriPage/>} />
+         <Route path="/contact-us" element={< ContactUsPage/>} />
+         <Route path="/Learning" element={< LearningPage/>} />
+
+
 
         {/* aur pages add kar sakte ho */}
       </Routes>
