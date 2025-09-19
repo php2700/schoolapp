@@ -3,13 +3,19 @@ import Home from "./Home";
 // import Header from "../component/Header";
 // import Header from "../component/Header";
 import AboutUs from "./AboutUs/abouttsus";
-// import AboutTSUS from "./abouttsus";   // tumhara About Us page
+// import AboutTSUS from "./abouttsus";   // tumhara About Us page about/principals-message
 import Navbar from '../component/Navbar'
 import Header from "../component/Header";
 import LeadershipTeamPage from "./AboutUs/leadership";
 import MeaningOfShriPage from './Shreeway/meanningshree'
 import ContactUsPage from './Contactus/contact'
 import LearningPage from './Learning/learn'
+import Principal from "./AboutUs/Principal";
+import Mission from "./AboutUs/mission";
+import Corevalue from "./AboutUs/corevalue";
+import Different from "./AboutUs/diffrentother";
+import BlogPage from "./AboutUs/blog";
+import Mandat from "./AboutUs/mandatory";
 // import Footer from "./Footer";
 
 function App() {
@@ -20,11 +26,21 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/shree" element={<AboutUs />} /> */}
-        <Route path="/about" element={< LeadershipTeamPage/>} />
+        <Route path="/about/tsus-ludhiana" element={<AboutUs />} />
+        <Route path="/about/leadership-team" element={< LeadershipTeamPage/>} />
          <Route path="/shriWay" element={< MeaningOfShriPage/>} />
          <Route path="/contact-us" element={< ContactUsPage/>} />
          <Route path="/Learning" element={< LearningPage/>} />
+         <Route path="/about/principals-message" element={< Principal/>} />
+         <Route path="/about/vision-mission" element={< Mission/>} />  
+         <Route path="/about/core-values" element={< Corevalue/>} />  
+         <Route path="/about/what-makes-us-different" element={< Different/>} /> 
+         <Route path="/about/blog" element={< BlogPage/>} />  
+         <Route path="/about/mandats" element={< Mandat/>} />  
+
+
+
+
 
 
 
