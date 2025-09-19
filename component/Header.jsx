@@ -533,7 +533,7 @@ export default function Header() {
               >
                 <li>
                   <Link
-                    to="/shriWay/philosophy"
+                    to="/shriWay"
                     onClick={handleLinkClick}
                     className="block px-4 py-2 hover:bg-gray-100 text-gray-700 md:text-blue-900"
                   >
