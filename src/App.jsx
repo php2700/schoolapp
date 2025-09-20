@@ -20,6 +20,7 @@ import Legacy from "./Shreeway/legacy";
 import Philosophy from "./Shreeway/philosophy";
 import Differentiators from "./Shreeway/differentiators";
 import Educators from "./Shreeway/educators";
+import Facilities from "./Facilities/facilities";
 // import Footer from "./Footer";
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
          <Route path="/shriWay/philisophy" element={<Philosophy/>} />
          <Route path="/shriWay/differentiators" element={<Differentiators/>} />
          <Route path="/shriWay/educators" element={<Educators/>} />
+         <Route path="/facilities" element={<Facilities/>} />
 
          </Routes>
 

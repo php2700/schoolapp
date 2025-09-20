@@ -8,7 +8,7 @@ import legacyImg1 from "../assets/Legacy/legacy1.jpg";
 import legacyImg2 from "../assets/Legacy/legacy2.jpg";
 import legacyImg3 from "../assets/legacy/legacy3.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDove } from "@fortawesome/free-solid-svg-icons";;
+import { faDove } from "@fortawesome/free-solid-svg-icons";
 
 const Legacy = () => {
   const legacyItems = [
@@ -90,7 +90,11 @@ const Legacy = () => {
               SHRI Educare Legacy
             </h1>
             <div className="flex flex-wrap items-center justify-center text-sm sm:text-base mt-2 gap-2">
-              <img src={homevector} alt="Home Icon" className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+              <img
+                src={homevector}
+                alt="Home Icon"
+                className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
+              />
               <a href="/" className="text-[#EDEDED] hover:text-white">
                 Home
               </a>
@@ -191,7 +195,9 @@ const Legacy = () => {
               {/* Legacy with lines */}
               <div className="w-full flex items-center">
                 <div className="flex-grow border-t border-gray-300"></div>
-                <h2 className="mx-4 text-sm sm:text-base font-bold text-black">LEGACY</h2>
+                <h2 className="mx-4 text-sm sm:text-base font-bold text-black">
+                  LEGACY
+                </h2>
                 <div className="flex-grow border-t border-gray-300"></div>
               </div>
 
@@ -210,7 +216,10 @@ const Legacy = () => {
               {/* Legacy Section */}
               <div className="w-full py-8 sm:py-12 px-2 sm:px-4">
                 {legacyItems.map((item, index) => (
-                  <div key={item.id} className="mb-12 sm:mb-16 max-w-full sm:max-w-[900px] mx-auto">
+                  <div
+                    key={item.id}
+                    className="mb-12 sm:mb-16 max-w-full sm:max-w-[900px] mx-auto"
+                  >
                     <div className="flex flex-col md:flex-row items-center md:items-stretch gap-4 sm:gap-6">
                       {index % 2 === 0 ? (
                         <>
@@ -233,9 +242,15 @@ const Legacy = () => {
                               color: item.textColor,
                             }}
                           >
-                            <h2 className="text-xl sm:text-2xl font-bold mb-2">{item.year}</h2>
-                            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">{item.title}</h3>
-                            <p className="text-sm sm:text-base font-semibold">{item.description}</p>
+                            <h2 className="text-xl sm:text-2xl font-bold mb-2">
+                              {item.year}
+                            </h2>
+                            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
+                              {item.title}
+                            </h3>
+                            <p className="text-sm sm:text-base font-semibold">
+                              {item.description}
+                            </p>
                           </div>
                         </>
                       ) : (
@@ -248,9 +263,15 @@ const Legacy = () => {
                               color: item.textColor,
                             }}
                           >
-                            <h2 className="text-xl sm:text-2xl font-bold mb-2">{item.year}</h2>
-                            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">{item.title}</h3>
-                            <p className="text-sm sm:text-base font-semibold">{item.description}</p>
+                            <h2 className="text-xl sm:text-2xl font-bold mb-2">
+                              {item.year}
+                            </h2>
+                            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
+                              {item.title}
+                            </h3>
+                            <p className="text-sm sm:text-base font-semibold">
+                              {item.description}
+                            </p>
                           </div>
 
                           {/* Image Right */}
@@ -304,7 +325,9 @@ const Legacy = () => {
             max-width: 100% !important;
             height: auto !important;
           }
-          h1, h2, h3 {
+          h1,
+          h2,
+          h3 {
             line-height: 1.2;
           }
         }

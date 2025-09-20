@@ -8,15 +8,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { FaHandshake } from "react-icons/fa";
 import Footer from './assets/home/footer.png';
-import { MdEmail } from "react-icons/md";
 import './App.css';
-
-import Shriram from './assets/home/shriramconnect.png';
-import Enducare from './assets/home/shriramenducare.png';
-import Theshri from './assets/home/thesriram.png';
-import Facebook from './assets/home/facebook.png';
-import Whatsapps from './assets/home/whatsapp.png';
-import Instagram from './assets/home/instagram.png';
 import Vector from './assets/home/vector.png';
 import Hero from './assets/home/hero.png';
 import Logo from './assets/home/logo.png';
@@ -45,7 +37,6 @@ import vectexp from './assets/home/vectorexp2.png'
 import backimg from './assets/home/backgroundexp.png'
 import backimg2 from './assets/home/backgroungexp1.png'
 // import tring from './assets/home/triangle.png';
-import Bookss from './assets/home/tringlebook.png';
 import back3 from './assets/home/vecterback3.jpg'
 import experienceAI from './assets/home/experienceAI.png'
 import experienceAI3 from './assets/home/experienceAI3.png';
@@ -318,7 +309,7 @@ function homepage() {
           <p className="text-gray-600 mt-2 text-[21px]">
             Just not on the same day, or in the same way
           </p>
-          <button className="mt-4 bg-[#25337C] text-white font-semibold text-sm px-6 py-6 rounded-lg w-150 rounded-tr-[38px] rounded-bl-[38px] text-[21px]">
+          <button className="mt-4 bg-[#25337C] text-white font-semibold text-sm px-6 py-6 rounded-lg md:w-150 rounded-tr-[38px] rounded-bl-[38px] text-[21px]">
             The Shri Educators
           </button>
           <br />
@@ -348,7 +339,7 @@ function homepage() {
             <img
               src={Educator}
               alt="Educator"
-              className="w-300 h-400 object-contain z-10"
+              className="md:w-300 md:h-400 w-[300px] h-[300px] object-contain z-10 md:mt-[300px]"
             />
           </div>
 
@@ -358,7 +349,7 @@ function homepage() {
         <section className="bg-white-50 py-16 mt-[150px]" >
           <div className="max-w-7xl mx-auto px-6">
             {/* Heading */}
-            <h2 className="text-3xl font-bold text-center text-[#1F2B6C]">
+            <h2 className="text-3xl font-bold text-center text-[#1F2B6C] md:mt-10 -mt-0">
               School activities & Inspired Learners
             </h2>
             <p className="text-center text-gray-600 mt-2 max-w-2xl mx-auto">
@@ -597,13 +588,13 @@ function homepage() {
           </div>
 
           {/* -------- KIDS IMAGE + TEXT -------- */}
-          <div className="mt-16 flex flex-col items-center text-center">
+          <div className="md:mt-16 mt-30 flex flex-col items-center text-center">
             <img
               src={BottomTop}
               alt="Kids"
               className="w-full max-w-[72rem] object-contain"
             />
-            <h2 className="text-2xl md:text-[36px] font-[700] text-[#25337C] -mt-[250px] z-10">
+            <h2 className="text-2xl md:text-[36px] font-[700] text-[#25337C] -md:mt-[250px]  z-10">
               TSUS – Amongst Top 5 CBSE <br /> Schools in Ludhiana
             </h2>
             <p className="text-[#383838] mt-4 max-w-[63rem] relative z-10 text-[20px]">
