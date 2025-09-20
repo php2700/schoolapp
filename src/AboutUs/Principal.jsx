@@ -5,9 +5,6 @@ import Banner from '../assets/home/Bannerleder.png'
 import homevector from '../assets/home/homevector.png'
 import ChevronRightIcon from '../assets/home/shriArrow.png';
 import gujralImage from '../assets/home/leadershipmg.png';
-
-// import university from '../../src/assets/home/universityimage.png';
-// import {heros} from '../../src/assets/home/hero.png';
 export default function Principal() {
   return (
     <div className="min-h-screen bg-gray-50">

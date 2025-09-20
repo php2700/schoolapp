@@ -1,164 +1,171 @@
-import React from 'react';
-import { FaHome } from 'react-icons/fa';
-import BannerImage from '../assets/home/Bannershree.png';
-// For the home icon
-import homevector from '../assets/home/homevector.png'
-import Header from '../../component/Header';
-import Footer from '../../component/Footer';
+import React from "react";
+import BannerImage from "../assets/home/Bannershree.png";
+import homevector from "../assets/home/homevector.png";
+import Header from "../../component/Header";
+import Footer from "../../component/Footer";
 
 const ContactUsPage = () => {
-    return (
-        <>
-            <Header />
-            <div className="min-h-screen bg-white font-sans">
+  return (
+    <>
+      <Header />
+      <div className="min-h-screen bg-white font-sans">
+        <section
+          className="relative h-100 bg-cover bg-center  rounded-bl-[45px] rounded-br-[45px] overflow-hidden"
+          style={{ backgroundImage: `url(${BannerImage})` }}
+        >
+          <div className="absolute inset-0 bg-black opacity-50"></div>{" "}
+          {/* Overlay for text readability */}
+          <div className=" font-['poppins'] relative z-10 flex flex-col items-center justify-center h-full text-white">
+            <h1 className="font-['poppins'] font-semibold text-[55px] leading-tight text-white">
+              Contact Us
+            </h1>
+            <div className="flex items-center text-lg mt-2">
+              <img src={homevector} alt="Home Icon" className="w-5 h-5 mr-4" />
+              <a href="/" className="text-[#EDEDED] hover:text-white">
+                Home
+              </a>
 
-                {/* <div className="relative bg-cover bg-center h-80 flex items-center justify-center" style={{ backgroundImage: `url(${BannerImage})` }}>
-       
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative text-white text-center z-10">
-          <h1 className="text-5xl font-bold mb-4">Contact Us</h1>
-          <div className="flex items-center justify-center text-lg">
-            <img src={homevector} alt="Home Icon" className="w-5 h-5 mr-4" />
-            <span className="mr-2">Home</span>
-            <span className="mr-2">&gt;</span>
-            <span>Contact Us</span>
+              <span className="mx-2">/</span>
+              <a href="/about-us" className="text-[#F3D805] hover:text-white">
+                About Us
+              </a>
+            </div>
           </div>
-        </div>
-      </div> */}
-                <section className="relative h-100 bg-cover bg-center  rounded-bl-[45px] rounded-br-[45px] overflow-hidden" style={{ backgroundImage: `url(${BannerImage})` }}>
-                    <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay for text readability */}
-                    <div className=" font-['poppins'] relative z-10 flex flex-col items-center justify-center h-full text-white">
-                        <h1 className="font-['poppins'] font-semibold text-[55px] leading-tight text-white">Contact Us</h1>
-                        <div className="flex items-center text-lg mt-2">
-                            <img src={homevector} alt="Home Icon" className="w-5 h-5 mr-4" />
-                            <a href="/" className="text-[#EDEDED] hover:text-white">
-                                Home</a>
+        </section>
 
-                            <span className="mx-2">/</span>
-                            <a href="/about-us" className="text-[#F3D805] hover:text-white">About Us</a>
-                            {/* <span className="mx-2"></span> */}
-                            {/* <span className='text-[#F3D805]'>Meaning of "SHRI"</span> */}
-                        </div>
-                    </div>
-                </section>
-
-                {/* Main Content Section */}
-                <div className="container mx-auto p-8 flex flex-col lg:flex-row gap-8 mt-4"> {/* Adjust mt for overlapping */}
-                    {/* Admission Sidebar */}
-                    <aside className="w-full lg:w-1/4 bg-white shadow-lg rounded-lg p-6 font-['poppins'] shadow  rounded-tl-lg rounded-br-lg
-                 [box-shadow:0_2px_6px_2px_rgba(60,64,67,0.15),0_1px_2px_0_rgba(60,64,67,0.30)]">
-                        <h2 className="text-2xl font-bold leading-8 tracking-[0.1px] text-[#25337C] mb-6">Admission</h2>
-                        <ul>
-                            {[
-                                "Admission Process",
-                                "Application Form",
-                                "Schedule a Visit",
-                                "E-Brochure",
-                                "FAQs",
-                            ].map((item, index) => (
-                                <li key={index} className="mb-4">
-                                    <a href="#" className="flex justify-between items-center text-lg text-[#737373] hover:text-blue-600 transition duration-300">
-                                        {item}
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className="h-5 w-5 text-gray-400"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M9 5l7 7-7 7"
-                                            />
-                                        </svg>
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </aside>
-
-                    {/* Contact Form */}
-                    <main className="w-full lg:w-3/4 bg-white shadow-lg rounded-lg p-8  rounded-tl-lg rounded-br-lg
-                 [box-shadow:0_2px_6px_2px_rgba(60,64,67,0.15),0_1px_2px_0_rgba(60,64,67,0.30)]">
-                        <form className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[#A9A9A9] font-['poppins'] text-[15px]">
-                            <div>
-                                <input
-                                    type="text"
-                                    placeholder="First name"
-                                    className="w-full p-3  border border-[#D1D5DB] rounded-md focus:ring-blue-500 focus:border-blue-500 te"
-                                />
-                            </div>
-                            <div>
-                                <input
-                                    type="email"
-                                    placeholder="Email"
-                                    className="w-full p-3 border border-[#D1D5DB rounded-md focus:ring-blue-500 focus:border-blue-500"
-                                />
-                            </div>
-                            <div className="flex items-center">
-                                <div className="relative mr-2">
-                                    <select className="appearance-none p-3 border border-[#D1D5DB rounded-md bg-white">
-                                        <option>🇮🇳</option> {/* You might want to use a flag icon library */}
-                                        {/* Add more country codes as needed */}
-                                    </select>
-                                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                        <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 6.757 7.586 5.343 9z" /></svg>
-                                    </div>
-                                </div>
-                                <input
-                                    type="tel"
-                                    placeholder="Phone"
-                                    className="flex-grow p-3 border border-[#D1D5DBrounded-md focus:ring-blue-500 focus:border-blue-500"
-                                />
-                            </div>
-                            <div>
-                                <input
-                                    type="text"
-                                    placeholder="City"
-                                    className="w-full p-3 border border-[#D1D5DBrounded-md focus:ring-blue-500 focus:border-blue-500"
-                                />
-                            </div>
-                            <div>
-                                <input
-                                    type="text"
-                                    placeholder="State"
-                                    className="w-full p-3 border border-[#D1D5DBrounded-md focus:ring-blue-500 focus:border-blue-500"
-                                />
-                            </div>
-                            <div>
-                                <input
-                                    type="text"
-                                    placeholder="County"
-                                    className="w-full p-3 border border-[#D1D5DB rounded-md focus:ring-blue-500 focus:border-blue-500"
-                                />
-                            </div>
-                            <div className="md:col-span-2">
-                                <textarea
-                                    placeholder="Message"
-                                    rows="4"
-                                    className="w-full p-3 border border-[#D1D5DB rounded-md focus:ring-blue-500 focus:border-blue-500 resize-y"
-                                ></textarea>
-                            </div>
-                            <div className="md:col-span-2 flex justify-center items-center font-['poppins']">
-                                <button
-                                    type="submit"
-                                    className="px-8 py-3 bg-[#25337C]  text-[16px] text-white font-semibold rounded-md  transition duration-300"
-                                >
-                                    Submit
-                                </button>
-                            </div>
-                        </form>
-                    </main>
+        {/* Main Content Section */}
+        <div className="container mx-auto p-8 flex flex-col lg:flex-row gap-8 mt-4">
+          {" "}
+          {/* Adjust mt for overlapping */}
+          {/* Admission Sidebar */}
+          <aside
+            className="w-full lg:w-1/4 bg-white  rounded-lg p-6 font-['poppins'] shadow  rounded-tl-lg rounded-br-lg
+                 [box-shadow:0_2px_6px_2px_rgba(60,64,67,0.15),0_1px_2px_0_rgba(60,64,67,0.30)]"
+          >
+            <h2 className="text-2xl font-bold leading-8 tracking-[0.1px] text-[#25337C] mb-6">
+              Admission
+            </h2>
+            <ul>
+              {[
+                "Admission Process",
+                "Application Form",
+                "Schedule a Visit",
+                "E-Brochure",
+                "FAQs",
+              ].map((item, index) => (
+                <li key={index} className="mb-4">
+                  <a
+                    href="#"
+                    className="flex justify-between items-center text-lg text-[#737373] hover:text-blue-600 transition duration-300"
+                  >
+                    {item}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-gray-400"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </aside>
+          {/* Contact Form */}
+          <main
+            className="w-full lg:w-3/4 bg-white shadow-lg rounded-lg p-8  rounded-tl-lg rounded-br-lg
+                 [box-shadow:0_2px_6px_2px_rgba(60,64,67,0.15),0_1px_2px_0_rgba(60,64,67,0.30)]"
+          >
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[#A9A9A9] font-['poppins'] text-[15px]">
+              <div>
+                <input
+                  type="text"
+                  placeholder="First name"
+                  className="w-full p-3  border border-[#D1D5DB] rounded-md focus:ring-blue-500 focus:border-blue-500 te"
+                />
+              </div>
+              <div>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="w-full p-3 border border-[#D1D5DB rounded-md focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+              <div className="flex items-center">
+                <div className="relative mr-2">
+                  <select className="appearance-none p-3 border border-[#D1D5DB rounded-md bg-white">
+                    <option>🇮🇳</option>{" "}
+                    {/* You might want to use a flag icon library */}
+                    {/* Add more country codes as needed */}
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <svg
+                      className="fill-current h-4 w-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 6.757 7.586 5.343 9z" />
+                    </svg>
+                  </div>
                 </div>
-            </div>
-            <div className="mt-[170px]">
-                <Footer />
-            </div>
-
-        </>
-    );
+                <input
+                  type="tel"
+                  placeholder="Phone"
+                  className="flex-grow p-3 border border-[#D1D5DBrounded-md focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="City"
+                  className="w-full p-3 border border-[#D1D5DBrounded-md focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="State"
+                  className="w-full p-3 border border-[#D1D5DBrounded-md focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="County"
+                  className="w-full p-3 border border-[#D1D5DB rounded-md focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+              <div className="md:col-span-2">
+                <textarea
+                  placeholder="Message"
+                  rows="4"
+                  className="w-full p-3 border border-[#D1D5DB rounded-md focus:ring-blue-500 focus:border-blue-500 resize-y"
+                ></textarea>
+              </div>
+              <div className="md:col-span-2 flex justify-center items-center font-['poppins']">
+                <button
+                  type="submit"
+                  className="px-8 py-3 bg-[#25337C]  text-[16px] text-white font-semibold rounded-md  transition duration-300"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </main>
+        </div>
+      </div>
+      <div className="mt-[170px]">
+        <Footer />
+      </div>
+    </>
+  );
 };
 
 export default ContactUsPage;

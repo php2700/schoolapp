@@ -16,6 +16,10 @@ import Corevalue from "./AboutUs/corevalue";
 import Different from "./AboutUs/diffrentother";
 import BlogPage from "./AboutUs/blog";
 import Mandat from "./AboutUs/mandatory";
+import Legacy from "./Shreeway/legacy";
+import Philosophy from "./Shreeway/philosophy";
+import Differentiators from "./Shreeway/differentiators";
+import Educators from "./Shreeway/educators";
 // import Footer from "./Footer";
 
 function App() {
@@ -37,15 +41,12 @@ function App() {
          <Route path="/about/what-makes-us-different" element={< Different/>} /> 
          <Route path="/about/blog" element={< BlogPage/>} />  
          <Route path="/about/mandats" element={< Mandat/>} />  
+         <Route path="/shriWay/legacy" element={<Legacy/>} />
+         <Route path="/shriWay/philisophy" element={<Philosophy/>} />
+         <Route path="/shriWay/differentiators" element={<Differentiators/>} />
+         <Route path="/shriWay/educators" element={<Educators/>} />
 
-
-
-
-
-
-
-        {/* aur pages add kar sakte ho */}
-      </Routes>
+         </Routes>
 
       {/* Footer har page pe show hoga */}
       {/* <Footer /> */}

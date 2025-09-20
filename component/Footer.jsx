@@ -1,11 +1,7 @@
 import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
-import Vector from "../src/assets/home/vector.png"; // Corrected import
-import FooterImg from "../src/assets/home/footer.png"; // Corrected import
-import Logo from "../src/assets/home/logo.png"; // Corrected import
-
-  // ... आपका बाकी कोड
-
- // kids wali image ka path
+import Vector from "../src/assets/home/vector.png";
+import FooterImg from "../src/assets/home/footer.png";
+import Logo from "../src/assets/home/logo.png";
 
 export default function Footer() {
   return (

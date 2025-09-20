@@ -329,7 +329,7 @@ function homepage() {
           </div>
 
           {/* Images + Logo */}
-          <div className="relative flex justify-center items-center mt-10 w-full h-[200px] mt-[188px]">
+          <div className="relative flex justify-center items-center mt-10 w-full h-[200px]">
             {/* Left Side Image (Behind Educator) */}
             <img
               src={Leftpipe}
@@ -370,7 +370,7 @@ function homepage() {
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6">
               {/* Card 1 */}
               <div
-                className="bg-white rounded-2xl shadow-md overflow-hidden relative rounded-[32px]"
+                className="bg-white rounded-2xl shadow-md overflow-hidden relative"
                 style={{
                   clipPath: "polygon(0px 0px, 100% 0px, 100% 101%, 50% 100%, 0px 96%)",
                 }}
