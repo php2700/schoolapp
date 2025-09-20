@@ -31,19 +31,11 @@ const LeadershipTeamPage = () => {
           </div>
         </section>
 
-<<<<<<< HEAD
-      {/* Main Content Area */}
-      <div className="container mx-auto px-4 py-8 flex flex-col lg:flex-row">
-        {/* Left Sidebar - About Us Navigation */}
-        <aside className="lg:w-1/4 pr-8 mb-8 lg:mb-0">
-          <div className=" font-['poppins'] bg-white rounded-lg p-6  shadow  rounded-tl-lg rounded-br-lg
-=======
         {/* Main Content Area */}
         <div className="container mx-auto px-4 py-8 flex flex-col lg:flex-row">
           {/* Left Sidebar - About Us Navigation */}
           <aside className="lg:w-1/4 pr-8 mb-8 lg:mb-0">
-            <div className=" font-['poppins'] bg-white rounded-lg shadow p-6  shadow  rounded-tl-lg rounded-br-lg
->>>>>>> a6c1cb0f8490ff576b47bdb60c352b8d7d1e4a98
+            <div className=" font-['poppins'] bg-white rounded-lg  p-6  shadow  rounded-tl-lg rounded-br-lg
                  [box-shadow:0_2px_6px_2px_rgba(60,64,67,0.15),0_1px_2px_0_rgba(60,64,67,0.30)]">
               <h2 className="text-[32px] font-semibold mb-4 text-[#25337C]">About Us</h2>
               <nav>

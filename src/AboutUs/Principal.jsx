@@ -4,16 +4,12 @@ import Footer from '../../component/Footer';
 import Banner from '../assets/home/Bannerleder.png'
 import homevector from '../assets/home/homevector.png'
 import ChevronRightIcon from '../assets/home/shriArrow.png';
-<<<<<<< HEAD
-import gujralImage from '../assets/home/leadershipmg.png';
-=======
 import gujralImage from '../assets/home/principalimage.png';
 import icon from '../assets/home/arrowicon.png'
 
 
 // import university from '../../src/assets/home/universityimage.png';
 // import {heros} from '../../src/assets/home/hero.png';
->>>>>>> a6c1cb0f8490ff576b47bdb60c352b8d7d1e4a98
 export default function Principal() {
   return (
     <div className="min-h-screen bg-gray-50">
