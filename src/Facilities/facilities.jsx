@@ -1,5 +1,4 @@
 import React from "react";
-import ChevronRightIcon from "../assets/home/shriArrow.png";
 import BannerImage from "../assets/home/Bannershree.png";
 import Header from "../../component/Header";
 import Footer from "../../component/Footer";
@@ -26,15 +25,11 @@ const Facilities = () => {
                 Home
               </a>
               <span className="mx-2">/</span>
-              <a href="/about-us" className="text-[#EDEDED] hover:text-white">
-                About Us
-              </a>
-              <span className="mx-2">/</span>
               <span className="text-[#F3D805]">Facilities</span>
             </div>
           </div>
         </section>
-        
+
       </div>
       <Footer />
     </>

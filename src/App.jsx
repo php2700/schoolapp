@@ -21,6 +21,12 @@ import Philosophy from "./Shreeway/philosophy";
 import Differentiators from "./Shreeway/differentiators";
 import Educators from "./Shreeway/educators";
 import Facilities from "./Facilities/facilities";
+import Curriculum from "./Learning/curriculum";
+import Art from "./Learning/arts";
+import Society from "./Learning/societies";
+import Sports from "./Learning/sports";
+import Classroom from "./Learning/beyondClassroom";
+import Environment from "./Learning/environment";
 // import Footer from "./Footer";
 
 function App() {
@@ -49,9 +55,28 @@ function App() {
          <Route path="/facilities" element={<Facilities/>} />
 
          </Routes>
+         <Route path="/about/mandats" element={< Mandat/>} /> 
 
-      {/* Footer har page pe show hoga */}
-      {/* <Footer /> */}
+
+          {/*...........................Learning............................  */}
+          <Route path="/learning/pedagogy" element={< LearningPage/>} />
+          <Route path="/learning/curriculum" element={< Curriculum/>} />
+          <Route path="/learning/Art" element={< Art/>} /> 
+          <Route path="/learning/Society" element={< Society/>} /> 
+          <Route path="/learning/Sports" element={< Sports/>} /> 
+          <Route path="/learning/Classroom" element={< Classroom/>} /> 
+          <Route path="/learning/Environment" element={< Environment/>} />   
+
+
+
+
+
+
+
+
+
+      
+      
     </Router>
   );
 }

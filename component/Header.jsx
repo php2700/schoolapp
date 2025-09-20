@@ -13,6 +13,7 @@ import Arrow from '../src/assets/home/arrow.png';
 import Logo from '../src/assets/home/logo.png';
 import Vector1 from '../src/assets/home/vector1.png';
 
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -288,7 +289,7 @@ export default function Header() {
               >
                 <li>
                   <Link
-                    to="/learning/curriculum"
+                    to="/learning/pedagogy"
                     onClick={handleLinkClick}
                     className="block px-4 py-2 hover:bg-gray-100 text-gray-700 md:text-blue-900"
                   >
@@ -297,15 +298,156 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    to="/learning/programs"
+                    to="/learning/curriculum"
                     onClick={handleLinkClick}
                     className="block px-4 py-2 hover:bg-gray-100 text-gray-700 md:text-blue-900"
                   >
                     Co-Curriculum Pursuit
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/learning/Art"
+                    onClick={handleLinkClick}
+                    className="block px-4 py-2 hover:bg-gray-100 text-gray-700 md:text-blue-900"
+                  >
+                    Art and Visual Art
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/learning/Society"
+                    onClick={handleLinkClick}
+                    className="block px-4 py-2 hover:bg-gray-100 text-gray-700 md:text-blue-900"
+                  >
+                     TSUS Societies And Clubs
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/learning/Sports"
+                    onClick={handleLinkClick}
+                    className="block px-4 py-2 hover:bg-gray-100 text-gray-700 md:text-blue-900"
+                  >
+                    Sports
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/learning/Classroom"
+                    onClick={handleLinkClick}
+                    className="block px-4 py-2 hover:bg-gray-100 text-gray-700 md:text-blue-900"
+                  >
+                   Beyond the Classroom
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/learning/Environment"
+                    onClick={handleLinkClick}
+                    className="block px-4 py-2 hover:bg-gray-100 text-gray-700 md:text-blue-900"
+                  >
+                    Environment Initiatives
+                  </Link>
+                </li>
               </ul>
             </li>
+            {/* <li
+              className="relative px-4 md:px-0 py-2 md:py-0"
+              onMouseEnter={() => handleMouseEnter("learning")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                onClick={() => toggleDropdown("learning")}
+                className="flex items-center gap-2 hover:text-blue-600 cursor-pointer w-full text-left"
+              >
+                Learning{" "}
+                <img
+                  src={Arrow}
+                  alt="dropdown icon"
+                  className={`w-2 h-2 transition-transform ${activeDropdown === "learning" ? "rotate-180" : ""
+                    }`}
+                />
+              </button>
+
+              
+              <ul
+                className={`md:absolute md:bg-white md:shadow-lg md:rounded-md mt-2 md:mt-0 md:w-56 overflow-hidden transition-all duration-300 z-50 ${activeDropdown === "learning"
+                    ? "max-h-96 opacity-100 py-2 md:max-h-fit md:opacity-100"
+                    : "max-h-0 opacity-0 md:max-h-0 md:opacity-0"
+                  }`}
+              >
+             
+                <li>
+                  <Link
+                    to="/learning/curriculum"
+                    onClick={handleLinkClick}
+                    className="block px-4 py-2 hover:bg-gray-100 text-gray-700 md:text-blue-900"
+                  >
+                    CBSE School Curriculum and Pedagogy
+                  </Link>
+                </li>
+
+                
+                <li
+                  className="relative group"
+                  onMouseEnter={() => handleMouseEnter("co-curriculum")}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <button
+                    onClick={() => toggleDropdown("co-curriculum")}
+                    className="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 text-gray-700 md:text-blue-900"
+                  >
+                    Co-Curriculum Pursuit
+                    <img
+                      src={Arrow}
+                      alt="dropdown icon"
+                      className={`w-2 h-2 transition-transform ${activeDropdown === "co-curriculum" ? "rotate-180" : ""
+                        }`}
+                    />
+                  </button>
+
+                 
+                  
+                  <ul
+                    className={`md:absolute md:left-full md:top-0 md:bg-white md:shadow-lg md:rounded-md md:w-56 overflow-hidden transition-all duration-300 ${activeDropdown === "co-curriculum"
+                        ? "max-h-96 opacity-100 py-2 md:max-h-fit md:opacity-100"
+                        : "max-h-0 opacity-0 md:max-h-0 md:opacity-0"
+                      }`}
+                  >
+                    <li>
+                      <Link
+                        to="/learning/music"
+                        onClick={handleLinkClick}
+                        className="block px-4 py-2 hover:bg-gray-100 text-gray-700 md:text-blue-900"
+                      >
+                        Music & Arts
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/learning/sports"
+                        onClick={handleLinkClick}
+                        className="block px-4 py-2 hover:bg-gray-100 text-gray-700 md:text-blue-900"
+                      >
+                        Sports & Fitness
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/learning/activities"
+                        onClick={handleLinkClick}
+                        className="block px-4 py-2 hover:bg-gray-100 text-gray-700 md:text-blue-900"
+                      >
+                        Clubs & Activities
+                      </Link>
+                    </li>
+                  </ul>
+
+                </li>
+              </ul>
+            </li> */}
+
 
             <li className="px-4 md:px-0 py-2 md:py-0 hover:text-blue-600 cursor-pointer">
               <Link to="/facilities" onClick={handleLinkClick}>Facilities</Link>
@@ -343,19 +485,19 @@ export default function Header() {
                     onClick={handleLinkClick}
                     className="block px-4 py-2 hover:bg-gray-100 text-gray-700 md:text-blue-900"
                   >
-                    Application Form 
+                    Application Form
                   </Link>
                 </li>
-                  <li>
+                <li>
                   <Link
                     to="/admission/info"
                     onClick={handleLinkClick}
                     className="block px-4 py-2 hover:bg-gray-100 text-gray-700 md:text-blue-900"
                   >
-                     Schedule a Visit
+                    Schedule a Visit
                   </Link>
                 </li>
-                  <li>
+                <li>
                   <Link
                     to="/admission/info"
                     onClick={handleLinkClick}

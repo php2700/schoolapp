@@ -5,12 +5,15 @@ import Banner from '../assets/home/Bannerleder.png'
 import homevector from '../assets/home/homevector.png'
 import Header from '../../component/Header';
 import Footer from '../../component/Footer';
+import icon from '../assets/home/arrowicon.png'
+import myblog from '../assets/home/blogimage.png'
+
 // import blogimg from '../assets/home/blogimage.png'
 
 const blogPostsData = [
     {
         id: 1,
-        image: '/src/assets/home/blogimage.png', // Replace with actual image path
+        image: myblog, // Replace with actual image path
         category: 'Blog',
         title: 'What Makes Some Schools in Ludhiana Truly Great?',
         introduction: 'The admission season has again fallen upon us. It has become a periodic practice to rethink your child’s school choices.',
@@ -19,7 +22,7 @@ const blogPostsData = [
     },
     {
         id: 2,
-        image: '/src/assets/home/blogimage.png', // Replace with actual image path
+        image: myblog, // Replace with actual image path
         category: 'Blog',
         title: 'Here’s How Top Schools in Ludhiana Are Innovating The Teaching Space',
         introduction: 'For a long time, the school market had been monopolistic in nature. What the statement tries to convey is that.',
@@ -28,7 +31,7 @@ const blogPostsData = [
     },
     {
         id: 3,
-        image: '/src/assets/home/blogimage.png', // Replace with actual image path
+        image: myblog,  // Replace with actual image path
         category: 'Blog',
         title: 'The Role of Teachers in Shaping Student Success',
         introduction: 'Introduction What’s the secret behind a successful classroom? Is it just an organised curriculum or a specific teaching method? No,',
@@ -37,7 +40,7 @@ const blogPostsData = [
     },
     {
         id: 4,
-        image: '/src/assets/home/blogimage.png', // Replace with actual image path
+        image: myblog,  // Replace with actual image path
         category: 'Blog',
         title: 'Why Emotional Well-being is Just as Important as Academic Success at TSUS?',
         introduction: 'Introduction Have you ever thought about schools being healing spaces, and not just learning spaces? Schools play an important role',
@@ -46,7 +49,7 @@ const blogPostsData = [
     },
     {
         id: 5,
-        image: '/src/assets/home/blogimage.png', // Replace with actual image path
+        image: myblog,  // Replace with actual image path
         category: 'Blog',
         title: 'How Co-Curricular Activities Can Miraculously Transform Your Child’s Education?',
         introduction: 'Introduction As a parent, you might have always stumbled upon this one question; are extra-curricular activities beneficial for my child.',
@@ -55,7 +58,7 @@ const blogPostsData = [
     },
     {
         id: 6,
-        image: '/src/assets/home/blogimage.png', // Replace with actual image path
+        image: myblog,  // Replace with actual image path
         category: 'Blog',
         title: 'Fostering Creativity and Innovation in Students: The TSUS Approach',
         introduction: 'Introduction What is the biggest point of differentiation among students? Previously, this was the technical skill that they bore. However,',
@@ -78,9 +81,11 @@ export default function BlogPage() {
                         <a href="/" className="text-[#EDEDED] hover:text-white">
                             Home</a>
 
-                        <span className="mx-2">/</span>
+                        <img src={icon} alt="Arrow Icon" className="w-3 h-4 mx-2" />
+
                         <a href="/about-us" className="text-[#EDEDED] hover:text-white">About</a>
-                        <span className="mx-2">/</span>
+                        <img src={icon} alt="Arrow Icon" className="w-3 h-4 mx-2" />
+
                         <span className='text-[#F3D805]'>Blogs</span>
                     </div>
                 </div>

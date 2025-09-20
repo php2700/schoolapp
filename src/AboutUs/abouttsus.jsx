@@ -4,6 +4,7 @@ import Footer from '../../component/Footer';
 import Banner from '../assets/home/Bannerleder.png'
 import homevector from '../assets/home/homevector.png'
 import ChevronRightIcon from '../assets/home/shriArrow.png';
+import icon from '../assets/home/arrowicon.png'
 
 // import university from '../../src/assets/home/universityimage.png';
 // import {heros} from '../../src/assets/home/hero.png';
@@ -23,7 +24,7 @@ export default function AboutUs() {
             <a href="/" className="text-[#EDEDED] hover:text-white">
               Home</a>
 
-            <span className="mx-2">/</span>
+            <img src={icon} alt="Arrow Icon" className="w-3 h-4 mx-2" />
             <a href="/about-us" className="text-[#EDEDED] hover:text-white">What makes us different from others</a>
             {/* <span className="mx-2">/</span> */}
             {/* <span className='text-[#F3D805]'>Learning</span> */}

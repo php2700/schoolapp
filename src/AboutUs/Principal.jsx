@@ -4,7 +4,16 @@ import Footer from '../../component/Footer';
 import Banner from '../assets/home/Bannerleder.png'
 import homevector from '../assets/home/homevector.png'
 import ChevronRightIcon from '../assets/home/shriArrow.png';
+<<<<<<< HEAD
 import gujralImage from '../assets/home/leadershipmg.png';
+=======
+import gujralImage from '../assets/home/principalimage.png';
+import icon from '../assets/home/arrowicon.png'
+
+
+// import university from '../../src/assets/home/universityimage.png';
+// import {heros} from '../../src/assets/home/hero.png';
+>>>>>>> a6c1cb0f8490ff576b47bdb60c352b8d7d1e4a98
 export default function Principal() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -21,9 +30,9 @@ export default function Principal() {
             <a href="/" className="text-[#EDEDED] hover:text-white">
               Home</a>
 
-            <span className="mx-2">/</span>
+             <img src={icon} alt="Arrow Icon" className="w-3 h-4 mx-2" />
             <a href="/about-us" className="text-[#EDEDED] hover:text-white">About</a>
-            <span className="mx-2">/</span>
+            <img src={icon} alt="Arrow Icon" className="w-3 h-4 mx-2" />
             <span className='text-[#F3D805]'>Founding Principals Message</span>
           </div>
         </div>
@@ -131,7 +140,7 @@ export default function Principal() {
         </div>
         <div className="md:w-2/3">
           <h2 className="font-['poppins'] font-semibold text-[24px] leading-tight text-[#25337C] mb-4">Dr. Navneet Kaur</h2>
-          <p className="text-[#333333] text-[18px] tracking-normal font-['poppins'] font-medium mb-4">
+          <p className=" text-[#333333]] text-[18px] tracking-normal font-['poppins'] font-medium mb-4">
             The Shri Ram Universal School, Ludhiana is an heir to the rich Shri legacy: this
             ascertains our potential and commitment to raise an institution matchless not only
             in infrastructure, but also in academic delivery, governed by the healthy motive of
