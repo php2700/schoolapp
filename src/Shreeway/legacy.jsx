@@ -6,7 +6,7 @@ import Footer from "../../component/Footer";
 import homevector from "../assets/home/homevector.png";
 import legacyImg1 from "../assets/Legacy/legacy1.jpg";
 import legacyImg2 from "../assets/Legacy/legacy2.jpg";
-import legacyImg3 from "../assets/legacy/legacy3.jpg";
+import legacyImg3 from "../assets/Legacy/legacy3.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDove } from "@fortawesome/free-solid-svg-icons";
 
