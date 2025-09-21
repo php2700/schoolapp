@@ -175,7 +175,7 @@ export default function Header() {
     {[
       { label: "Meaning of Shri", to: "/shriWay" },
       { label: "SHRI Educare Legacy", to: "/shriWay/legacy" },
-      { label: "SHRI Philosophy", to: "/shriWay/philosophy" },
+      { label: "SHRI Philosophy", to: "/shriWay/philisophy" },
       { label: "SHRI Differentiators", to: "/shriWay/differentiators" },
       { label: "SHRI Educator", to: "/shriWay/educators" },
     ].map(({ label, to }) => (
