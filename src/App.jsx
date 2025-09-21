@@ -28,7 +28,7 @@ import Admissionprocess from './Admission/admissionProcess'
 import AdmissionForm from './Admission/admissionForm'
 import Schedule from './Admission/ScheduleVisit'
 import Faq from './Admission/faq'
-import allery from './Gallery/gallery'
+// import allery from './Gallery/gallery'
 import Gallery from "./Gallery/gallery";
 
 function App() {
