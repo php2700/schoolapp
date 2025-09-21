@@ -1,3 +1,4 @@
+import { useState } from "react";
 import React from "react";
 import BannerImage from "../assets/home/Bannershree.png";
 import homevector from "../assets/home/homevector.png";
@@ -5,6 +6,18 @@ import Header from "../../component/Header";
 import Footer from "../../component/Footer";
 
 const ContactUsPage = () => {
+      const [selected, setSelected] = useState("in");
+  
+      const countries = [
+          { code: "in", name: "India", flag: "https://flagcdn.com/w20/in.png" },
+          { code: "us", name: "USA", flag: "https://flagcdn.com/w20/us.png" },
+          { code: "gb", name: "UK", flag: "https://flagcdn.com/w20/gb.png" },
+          { code: "au", name: "Australia", flag: "https://flagcdn.com/w20/au.png" },
+          { code: "jp", name: "Japan", flag: "https://flagcdn.com/w20/jp.png" },
+          { code: "de", name: "Germany", flag: "https://flagcdn.com/w20/de.png" },
+          { code: "ae", name: "UAE", flag: "https://flagcdn.com/w20/ae.png" },
+          { code: "pk", name: "Pakistan", flag: "https://flagcdn.com/w20/pk.png" },
+      ];
   return (
     <>
       <Header />
@@ -98,29 +111,37 @@ const ContactUsPage = () => {
                   className="w-full p-3 border border-[#D1D5DB rounded-md focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
-              <div className="flex items-center">
-                <div className="relative mr-2">
-                  <select className="appearance-none p-3 border border-[#D1D5DB rounded-md bg-white">
-                    <option>🇮🇳</option>{" "}
-                    {/* You might want to use a flag icon library */}
-                    {/* Add more country codes as needed */}
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <svg
-                      className="fill-current h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 6.757 7.586 5.343 9z" />
-                    </svg>
-                  </div>
-                </div>
-                <input
-                  type="tel"
-                  placeholder="Phone"
-                  className="flex-grow p-3 border border-[#D1D5DBrounded-md focus:ring-blue-500 focus:border-blue-500"
-                />
-              </div>
+                                      <div className="flex border rounded overflow-hidden">
+                            {/* Custom Dropdown */}
+                            <select
+                                value={selected}
+                                onChange={(e) => setSelected(e.target.value)}
+                                className="px-2 bg-gray-100 outline-none text-sm"
+                            >
+                                {countries.map((c) => (
+                                    <option key={c.code} value={c.code}>
+                                        {c.name}
+                                    </option>
+                                ))}
+                            </select>
+
+                            {/* Show selected flag */}
+                            <div className="flex items-center px-2">
+                                <img
+                                    src={countries.find((c) => c.code === selected)?.flag}
+                                    alt="flag"
+                                    className="w-6 h-4"
+                                />
+                            </div>
+
+                            {/* Phone Input */}
+                            <input
+                                type="tel"
+                                placeholder="Phone"
+                                className="flex-1 p-3 outline-none"
+                            />
+                        </div>
+
               <div>
                 <input
                   type="text"

@@ -24,6 +24,12 @@ import Society from "./Learning/societies";
 import Sports from "./Learning/sports";
 import Classroom from "./Learning/beyondClassroom";
 import Environment from "./Learning/environment";
+import Admissionprocess from './Admission/admissionProcess'
+import AdmissionForm from './Admission/admissionForm'
+import Schedule from './Admission/ScheduleVisit'
+import Faq from './Admission/faq'
+import allery from './Gallery/gallery'
+import Gallery from "./Gallery/gallery";
 
 function App() {
   return (
@@ -66,6 +72,23 @@ function App() {
         <Route path="/learning/sports" element={<Sports />} />
         <Route path="/learning/classroom" element={<Classroom />} />
         <Route path="/learning/environment" element={<Environment />} />
+
+
+        {/* Admission */}
+
+        <Route path="/admission/process" element={<Admissionprocess />} />
+        <Route path="/admission/form" element={<AdmissionForm />} />
+        <Route path="/admission/visit" element={<Schedule />} />
+        <Route path="/admission/Faq" element={<Faq />} />
+        <Route path="/gallery" element={<Gallery />} />
+
+
+
+
+
+
+
+
       </Routes>
     </Router>
   );
