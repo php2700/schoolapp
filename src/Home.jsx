@@ -1,156 +1,156 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
+import Footer from "../component/Footer";
 
-
-import { FaPhoneAlt, FaFacebook, FaInstagram, FaBook, FaRegSmile, FaAward, FaUsers } from "react-icons/fa";
+import {
+  FaPhoneAlt,
+  FaFacebook,
+  FaInstagram,
+  FaBook,
+  FaRegSmile,
+  FaAward,
+  FaUsers,
+} from "react-icons/fa";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { FaHandshake } from "react-icons/fa";
-import Footer from './assets/home/footer.png';
-import './App.css';
-import Vector from './assets/home/vector.png';
-import Hero from './assets/home/hero.png';
-import Logo from './assets/home/logo.png';
-import BottomTop from './assets/home/bottom_top.png';
-import Photo1 from './assets/home/photo1.png';
-import Photo2 from './assets/home/photo2.png';
-import Photo3 from './assets/home/photo3.png';
-import Arrow from './assets/home/arrow.png';
-import Lefticon from './assets/home/Lefticon.png';
-import Righticon from './assets/home/Righticon.png';
-import Shree from './assets/home/shree.png';
-import Leftpipe from './assets/home/leftpipe.png';
-import Curriculum1 from './assets/home/curriculum1.webp';
-import Curriculum2 from './assets/home/curriculum2.webp';
-import Sport from './assets/home/sport.jpg';
-import Learningplatform from './assets/home/learning_platform.png';
-import Facilities from './assets/home/facilities.png';
-import Educator from './assets/home/educator.png';
-import Welcome from './assets/home/welcome.png';
-import Rightpipe from './assets/home/rightpipe.png';
-import Vector1 from './assets/home/vector1.png';
-import aicodding from './assets/home/expcard1.png';
-import expfrontend from './assets/home/expgroup.png'
-import exp from './assets/home/expgroup2.png';
-import vectexp from './assets/home/vectorexp2.png'
-import backimg from './assets/home/backgroundexp.png'
-import backimg2 from './assets/home/backgroungexp1.png'
+// import Footer from './assets/home/footer.png';
+import "./App.css";
+import Vector from "./assets/home/vector.png";
+import Hero from "./assets/home/hero.png";
+import Logo from "./assets/home/logo.png";
+import BottomTop from "./assets/home/bottom_top.png";
+import Photo1 from "./assets/home/photo1.png";
+import Photo2 from "./assets/home/photo2.png";
+import Photo3 from "./assets/home/photo3.png";
+import Arrow from "./assets/home/arrow.png";
+import Lefticon from "./assets/home/Lefticon.png";
+import Righticon from "./assets/home/Righticon.png";
+import Shree from "./assets/home/shree.png";
+import Leftpipe from "./assets/home/leftpipe.png";
+import Curriculum1 from "./assets/home/curriculum1.webp";
+import Curriculum2 from "./assets/home/curriculum2.webp";
+import Sport from "./assets/home/sport.jpg";
+import Learningplatform from "./assets/home/learning_platform.png";
+import Facilities from "./assets/home/facilities.png";
+import Educator from "./assets/home/educator.png";
+import Welcome from "./assets/home/welcome.png";
+import Rightpipe from "./assets/home/rightpipe.png";
+import Vector1 from "./assets/home/vector1.png";
+import aicodding from "./assets/home/expcard1.png";
+import expfrontend from "./assets/home/expgroup.png";
+import exp from "./assets/home/expgroup2.png";
+import vectexp from "./assets/home/vectorexp2.png";
+import backimg from "./assets/home/backgroundexp.png";
+import backimg2 from "./assets/home/backgroungexp1.png";
 // import tring from './assets/home/triangle.png';
-import back3 from './assets/home/vecterback3.jpg'
-import experienceAI from './assets/home/experienceAI.png'
-import experienceAI3 from './assets/home/experienceAI3.png';
-import experienceAI4 from './assets/home/experienceAI4.png'
-import experienceAI5 from './assets/home/experienceAI5.png';
-import experienceAI6 from './assets/home/experienceAI6.png';
-import ask1 from './assets/home/freqimg1.png'
-import Arrowdown from './assets/home/Arrowdown.png'
-import aks2 from './assets/home/freqask2.png'
-import aks3 from './assets/home/freqaks3.png'
-import aks4 from './assets/home/freqask4.png'
-import frqVecter from './assets/home/freqaskvecter.png'
-import blue from './assets/home/blueVecter.png'
-import yellow from './assets/home/yellowVector.png'
+import back3 from "./assets/home/vecterback3.jpg";
+import experienceAI from "./assets/home/experienceAI.png";
+import experienceAI3 from "./assets/home/experienceAI3.png";
+import experienceAI4 from "./assets/home/experienceAI4.png";
+import experienceAI5 from "./assets/home/experienceAI5.png";
+import experienceAI6 from "./assets/home/experienceAI6.png";
+import ask1 from "./assets/home/freqimg1.png";
+import Arrowdown from "./assets/home/Arrowdown.png";
+import aks2 from "./assets/home/freqask2.png";
+import aks3 from "./assets/home/freqaks3.png";
+import aks4 from "./assets/home/freqask4.png";
+import frqVecter from "./assets/home/freqaskvecter.png";
+import blue from "./assets/home/blueVecter.png";
+import yellow from "./assets/home/yellowVector.png";
 import Header from "../component/Header";
-
-
 
 function homepage() {
   // const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
 
-    const [isOpen, setIsOpen] = useState(false);
-
-  
+  const [isOpen, setIsOpen] = useState(false);
 
   const pathways = [
     {
       grade: "Foundational (K-II):",
-      description: "Tinker time, simple machines, patterns, storytelling with block coding."
+      description:
+        "Tinker time, simple machines, patterns, storytelling with block coding.",
     },
     {
       grade: "Preparatory (III-V):",
-      description: "Robotics starters, circuits, Scratch apps, design thinking mini-challenges."
+      description:
+        "Robotics starters, circuits, Scratch apps, design thinking mini-challenges.",
     },
     {
       grade: "Middle (VI-VIII):",
-      description: "IoT builds, Python, 3D design/printing, drones (simulated), public-speaking projects."
+      description:
+        "IoT builds, Python, 3D design/printing, drones (simulated), public-speaking projects.",
     },
     {
       grade: "Secondary (IX-XII):",
-      description: "Capstone projects integrating AI/ML, data, automation, and digital media portfolios."
+      description:
+        "Capstone projects integrating AI/ML, data, automation, and digital media portfolios.",
     },
-
   ];
   const pathways2 = [
     {
       grade: "Weekly Lab Sessions",
-      description: " embedded into the timetable; flexible plans for club hours and intensives."
+      description:
+        " embedded into the timetable; flexible plans for club hours and intensives.",
     },
     {
       grade: "Certified Facilitators",
-      description: "(Myra Academy) co-teach with TSUS faculty for smooth delivery and classroom integration."
+      description:
+        "(Myra Academy) co-teach with TSUS faculty for smooth delivery and classroom integration.",
     },
     {
       grade: "Safety & SOPs",
-      description: " for tools, drones, and electronics; age-appropriate kits."
+      description: " for tools, drones, and electronics; age-appropriate kits.",
     },
     {
       grade: "ssessment & Portfolio",
-      description: "rubrics for creativity, collaboration, problem-solving; each child builds a digital portfolio of projects"
+      description:
+        "rubrics for creativity, collaboration, problem-solving; each child builds a digital portfolio of projects",
     },
-
   ];
 
   const pathways3 = [
     {
       grade: "Conceptual clarity",
-      description: "via experiments and models."
+      description: "via experiments and models.",
     },
     {
       grade: "Stronger problem-solving & logical reasoning. ",
-      description: "across grades with 400+ hands-on topics style coverage typical of best-in-class experiential programs."
+      description:
+        "across grades with 400+ hands-on topics style coverage typical of best-in-class experiential programs.",
     },
     {
       grade: "Tech fluency",
-      description: " (AI/Robotics/IoT/3D, AR/VR exposure)."
+      description: " (AI/Robotics/IoT/3D, AR/VR exposure).",
     },
     {
       grade: "Communication & leadership",
-      description: " through demos, pitches and team roles."
+      description: " through demos, pitches and team roles.",
     },
     {
       grade: "C Real-world application ",
-      description: " mindset—ideas that move from paper to prototype. "
+      description: " mindset—ideas that move from paper to prototype. ",
     },
-
-
-
   ];
 
-
-
   return (
-    
     <>
-      {/* ---------------- HEADER ---------------- */}
-      <Header/>
+      <Header />
 
       <section className="relative w-full h-[600px] md:h-[650px] lg:h-[700px]">
-        {/* Top Vector */}
         <img
           src={Vector1}
           alt="vector"
           className="absolute -top-[72px] left-0 w-full z-20"
         />
 
-        {/* Background Hero Image */}
         <img
           src={Hero}
           alt="Hero"
           className="absolute w-full h-full object-cover"
         />
 
-        {/* Overlay Content */}
         <div className="absolute inset-0 flex flex-col justify-center items-start md:items-start px-4 sm:px-8 md:px-16 z-10 mt-[100px] md:mt-[130px]">
           <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold max-w-full md:max-w-2xl leading-snug">
             Nurturing Bright <br /> Minds, Building <br /> Strong Futures
@@ -165,19 +165,19 @@ function homepage() {
         </div>
       </section>
 
-
-
-
-
       <section className="py-12 px-8 bg-white">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Card 1 */}
-          <div className="bg-white rounded-tl-[25px] rounded-br-[25px] shadow-lg p-6 relative overflow-hidden 
-                    group cursor-pointer hover:bg-[#25337C] transition-all duration-300">
+          <div
+            className="bg-white rounded-tl-[25px] rounded-br-[25px] shadow-lg p-6 relative overflow-hidden 
+                    group cursor-pointer hover:bg-[#25337C] transition-all duration-300"
+          >
             {/* icon box */}
             <div className="absolute -top-1 -left-1">
-              <div className="bg-[#25337C] w-14 h-14 rounded-[12px] flex items-center justify-center shadow 
-                        group-hover:bg-white transition-all duration-300">
+              <div
+                className="bg-[#25337C] w-14 h-14 rounded-[12px] flex items-center justify-center shadow 
+                        group-hover:bg-white transition-all duration-300"
+              >
                 <FaHandshake className="text-white text-xl group-hover:text-[#25337C] transition-all duration-300" />
               </div>
             </div>
@@ -187,20 +187,27 @@ function homepage() {
               <h3 className="text-xl font-semibold text-black group-hover:text-white transition-all duration-300">
                 Integrity
               </h3>
-              <div className="w-20 h-1 bg-yellow-400 rounded mt-3 mb-4 opacity-0 
-                        group-hover:opacity-100 transition-all duration-300"></div>
+              <div
+                className="w-20 h-1 bg-yellow-400 rounded mt-3 mb-4 opacity-0 
+                        group-hover:opacity-100 transition-all duration-300"
+              ></div>
               <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-200 transition-all duration-300">
-                Developing the value of Integrity through healthy and supportive student–teacher relationships.
+                Developing the value of Integrity through healthy and supportive
+                student–teacher relationships.
               </p>
             </div>
           </div>
 
           {/* Card 2 */}
-          <div className="bg-white rounded-tl-[25px] rounded-br-[25px] shadow-lg p-6 relative overflow-hidden 
-                    group cursor-pointer hover:bg-[#25337C] transition-all duration-300">
+          <div
+            className="bg-white rounded-tl-[25px] rounded-br-[25px] shadow-lg p-6 relative overflow-hidden 
+                    group cursor-pointer hover:bg-[#25337C] transition-all duration-300"
+          >
             <div className="absolute -top-1 -left-1">
-              <div className="bg-[#25337C] w-14 h-14 rounded-[12px] flex items-center justify-center shadow 
-                        group-hover:bg-white transition-all duration-300">
+              <div
+                className="bg-[#25337C] w-14 h-14 rounded-[12px] flex items-center justify-center shadow 
+                        group-hover:bg-white transition-all duration-300"
+              >
                 <FaRegSmile className="text-white text-xl group-hover:text-[#25337C] transition-all duration-300" />
               </div>
             </div>
@@ -208,8 +215,10 @@ function homepage() {
               <h3 className="text-xl font-semibold text-black group-hover:text-white transition-all duration-300">
                 Sensitivity
               </h3>
-              <div className="w-20 h-1 bg-yellow-400 rounded mt-3 mb-4 opacity-0 
-                        group-hover:opacity-100 transition-all duration-300"></div>
+              <div
+                className="w-20 h-1 bg-yellow-400 rounded mt-3 mb-4 opacity-0 
+                        group-hover:opacity-100 transition-all duration-300"
+              ></div>
               <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-200 transition-all duration-300">
                 Understanding, respecting, and caring for everyone equally.
               </p>
@@ -217,11 +226,15 @@ function homepage() {
           </div>
 
           {/* Card 3 */}
-          <div className="bg-white rounded-tl-[25px] rounded-br-[25px] shadow-lg p-6 relative overflow-hidden 
-                    group cursor-pointer hover:bg-[#25337C] transition-all duration-300">
+          <div
+            className="bg-white rounded-tl-[25px] rounded-br-[25px] shadow-lg p-6 relative overflow-hidden 
+                    group cursor-pointer hover:bg-[#25337C] transition-all duration-300"
+          >
             <div className="absolute -top-1 -left-1">
-              <div className="bg-[#25337C] w-14 h-14 rounded-[12px] flex items-center justify-center shadow 
-                        group-hover:bg-white transition-all duration-300">
+              <div
+                className="bg-[#25337C] w-14 h-14 rounded-[12px] flex items-center justify-center shadow 
+                        group-hover:bg-white transition-all duration-300"
+              >
                 <FaAward className="text-white text-xl group-hover:text-[#25337C] transition-all duration-300" />
               </div>
             </div>
@@ -229,8 +242,10 @@ function homepage() {
               <h3 className="text-xl font-semibold text-black group-hover:text-white transition-all duration-300">
                 Pursuit of <br /> Excellence
               </h3>
-              <div className="w-20 h-1 bg-yellow-400 rounded mt-3 mb-4 opacity-0 
-                        group-hover:opacity-100 transition-all duration-300"></div>
+              <div
+                className="w-20 h-1 bg-yellow-400 rounded mt-3 mb-4 opacity-0 
+                        group-hover:opacity-100 transition-all duration-300"
+              ></div>
               <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-200 transition-all duration-300">
                 Encouraging children to achieve their best in every field.
               </p>
@@ -238,11 +253,15 @@ function homepage() {
           </div>
 
           {/* Card 4 */}
-          <div className="bg-white rounded-tl-[25px] rounded-br-[25px] shadow-lg p-6 relative overflow-hidden 
-                    group cursor-pointer hover:bg-[#25337C] transition-all duration-300">
+          <div
+            className="bg-white rounded-tl-[25px] rounded-br-[25px] shadow-lg p-6 relative overflow-hidden 
+                    group cursor-pointer hover:bg-[#25337C] transition-all duration-300"
+          >
             <div className="absolute -top-1 -left-1">
-              <div className="bg-[#25337C]  w-14 h-14 rounded-[12px] flex items-center justify-center shadow 
-                        group-hover:bg-white transition-all duration-300">
+              <div
+                className="bg-[#25337C]  w-14 h-14 rounded-[12px] flex items-center justify-center shadow 
+                        group-hover:bg-white transition-all duration-300"
+              >
                 <FaUsers className="text-white text-xl group-hover:text-[#25337C] transition-all duration-300" />
               </div>
             </div>
@@ -251,8 +270,10 @@ function homepage() {
               <h3 className="text-xl font-semibold text-black group-hover:text-white transition-all duration-300">
                 Pride in One’s <br /> Culture
               </h3>
-              <div className="w-20 h-1 bg-yellow-400 rounded mt-3 mb-4 opacity-0 
-                        group-hover:opacity-100 transition-all duration-300"></div>
+              <div
+                className="w-20 h-1 bg-yellow-400 rounded mt-3 mb-4 opacity-0 
+                        group-hover:opacity-100 transition-all duration-300"
+              ></div>
               <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-200 transition-all duration-300">
                 Celebrating traditions while embracing modern learning.
               </p>
@@ -261,45 +282,73 @@ function homepage() {
         </div>
       </section>
 
-
-
       {/* ---------------- WELCOME SECTION ---------------- */}
 
       <div className="w-full font-sans mt-[100px]">
-        {/* ---------------- HERO SECTION ---------------- */}
-        <section
-          className="relative bg-[#1F2B6C] text-white w-full max-w-[1000px] mx-auto rounded-[50px] overflow-visible"
-          style={{
-            clipPath: "polygon(0px 0%, 254% 387px, 100% 100%, 0px 104%)",
-          }}
-        >
-          <div className="relative flex flex-col md:flex-row items-center px-6 py-12 md:py-20 overflow-visible">
-            {/* Left Content */}
-            <div className="flex-1 text-center md:text-left z-10 ml-[50px]">
-              <h3 className="uppercase tracking-wide text-sm font-bold">
-                Welcome to
-              </h3>
-              <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mt-2 text-[#F3D805]">
-                The Shri Ram <br /> Universal School
-              </h1>
-              <p className="mt-4 text-base md:text-lg max-w-lg mx-auto md:mx-0">
-                We, at one of the top schools in Ludhiana, believe in the individuality and unique identity of each child. Our educational philosophy is emphatic about providing a child-centric education and keeping this in view, one of the best schools in Ludhiana offers learning that is interactive, experiential, innovative and evolving.
-              </p>
+        <div>
+          <section
+            className="relative bg-[#1F2B6C] text-white w-full max-w-[1000px] mx-auto rounded-[50px] overflow-visible"
+            style={{
+              clipPath: "polygon(0px 0%, 254% 387px, 100% 100%, 0px 104%)",
+            }}
+          >
+            <div className="relative flex flex-col md:flex-row items-center px-6 py-12 md:py-20 overflow-visible">
+              <div className="flex-1 text-center md:text-left z-10 ml-[50px]">
+                <h3 className="uppercase tracking-wide text-sm font-bold">
+                  Welcome to
+                </h3>
+                <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mt-2 text-[#F3D805]">
+                  The Shri Ram <br /> Universal School
+                </h1>
+                <p className="mt-4 text-base md:text-lg max-w-lg mx-auto md:mx-0">
+                  We, at one of the top schools in Ludhiana, believe in the
+                  individuality and unique identity of each child. Our
+                  educational philosophy is emphatic about providing a
+                  child-centric education and keeping this in view, one of the
+                  best schools in Ludhiana offers learning that is interactive,
+                  experiential, innovative and evolving.
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Right Hero Image outside section so it overflows freely */}
-        <div className="relative w-full flex justify-center md:justify-end -mt-[400px] md:-mt-[500px] overflow-visible z-0 pointer-events-none">
-          <img
-            src={Welcome}
-            alt="Hero"
-            className="rounded-2xl w-[350px] md:w-[500px] h-[450px] md:h-[600px] -mt-[99px] mr-[322px]"
-          />
+          <div className="relative w-full flex justify-center md:justify-end -mt-[400px] md:-mt-[500px] overflow-visible z-0 pointer-events-none">
+            <img
+              src={Welcome}
+              alt="Hero"
+              className="rounded-2xl w-[350px] md:w-[500px] h-[450px] md:h-[600px] -mt-[99px] mr-[322px]"
+            />
+          </div>
         </div>
 
+        {/* <section
+  className="relative bg-[#1F2B6C] text-white w-full max-w-[1000px] mx-auto rounded-[50px] overflow-visible"
+  style={{
+    clipPath: "polygon(0 0, 100% 0, 100% 85%, 0 100%)",
+  }}
+>
+  <div className="flex flex-col md:flex-row items-center px-6 md:px-12 py-12 md:py-20 relative z-10">
+    <div className="flex-1 text-center md:text-left">
+      <h3 className="uppercase tracking-wide text-sm font-bold">
+        Welcome to
+      </h3>
+      <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mt-2 text-[#F3D805]">
+        The Shri Ram <br /> Universal School
+      </h1>
+      <p className="mt-4 text-base md:text-lg max-w-xl mx-auto md:mx-0">
+        We, at one of the top schools in Ludhiana, believe in the individuality and unique identity of each child. Our educational philosophy is emphatic about providing a child-centric education and keeping this in view, one of the best schools in Ludhiana offers learning that is interactive, experiential, innovative and evolving.
+      </p>
+    </div>
+  </div>
 
-
+  <div className="absolute bottom-0 right-0 w-full flex justify-center md:justify-end pointer-events-none z-0 -mb-20 md:-mb-32">
+    <img
+      src={Welcome}
+      alt="Hero"
+      className="rounded-2xl w-[80%] max-w-[500px] h-auto md:h-[600px] object-cover"
+    />
+  </div>
+</section> */}
 
         {/* ---------------- EVERY CHILD CAN LEARN ---------------- */}
         <section className="text-center py-16 bg-white relative">
@@ -315,7 +364,11 @@ function homepage() {
           <br />
           <div className="flex justify-center mt-8 px-4">
             <p className="max-w-3xl text-gray-700 text-lg leading-relaxed">
-              would act as facilitators and guide the students in their learning using activities, audio-visual stimuli, projects and presentations. The focus would remain on creating awareness in the students and providing them with experiences that they could apply to real-life situations
+              would act as facilitators and guide the students in their learning
+              using activities, audio-visual stimuli, projects and
+              presentations. The focus would remain on creating awareness in the
+              students and providing them with experiences that they could apply
+              to real-life situations
             </p>
           </div>
 
@@ -342,19 +395,18 @@ function homepage() {
               className="md:w-300 md:h-400 w-[300px] h-[300px] object-contain z-10 md:mt-[300px]"
             />
           </div>
-
         </section>
 
         {/* ---------------- ACTIVITIES SECTION ---------------- */}
-        <section className="bg-white-50 py-16 mt-[150px]" >
+        <section className="bg-white-50 py-16 mt-[150px]">
           <div className="max-w-7xl mx-auto px-6">
             {/* Heading */}
             <h2 className="text-3xl font-bold text-center text-[#1F2B6C] md:mt-10 -mt-0">
               School activities & Inspired Learners
             </h2>
             <p className="text-center text-gray-600 mt-2 max-w-2xl mx-auto">
-              A dynamic blend of academics, arts, and sports that spark curiosity and
-              inspire every child to excel
+              A dynamic blend of academics, arts, and sports that spark
+              curiosity and inspire every child to excel
             </p>
 
             {/* Grid Layout */}
@@ -363,7 +415,8 @@ function homepage() {
               <div
                 className="bg-white rounded-2xl shadow-md overflow-hidden relative"
                 style={{
-                  clipPath: "polygon(0px 0px, 100% 0px, 100% 101%, 50% 100%, 0px 96%)",
+                  clipPath:
+                    "polygon(0px 0px, 100% 0px, 100% 101%, 50% 100%, 0px 96%)",
                 }}
               >
                 {/* Background Image */}
@@ -380,17 +433,15 @@ function homepage() {
                 <div className="absolute bottom-0 p-6 text-white">
                   <h3 className="text-lg font-bold">Co-curriculum</h3>
                   <p className="mt-2 text-sm text-gray-200">
-                    Pursuit Beyond the Classroom — Students from each grade have the
-                    opportunity to go for educational and fun trips within the city and also
-                    outside it.
+                    Pursuit Beyond the Classroom — Students from each grade have
+                    the opportunity to go for educational and fun trips within
+                    the city and also outside it.
                   </p>
                   <button className="mt-4 bg-white text-[#25337C] font-semibold text-sm px-4 py-2 rounded-lg float-right">
                     Read More
                   </button>
                 </div>
               </div>
-
-
 
               {/* Card 2 */}
               <div className="bg-[#25337C] rounded-2xl shadow-md overflow-hidden relative group p-6 min-h-[400px]">
@@ -414,12 +465,15 @@ function homepage() {
                     <h3 className="text-lg font-bold">Learning</h3>
                   </div>
 
-                  <h4 className="text-xl font-semibold text-yellow-400">Shri Philosophy</h4>
+                  <h4 className="text-xl font-semibold text-yellow-400">
+                    Shri Philosophy
+                  </h4>
 
                   <p className="mt-3 text-sm text-gray-200 leading-relaxed">
-                    We, as one of the best CBSE schools in Ludhiana, believe in the unique
-                    individuality of each child and the entire curriculum is woven around
-                    the child, to make the learning process challenging and enjoyable.
+                    We, as one of the best CBSE schools in Ludhiana, believe in
+                    the unique individuality of each child and the entire
+                    curriculum is woven around the child, to make the learning
+                    process challenging and enjoyable.
                   </p>
 
                   <div className="flex justify-end">
@@ -429,9 +483,6 @@ function homepage() {
                   </div>
                 </div>
               </div>
-
-
-
 
               {/* Card 3 (Full Height Right, Shri Way) */}
               <div className="bg-[#25337C] rounded-2xl shadow-md overflow-hidden relative group text-center p-6">
@@ -443,12 +494,11 @@ function homepage() {
                   तत्त्वज्ञानात्परं नास्ति तस्मै श्रीगुरवे नमः॥
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-white">
-                  "Salutation to the noble Guru, beyond whom there is no higher truth,
-                  there is no higher penance and there is nothing higher attainable
-                  than true knowledge."
+                  "Salutation to the noble Guru, beyond whom there is no higher
+                  truth, there is no higher penance and there is nothing higher
+                  attainable than true knowledge."
                 </p>
               </div>
-
 
               {/* Card 4 */}
               <div className="bg-[#25337C] rounded-2xl shadow-md overflow-hidden relative group  p-6">
@@ -472,13 +522,18 @@ function homepage() {
                     <h3 className="text-lg font-bold">Facilities</h3>
                   </div>
 
-                  <h4 className="text-xl font-semibold text-yellow-400">Thinking Arcade– ’Think’cade</h4>
+                  <h4 className="text-xl font-semibold text-yellow-400">
+                    Thinking Arcade– ’Think’cade
+                  </h4>
 
                   <p className="mt-3 text-sm text-gray-200 leading-relaxed">
-                    At TSUS, utmost care has been taken to make sure that the environment maximizes learning and creativity.
+                    At TSUS, utmost care has been taken to make sure that the
+                    environment maximizes learning and creativity.
                   </p>
 
-                  <div className="flex justify-end"> {/* Parent div with flex and justify-end */}
+                  <div className="flex justify-end">
+                    {" "}
+                    {/* Parent div with flex and justify-end */}
                     <button className="mt-5 self-start bg-white text-[#25337C] font-semibold text-sm px-5 py-2 rounded-lg">
                       Read More
                     </button>
@@ -488,23 +543,21 @@ function homepage() {
 
               <div className="bg-[#25337C] rounded-2xl shadow-md overflow-hidden flex items-center justify-center h-64">
                 <div className="w-32 h-32 rounded-full  flex items-center justify-center">
-                  <img
-                    src={Logo}
-                    alt="TSUS Logo"
-                    className="w-26 h-26"
-                  />
+                  <img src={Logo} alt="TSUS Logo" className="w-26 h-26" />
                 </div>
               </div>
 
-
               {/* Logo Center (Circle Card) */}
-
 
               {/* Card 5 (Bottom Right) */}
               <div className="bg-[#25337C] rounded-2xl shadow-md p-6 flex flex-col justify-center">
                 {/* Heading + Sub-heading left aligned */}
-                <h3 className="text-lg font-bold text-[#F3D805] text-left ml-[38px]">Admission</h3>
-                <p className="text-[19px] text-[#FFFFFF] font-[600] mt-2 text-left ml-[38px]">Forms For Parents</p>
+                <h3 className="text-lg font-bold text-[#F3D805] text-left ml-[38px]">
+                  Admission
+                </h3>
+                <p className="text-[19px] text-[#FFFFFF] font-[600] mt-2 text-left ml-[38px]">
+                  Forms For Parents
+                </p>
 
                 {/* Buttons center aligned */}
                 <div className="flex flex-col mt-3 space-y-2 items-center">
@@ -519,12 +572,9 @@ function homepage() {
                   </button>
                 </div>
               </div>
-
-
             </div>
           </div>
         </section>
-
       </div>
       <div className="w-full font-sans bg-white py-16">
         <div className="max-w-[98rem] mx-auto px-6">
@@ -579,7 +629,6 @@ function homepage() {
             </div>
           </div>
 
-
           {/* Show More Button */}
           <div className="flex justify-center mt-8">
             <button className="px-6 py-2 bg-[#1F2B6C] text-white font-semibold rounded-lg hover:bg-[#16225a]">
@@ -600,14 +649,14 @@ function homepage() {
             <p className="text-[#383838] mt-4 max-w-[63rem] relative z-10 text-[20px]">
               The Shri Ram Universal School is recognized among the top 5 CBSE
               schools in Ludhiana and is known for its values, teaching
-              methodologies, and unique practices that it takes up from the legacy
-              established TSUS branches. We acknowledge the uniqueness of every
-              child and help them discover their uniqueness. We aim to create
-              responsible and caring human beings through our "Happy School"
-              initiative. We boast of our environment, which fosters a global
-              outlook while still being amongst the top 5 schools in Ludhiana.
+              methodologies, and unique practices that it takes up from the
+              legacy established TSUS branches. We acknowledge the uniqueness of
+              every child and help them discover their uniqueness. We aim to
+              create responsible and caring human beings through our "Happy
+              School" initiative. We boast of our environment, which fosters a
+              global outlook while still being amongst the top 5 schools in
+              Ludhiana.
             </p>
-
           </div>
         </div>
       </div>
@@ -624,8 +673,8 @@ function homepage() {
               className="relative rounded-xl shadow-lg p-8 text-left hover:shadow-2xl transition overflow-hidden"
               style={{
                 backgroundImage: `url(${backimg2})`, // Replace with your actual background image path
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
+                backgroundSize: "cover",
+                backgroundPosition: "center",
               }}
             >
               {/* Overlay to dim the background image and show text clearly, similar to the original yellow overlay */}
@@ -645,25 +694,21 @@ function homepage() {
                   Hands-on Makerspace
                 </h3>
                 <p className=" font-['Poppins'] text-[text-[#191919] text-[14px] leading-relaxed">
-                  With practical kits, tools, and digital platforms that turn classroom
-                  theory into tangible projects.
+                  With practical kits, tools, and digital platforms that turn
+                  classroom theory into tangible projects.
                 </p>
               </div>
             </div>
 
-
-
-
             {/* Card 1 */}
-
 
             {/* Card 2 */}
             <div
               className="relative rounded-xl shadow-lg p-8 text-left hover:shadow-2xl transition overflow-hidden"
               style={{
                 backgroundImage: `url(${backimg})`, // Replace with your actual background image path
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
+                backgroundSize: "cover",
+                backgroundPosition: "center",
               }}
             >
               {/* Overlay to dim the background image and show text clearly, similar to the original yellow overlay */}
@@ -684,21 +729,20 @@ function homepage() {
                 </h3>
                 <ol className="font-['Poppins'] text-[text-[#191919] text-[14px] leading-relaxed  list-decimal">
                   <li>
-                    <b>Concept Mastery</b>: Clarify tough topics through experiments.
+                    <b>Concept Mastery</b>: Clarify tough topics through
+                    experiments.
                   </li>
                   <li>
-                    <b>Engineering & Application</b>: Apply concepts in real-world settings.
+                    <b>Engineering & Application</b>: Apply concepts in
+                    real-world settings.
                   </li>
                   <li>
-                    <b>Emerging Technologies</b>: AI, AR/VR, 3D printing for future-ready exposure.
+                    <b>Emerging Technologies</b>: AI, AR/VR, 3D printing for
+                    future-ready exposure.
                   </li>
                 </ol>
               </div>
             </div>
-
-
-
-
 
             {/* { Card 3 */}
             {/* <div className="bg-[#F3D805] bg-opacity-40 rounded-xl shadow-lg p-8 text-left hover:shadow-2xl transition">
@@ -719,8 +763,8 @@ function homepage() {
               className="relative rounded-xl shadow-lg p-8 text-left hover:shadow-2xl transition overflow-hidden"
               style={{
                 backgroundImage: `url(${back3})`, // Replace with your actual background image path
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
+                backgroundSize: "cover",
+                backgroundPosition: "center",
               }}
             >
               {/* Overlay to dim the background image and show text clearly, similar to the original yellow overlay */}
@@ -740,12 +784,11 @@ function homepage() {
                   Aligned with NEP 2020
                 </h3>
                 <p className="font-['Poppins'] text-[text-[#191919] text-[14px] leading-relaxed">
-                  Spirit of multidisciplinary, inquiry-driven, project-based learning.
+                  Spirit of multidisciplinary, inquiry-driven, project-based
+                  learning.
                 </p>
               </div>
             </div>
-
-
           </div>
         </div>
       </section>
@@ -780,7 +823,6 @@ function homepage() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
             {/* Card 1 - AI & Robotics */}
             <div className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition">
               <img
@@ -793,8 +835,8 @@ function homepage() {
                   AI & Robotics
                 </h3>
                 <p className="font-['Poppins'] font-normal text-[14px]  text-[#191919]">
-                  Build and program autonomous bots; test sensors; learn simple ML
-                  concepts through age-appropriate activities.
+                  Build and program autonomous bots; test sensors; learn simple
+                  ML concepts through age-appropriate activities.
                 </p>
               </div>
             </div>
@@ -812,8 +854,9 @@ function homepage() {
                   Coding & App Design
                 </h3>
                 <p className="font-['Poppins'] font-normal text-[14px]  text-[#191919]">
-                  Block-based coding in early years → Python/JavaScript in middle &
-                  senior grades. UI/UX basics; publish simple apps and websites.
+                  Block-based coding in early years → Python/JavaScript in
+                  middle & senior grades. UI/UX basics; publish simple apps and
+                  websites.
                 </p>
               </div>
             </div>
@@ -889,7 +932,6 @@ function homepage() {
                 </p>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -899,8 +941,8 @@ function homepage() {
       <section className="flex justify-center py-2 px-4">
         <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden flex">
           {/* Left Yellow Accent */}
-          <div className="w-8 md:w-12 bg-yellow-400"></div> {/* Adjust width as needed */}
-
+          <div className="w-8 md:w-12 bg-yellow-400"></div>{" "}
+          {/* Adjust width as needed */}
           {/* Content Area */}
           <div className="p-6 md:p-10 flex-grow">
             <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6">
@@ -910,9 +952,13 @@ function homepage() {
             <ul className="space-y-4">
               {pathways.map((item, index) => (
                 <li key={index} className="flex items-start">
-                  <span className="text-[#000000] font-semibold mr-2">•</span> {/* Bullet point */}
+                  <span className="text-[#000000] font-semibold mr-2">•</span>{" "}
+                  {/* Bullet point */}
                   <p className="font-['Poppins'] text-[#000000] text-[16px] leading-relaxed">
-                    <span className="font-semibold text-[#000000]">{item.grade}</span> {item.description}
+                    <span className="font-semibold text-[#000000]">
+                      {item.grade}
+                    </span>{" "}
+                    {item.description}
                   </p>
                 </li>
               ))}
@@ -921,24 +967,29 @@ function homepage() {
         </div>
       </section>
 
-
       <section className="flex justify-center py-1 px-4">
         <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden flex">
           {/* Left Yellow Accent */}
-          <div className="w-8 md:w-12 bg-yellow-400"></div> {/* Adjust width as needed */}
-
+          <div className="w-8 md:w-12 bg-yellow-400"></div>{" "}
+          {/* Adjust width as needed */}
           {/* Content Area */}
           <div className="p-6 md:p-10 flex-grow">
-            <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6"> {/* Adjust color and font as per image */}
+            <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6">
+              {" "}
+              {/* Adjust color and font as per image */}
               How the Program Runs
             </h2>
 
             <ul className="space-y-4">
               {pathways2.map((item, index) => (
                 <li key={index} className="flex items-start">
-                  <span className="text-[#000000] font-semibold mr-2">•</span> {/* Bullet point */}
+                  <span className="text-[#000000] font-semibold mr-2">•</span>{" "}
+                  {/* Bullet point */}
                   <p className="font-['Poppins'] text-[#000000] text-[16px] leading-relaxed">
-                    <span className="font-semibold text-[#000000]">{item.grade}</span> {item.description}
+                    <span className="font-semibold text-[#000000]">
+                      {item.grade}
+                    </span>{" "}
+                    {item.description}
                   </p>
                 </li>
               ))}
@@ -949,20 +1000,26 @@ function homepage() {
       <section className="flex justify-center py-2 px-4">
         <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden flex">
           {/* Left Yellow Accent */}
-          <div className="w-8 md:w-12 bg-yellow-400"></div> {/* Adjust width as needed */}
-
+          <div className="w-8 md:w-12 bg-yellow-400"></div>{" "}
+          {/* Adjust width as needed */}
           {/* Content Area */}
           <div className="p-6 md:p-10 flex-grow">
-            <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6"> {/* Adjust color and font as per image */}
+            <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6">
+              {" "}
+              {/* Adjust color and font as per image */}
               Outcomes You Can Expect
             </h2>
 
             <ul className="space-y-4">
               {pathways3.map((item, index) => (
                 <li key={index} className="flex items-start">
-                  <span className="text-[#000000] font-semibold mr-2">•</span> {/* Bullet point */}
+                  <span className="text-[#000000] font-semibold mr-2">•</span>{" "}
+                  {/* Bullet point */}
                   <p className="font-['Poppins'] text-[#000000] text-[16px] leading-relaxed">
-                    <span className="font-semibold text-[#000000]">{item.grade}</span> {item.description}
+                    <span className="font-semibold text-[#000000]">
+                      {item.grade}
+                    </span>{" "}
+                    {item.description}
                   </p>
                 </li>
               ))}
@@ -973,7 +1030,6 @@ function homepage() {
       {/* ---------------- FAQ SECTION ---------------- */}
       <section className="w-full bg-white  flex items-center py-16 px-6 md:px-12 lg:px-20 ">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2  items-center">
-
           {/* Left Content */}
           <div className="flex flex-col justify-center text-left">
             <h2 className="font-poppins font-semibold text-[48px] leading-[48px] tracking-[0.5px] text-[#25337C] mb-4">
@@ -981,14 +1037,15 @@ function homepage() {
             </h2>
             <p className=" font-poppins text-[#191919] text-[16px]">
               Get answers to common questions about <br />
-              our <span className="font-semibold text-[#191919]">The Shri Ram Universal School.</span>
+              our{" "}
+              <span className="font-semibold text-[#191919]">
+                The Shri Ram Universal School.
+              </span>
             </p>
-
           </div>
 
           {/* Right FAQ Boxes */}
           <div className="space-y-4">
-
             {/* Single FAQ */}
             <details className="group bg-white rounded-xl shadow-md p-5 cursor-pointer">
               <summary className="flex justify-between items-center font-semibold text-gray-800">
@@ -999,11 +1056,16 @@ function homepage() {
                   Is prior coding experience needed?
                 </div>
                 <span className="transition-transform duration-300 group-open:rotate-180">
-                  <img src={Arrowdown} alt="arrow" className="h-5 w-5 text-[#000000]" />
+                  <img
+                    src={Arrowdown}
+                    alt="arrow"
+                    className="h-5 w-5 text-[#000000]"
+                  />
                 </span>
               </summary>
               <p className="mt-3 text-gray-600 text-sm">
-                No. We start with block coding and gradually progress to text-based languages.
+                No. We start with block coding and gradually progress to
+                text-based languages.
               </p>
             </details>
 
@@ -1016,11 +1078,16 @@ function homepage() {
                   Is it safe?
                 </div>
                 <span className="transition-transform duration-300 group-open:rotate-180">
-                  <img src={Arrowdown} alt="arrow" className="h-5 w-5 text-[#000000]" />
+                  <img
+                    src={Arrowdown}
+                    alt="arrow"
+                    className="h-5 w-5 text-[#000000]"
+                  />
                 </span>
               </summary>
               <p className="mt-3 text-gray-600 text-sm">
-                Yes. All activities follow strict safety SOPs; drone flying is simulation-first and age-restricted.
+                Yes. All activities follow strict safety SOPs; drone flying is
+                simulation-first and age-restricted.
               </p>
             </details>
 
@@ -1033,11 +1100,16 @@ function homepage() {
                   Will this add pressure?
                 </div>
                 <span className="transition-transform duration-300 group-open:rotate-180">
-                  <img src={Arrowdown} alt="arrow" className="h-5 w-5 text-[#000000]" />
+                  <img
+                    src={Arrowdown}
+                    alt="arrow"
+                    className="h-5 w-5 text-[#000000]"
+                  />
                 </span>
               </summary>
               <p className="mt-3 text-gray-600 text-sm">
-                The lab replaces passive learning with active learning—many students find it easier and more engaging.
+                The lab replaces passive learning with active learning—many
+                students find it easier and more engaging.
               </p>
             </details>
 
@@ -1050,23 +1122,29 @@ function homepage() {
                   How is this different from a computer period?
                 </div>
                 <span className="transition-transform duration-300 group-open:rotate-180">
-                  <img src={Arrowdown} alt="arrow" className="h-5 w-5 text-[#000000]" />
+                  <img
+                    src={Arrowdown}
+                    alt="arrow"
+                    className="h-5 w-5 text-[#000000]"
+                  />
                 </span>
               </summary>
               <p className="mt-3 text-gray-600 text-sm">
-                STEAM integrates science/math + engineering + emerging tech in a makerspace with physical builds, not just screens.
+                STEAM integrates science/math + engineering + emerging tech in a
+                makerspace with physical builds, not just screens.
               </p>
             </details>
-
           </div>
         </div>
-
       </section>
       <div className="mt-[-100px]">
-        <img src={frqVecter} alt="Descriptive Alt Text" className="w-40 h-auto" /> {/* Adjust w-40 as needed */}
+        <img
+          src={frqVecter}
+          alt="Descriptive Alt Text"
+          className="w-40 h-auto"
+        />{" "}
+        {/* Adjust w-40 as needed */}
       </div>
-
-
 
       {/* ---------------- PROGRAM DETAILS SECTION ---------------- */}
       <section className="py-2 bg-white">
@@ -1083,7 +1161,10 @@ function homepage() {
               {/* Row 1 - First/Last Name */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col">
-                  <label htmlFor="firstName" className=" font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]">
+                  <label
+                    htmlFor="firstName"
+                    className=" font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]"
+                  >
                     First Name
                   </label>
                   <input
@@ -1094,7 +1175,10 @@ function homepage() {
                 </div>
 
                 <div className="flex flex-col">
-                  <label htmlFor="lastName" className="font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]">
+                  <label
+                    htmlFor="lastName"
+                    className="font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]"
+                  >
                     Last Name
                   </label>
                   <input
@@ -1108,7 +1192,10 @@ function homepage() {
               {/* Row 2 - Email / Phone */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col">
-                  <label htmlFor="email" className="font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]">
+                  <label
+                    htmlFor="email"
+                    className="font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]"
+                  >
                     Email Address
                   </label>
                   <input
@@ -1119,7 +1206,10 @@ function homepage() {
                 </div>
 
                 <div className="flex flex-col">
-                  <label htmlFor="phone" className="font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]">
+                  <label
+                    htmlFor="phone"
+                    className="font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]"
+                  >
                     Phone Number
                   </label>
                   <input
@@ -1132,7 +1222,10 @@ function homepage() {
 
               {/* Row 3 - Class */}
               <div className="flex flex-col">
-                <label htmlFor="class" className="font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]">
+                <label
+                  htmlFor="class"
+                  className="font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]"
+                >
                   Class
                 </label>
                 <input
@@ -1144,7 +1237,10 @@ function homepage() {
 
               {/* Row 4 - Message */}
               <div className="flex flex-col">
-                <label htmlFor="message" className="font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]">
+                <label
+                  htmlFor="message"
+                  className="font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]"
+                >
                   Message
                 </label>
                 <textarea
@@ -1165,104 +1261,14 @@ function homepage() {
             </form>
           </div>
         </div>
-
       </section>
       {/* ---------------- ENQUIRE NOW SECTION ---------------- */}
-      <section className="py-25 bg-white">
+      <section className="py-25 bg-white"></section>
 
-      </section>
-
-
-
-
-
-
-      {/* ---------------- FOOTER ---------------- */}
-      <footer className=" relative bg-[#25337C] text-white">
-        {/* Wave Top Shape */}
-        <div className="absolute -top-[194px] left-14 w-full overflow-hidden leading-[0]">
-          <img src={Vector} alt="" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-40 grid grid-cols-1 md:grid-cols-5 gap-8">
-          {/* Logo */}
-          <div className="flex flex-col items-start space-y-4">
-            <img
-              src={Logo} // Replace with actual school logo if available
-              alt="The Shri Ram Universal School"
-              className="w-20 h-20 bg-white rounded-full p-2"
-            />
-            <p className="font-semibold text-lg leading-tight">
-              The Shri Ram Universal School
-            </p>
-          </div>
-
-          {/* About Us */}
-          <div>
-            <h3 className="font-bold mb-3">About Us</h3>
-            <ul className="space-y-2 text-sm">
-              <li>About TSUS Ludhiana</li>
-              <li>Leadership</li>
-              <li>Vision & Mission</li>
-              <li>Our Core Values</li>
-              <li>Shri Educare Legacy</li>
-              <li>What Makes Us Different</li>
-            </ul>
-          </div>
-
-          {/* Admission */}
-          <div>
-            <h3 className="font-bold mb-3">Admission</h3>
-            <ul className="space-y-2 text-sm">
-              <li>Admission Process</li>
-              <li>Application Form</li>
-              <li>Schedule a Visit</li>
-              <li>Brochure</li>
-              <li>FAQs</li>
-            </ul>
-          </div>
-
-          {/* Navigation */}
-          <div>
-            <h3 className="font-bold mb-3">Navigation</h3>
-            <ul className="space-y-2 text-sm">
-              <li>Home</li>
-              <li>Gallery</li>
-              <li>Career</li>
-              <li>Contact Us</li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="font-bold mb-3">GET IN TOUCH</h3>
-            <p className="text-sm">
-              The Shri Ram Universal School, Block 39, Southcity Enclave, Barewal
-              Main Road, Ludhiana-141012
-            </p>
-            <p className="mt-2 text-sm">📞 +91-98765-76543</p>
-            <p className="text-sm">✉️ info@tsusludhiana.com</p>
-            <div className="flex space-x-4 mt-3">
-              <FaInstagram className="w-5 h-5 cursor-pointer hover:text-pink-400" />
-              <FaFacebookF className="w-5 h-5 cursor-pointer hover:text-blue-400" />
-              <FaTwitter className="w-5 h-5 cursor-pointer hover:text-sky-400" />
-            </div>
-          </div>
-        </div>
-
-        {/* Kids Image */}
-        <div className="absolute bottom-0 right-4 hidden md:block">
-          <img
-            src={Footer} // replace with actual kids image
-            alt="Kids"
-            className="h-65 object-contain"
-          />
-        </div>
-
-      </footer>
-
+      <diV className="mt-[200px]">
+        <Footer />
+      </diV>
     </>
-
   );
 }
 

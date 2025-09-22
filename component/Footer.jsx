@@ -6,13 +6,12 @@ import Logo from "../src/assets/home/logo.png";
 export default function Footer() {
   return (
     <footer className=" relative bg-[#25337C] text-white">
-      {/* Wave Top Shape */}
-      <div className="absolute -top-[194px] left-14 w-full overflow-hidden leading-[0]">
-        <img src={Vector} alt="" />
+      
+      <div className="absolute -top-[194px] inset-x-0 overflow-hidden leading-[0]">
+        <img src={Vector} alt="" className="w-full" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-40 grid grid-cols-1 md:grid-cols-5 gap-8">
-        {/* Logo */}
         <div className="flex flex-col items-start space-y-4">
           <img
             src={Logo}
@@ -24,7 +23,6 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* About Us */}
         <div>
           <h3 className="font-bold mb-3">About Us</h3>
           <ul className="space-y-2 text-sm">
@@ -37,7 +35,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Admission */}
         <div>
           <h3 className="font-bold mb-3">Admission</h3>
           <ul className="space-y-2 text-sm">
@@ -49,7 +46,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Navigation */}
         <div>
           <h3 className="font-bold mb-3">Navigation</h3>
           <ul className="space-y-2 text-sm">
@@ -60,7 +56,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Contact */}
         <div>
           <h3 className="font-bold mb-3">GET IN TOUCH</h3>
           <p className="text-sm">
@@ -77,13 +72,8 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Kids Image */}
       <div className="absolute bottom-0 right-4 hidden md:block">
-        <img
-          src={FooterImg}
-          alt="Kids"
-          className="h-65 object-contain"
-        />
+        <img src={FooterImg} alt="Kids" className="h-65 object-contain" />
       </div>
     </footer>
   );
