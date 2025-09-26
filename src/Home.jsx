@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
 import Footer from "../component/Footer";
@@ -17,40 +17,22 @@ import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { FaHandshake } from "react-icons/fa";
 // import Footer from './assets/home/footer.png';
 import "./App.css";
-import Vector from "./assets/home/vector.png";
-import Hero from "./assets/home/hero.png";
 import Logo from "./assets/home/logo.png";
 import BottomTop from "./assets/home/bottom_top.png";
-import Photo1 from "./assets/home/photo1.png";
-import Photo2 from "./assets/home/photo2.png";
-import Photo3 from "./assets/home/photo3.png";
-import Arrow from "./assets/home/arrow.png";
 import Lefticon from "./assets/home/Lefticon.png";
 import Righticon from "./assets/home/Righticon.png";
-import Shree from "./assets/home/shree.png";
 import Leftpipe from "./assets/home/leftpipe.png";
 import Curriculum1 from "./assets/home/curriculum1.webp";
 import Curriculum2 from "./assets/home/curriculum2.webp";
 import Sport from "./assets/home/sport.jpg";
 import Learningplatform from "./assets/home/learning_platform.png";
 import Facilities from "./assets/home/facilities.png";
-import Educator from "./assets/home/educator.png";
 import Welcome from "./assets/home/welcome.png";
 import Rightpipe from "./assets/home/rightpipe.png";
 import Vector1 from "./assets/home/vector1.png";
-import aicodding from "./assets/home/expcard1.png";
 import expfrontend from "./assets/home/expgroup.png";
 import exp from "./assets/home/expgroup2.png";
 import vectexp from "./assets/home/vectorexp2.png";
-import backimg from "./assets/home/backgroundexp.png";
-import backimg2 from "./assets/home/backgroungexp1.png";
-// import tring from './assets/home/triangle.png';
-import back3 from "./assets/home/vecterback3.jpg";
-import experienceAI from "./assets/home/experienceAI.png";
-import experienceAI3 from "./assets/home/experienceAI3.png";
-import experienceAI4 from "./assets/home/experienceAI4.png";
-import experienceAI5 from "./assets/home/experienceAI5.png";
-import experienceAI6 from "./assets/home/experienceAI6.png";
 import ask1 from "./assets/home/freqimg1.png";
 import Arrowdown from "./assets/home/Arrowdown.png";
 import aks2 from "./assets/home/freqask2.png";
@@ -60,8 +42,23 @@ import frqVecter from "./assets/home/freqaskvecter.png";
 import blue from "./assets/home/blueVecter.png";
 import yellow from "./assets/home/yellowVector.png";
 import Header from "../component/Header";
+import axios from "axios";
 
+const steamIconArray = [expfrontend, vectexp, exp];
+const faqIcon = [ask1, aks2, aks3, aks4];
 function homepage() {
+  const [error, setError] = useState();
+  const [bannerData, setBannerData] = useState();
+  const [welcomeData, setWelcomeData] = useState();
+  const [everychildData, setEveryChildData] = useState();
+  const [galleryData, setGalleryData] = useState([]);
+  const [leftBtnGalleryIndex, setLeftBtnGalleryIndex] = useState(0);
+  const [rightBtnGalleryIndex, setRightBtnGalleryIndex] = useState(3);
+  const [cbseData, setCbseData] = useState();
+  const [steamData, setSteamData] = useState([]);
+  const [experienceData, setExperienceData] = useState([]);
+  const [faqData, setFaqData] = useState([]);
+  const [programData, setProgramData] = useState([]);
   // const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -134,6 +131,191 @@ function homepage() {
     },
   ];
 
+  const getBanner = async () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/get-banner`)
+      .then((res) => {
+        setBannerData(res?.data?.getBannerData);
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+      });
+  };
+
+  const getWelcomeData = async () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/welcome`)
+      .then((res) => {
+        setWelcomeData(res?.data);
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+      });
+  };
+
+  const getEveryChildData = async () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/every-child-learn`)
+      .then((res) => {
+        setEveryChildData(res?.data);
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+      });
+  };
+
+  const getGalleryData = async () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/gallery-list`)
+      .then((res) => {
+        setGalleryData(res?.data);
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+      });
+  };
+
+  const getCbseData = () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/get-cbse-section`)
+      .then((res) => {
+        setCbseData(res?.data);
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+      });
+  };
+
+  const getSteamData = () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/steam-list`)
+      .then((res) => {
+        // console.log(res.data,"ggg")
+        setSteamData(res?.data);
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+      });
+  };
+
+  const getExperienceData = () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/student-experience-list`)
+      .then((res) => {
+        setExperienceData(res?.data);
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+      });
+  };
+
+  const getFaq = () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/faq-list`)
+      .then((res) => {
+        setFaqData(res?.data);
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+      });
+  };
+
+  const getprogramData = () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/program-list`)
+      .then((res) => {
+        setProgramData(res?.data);
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+      });
+  };
+
+  useEffect(() => {
+    getBanner();
+  }, []);
+
+  useEffect(() => {
+    getWelcomeData();
+  }, []);
+
+  useEffect(() => {
+    getEveryChildData();
+  }, []);
+
+  useEffect(() => {
+    getGalleryData();
+  }, []);
+
+  useEffect(() => {
+    getCbseData();
+  }, []);
+
+  useEffect(() => {
+    getSteamData();
+  }, []);
+
+  useEffect(() => {
+    getExperienceData();
+  }, []);
+
+  useEffect(() => {
+    getFaq();
+  }, []);
+
+  useEffect(() => {
+    getprogramData();
+  }, []);
+
+  const handleBack = () => {
+    if (leftBtnGalleryIndex > 0) {
+      setLeftBtnGalleryIndex((prev) => prev - 3);
+      setRightBtnGalleryIndex((prev) => prev - 3);
+    }
+  };
+
+  const handleForward = (totalItems) => {
+    if (rightBtnGalleryIndex < totalItems) {
+      setLeftBtnGalleryIndex((prev) => prev + 3);
+      setRightBtnGalleryIndex((prev) => prev + 3);
+    }
+  };
   return (
     <>
       <Header />
@@ -146,18 +328,17 @@ function homepage() {
         />
 
         <img
-          src={Hero}
+          src={`${import.meta.env.VITE_APP_URL}${bannerData?.imageUrl}`}
           alt="Hero"
           className="absolute w-full h-full object-cover"
         />
 
         <div className="absolute inset-0 flex flex-col justify-center items-start md:items-start px-4 sm:px-8 md:px-16 z-10 mt-[100px] md:mt-[130px]">
           <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold max-w-full md:max-w-2xl leading-snug">
-            Nurturing Bright <br /> Minds, Building <br /> Strong Futures
+            {bannerData?.title}
           </h1>
           <p className="text-white mt-4 text-base sm:text-lg md:text-lg lg:text-xl max-w-full md:max-w-xl">
-            At Shri Ram Universal School, we combine academics, creativity, and
-            innovation to prepare every kid for tomorrow.
+            {bannerData?.description}
           </p>
           <button className="mt-6 px-4 sm:px-6 py-2 sm:py-3 bg-[#25337C] text-white font-semibold rounded-lg hover:bg-blue-800 w-fit text-sm sm:text-base md:text-lg">
             Apply for Admission
@@ -298,15 +479,10 @@ function homepage() {
                   Welcome to
                 </h3>
                 <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mt-2 text-[#F3D805]">
-                  The Shri Ram <br /> Universal School
+                  {welcomeData?.title}
                 </h1>
                 <p className="mt-4 text-base md:text-lg max-w-lg mx-auto md:mx-0">
-                  We, at one of the top schools in Ludhiana, believe in the
-                  individuality and unique identity of each child. Our
-                  educational philosophy is emphatic about providing a
-                  child-centric education and keeping this in view, one of the
-                  best schools in Ludhiana offers learning that is interactive,
-                  experiential, innovative and evolving.
+                  {welcomeData?.description}
                 </p>
               </div>
             </div>
@@ -356,7 +532,7 @@ function homepage() {
             Every Child Can Learn
           </h2>
           <p className="text-gray-600 mt-2 text-[21px]">
-            Just not on the same day, or in the same way
+            {everychildData?.title}
           </p>
           <button className="mt-4 bg-[#25337C] text-white font-semibold text-sm px-6 py-6 rounded-lg md:w-150 rounded-tr-[38px] rounded-bl-[38px] text-[21px]">
             The Shri Educators
@@ -364,11 +540,7 @@ function homepage() {
           <br />
           <div className="flex justify-center mt-8 px-4">
             <p className="max-w-3xl text-gray-700 text-lg leading-relaxed">
-              would act as facilitators and guide the students in their learning
-              using activities, audio-visual stimuli, projects and
-              presentations. The focus would remain on creating awareness in the
-              students and providing them with experiences that they could apply
-              to real-life situations
+              {everychildData?.description}
             </p>
           </div>
 
@@ -390,7 +562,9 @@ function homepage() {
 
             {/* Educator Image (Centered on top) */}
             <img
-              src={Educator}
+              src={`${import.meta.env.VITE_APP_URL}${
+                everychildData?.images[0]
+              }`}
               alt="Educator"
               className="md:w-300 md:h-400 w-[300px] h-[300px] object-contain z-10 md:mt-[300px]"
             />
@@ -597,33 +771,38 @@ function homepage() {
           {/* -------- SLIDER IMAGES -------- */}
           <div className="relative mt-10">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <img
-                src={Photo1}
-                alt="Event 1"
-                className="rounded-lg w-full h-64 object-cover shadow"
-              />
-              <img
-                src={Photo2}
-                alt="Event 2"
-                className="rounded-lg w-full h-64 object-cover shadow"
-              />
-              <img
-                src={Photo3}
-                alt="Event 3"
-                className="rounded-lg w-full h-64 object-cover shadow"
-              />
+              {galleryData?.length &&
+                galleryData
+                  ?.slice(leftBtnGalleryIndex, rightBtnGalleryIndex)
+                  ?.map((gallery) => (
+                    <img
+                      src={`${import.meta.env.VITE_APP_URL}${gallery?.image}`}
+                      alt="Event 1"
+                      className="rounded-lg w-full h-64 object-cover shadow"
+                    />
+                  ))}
             </div>
 
             {/* Left Gradient + Arrow */}
             <div className="absolute left-0 top-0 h-full w-45 bg-gradient-to-r from-white to-transparent flex items-center justify-start">
-              <button className=" rounded-full p-3  hover:bg-gray-100 ml-2">
+              <button
+                onClick={handleBack}
+                disabled={leftBtnGalleryIndex === 0}
+                className=" rounded-full p-3  hover:bg-gray-100 ml-2"
+              >
                 <img src={Lefticon} alt="" className="w-[30px]" />
               </button>
             </div>
 
             {/* Right Gradient + Arrow */}
             <div className="absolute right-0 top-0 h-full w-45 bg-gradient-to-l from-white to-transparent flex items-center justify-end">
-              <button className=" rounded-full p-3 hover:bg-gray-100 mr-2">
+              <button
+                onClick={() => {
+                  handleForward(galleryData?.length);
+                }}
+                disabled={rightBtnGalleryIndex >= galleryData.length}
+                className=" rounded-full p-3 hover:bg-gray-100 mr-2"
+              >
                 <img src={Righticon} alt="" className="w-[30px]" />
               </button>
             </div>
@@ -647,15 +826,7 @@ function homepage() {
               TSUS – Amongst Top 5 CBSE <br /> Schools in Ludhiana
             </h2>
             <p className="text-[#383838] mt-4 max-w-[63rem] relative z-10 text-[20px]">
-              The Shri Ram Universal School is recognized among the top 5 CBSE
-              schools in Ludhiana and is known for its values, teaching
-              methodologies, and unique practices that it takes up from the
-              legacy established TSUS branches. We acknowledge the uniqueness of
-              every child and help them discover their uniqueness. We aim to
-              create responsible and caring human beings through our "Happy
-              School" initiative. We boast of our environment, which fosters a
-              global outlook while still being amongst the top 5 schools in
-              Ludhiana.
+              {cbseData?.decscription}
             </p>
           </div>
         </div>
@@ -667,128 +838,38 @@ function homepage() {
             Why a STEAM Lab at TSUS?
           </h2>
 
-          {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div
-              className="relative rounded-xl shadow-lg p-8 text-left hover:shadow-2xl transition overflow-hidden"
-              style={{
-                backgroundImage: `url(${backimg2})`, // Replace with your actual background image path
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              {/* Overlay to dim the background image and show text clearly, similar to the original yellow overlay */}
-              <div className="absolute inset-0 bg-[#F3D805] opacity-40 rounded-xl"></div>
+            {steamData?.length > 0 &&
+              steamData?.map((ele, index) => (
+                <div
+                  className="relative rounded-xl shadow-lg p-8 text-left hover:shadow-2xl transition overflow-hidden"
+                  style={{
+                    backgroundImage: `url(${import.meta.env.VITE_APP_URL}${
+                      ele?.image
+                    })`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <div className="absolute inset-0 bg-[#F3D805] opacity-40 rounded-xl"></div>
 
-              {/* Content wrapper to ensure text and icon are above the overlay */}
-              <div className="relative z-10">
-                <div className="mb-4">
-                  {/* Replace the emoji span with an actual image tag for the icon */}
-                  <img
-                    src={expfrontend} // Replace with your actual icon image path
-                    alt="NEP 2020 Aligned"
-                    className="bg-[#25337C] p-3 rounded-lg inline-block w-15 h-15 object-contain" // Adjust w- and h- as needed
-                  />
+                  <div className="relative z-10">
+                    <div className="mb-4">
+                      <img
+                        src={steamIconArray[index]}
+                        alt="NEP 2020 Aligned"
+                        className="bg-[#25337C] p-3 rounded-lg inline-block w-15 h-15 object-contain"
+                      />
+                    </div>
+                    <h3 className=" font-['Poppins'] text-[22px] md:text-[26px] font-semibold text-[#000000] tracking-[0.5px] leading-[100%] mb-3">
+                      {ele?.title}
+                    </h3>
+                    <p className=" font-['Poppins'] text-[text-[#191919] text-[14px] leading-relaxed">
+                      {ele.description}
+                    </p>
+                  </div>
                 </div>
-                <h3 className=" font-['Poppins'] text-[22px] md:text-[26px] font-semibold text-[#000000] tracking-[0.5px] leading-[100%] mb-3">
-                  Hands-on Makerspace
-                </h3>
-                <p className=" font-['Poppins'] text-[text-[#191919] text-[14px] leading-relaxed">
-                  With practical kits, tools, and digital platforms that turn
-                  classroom theory into tangible projects.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 1 */}
-
-            {/* Card 2 */}
-            <div
-              className="relative rounded-xl shadow-lg p-8 text-left hover:shadow-2xl transition overflow-hidden"
-              style={{
-                backgroundImage: `url(${backimg})`, // Replace with your actual background image path
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              {/* Overlay to dim the background image and show text clearly, similar to the original yellow overlay */}
-              <div className="absolute inset-0 bg-[#F3D805] opacity-40 rounded-xl"></div>
-
-              {/* Content wrapper to ensure text and icon are above the overlay */}
-              <div className="relative z-10">
-                <div className="mb-4">
-                  {/* Replace the emoji span with an actual image tag for the icon */}
-                  <img
-                    src={vectexp} // Replace with your actual icon image path
-                    alt="NEP 2020 Aligned"
-                    className="bg-[#25337C] p-3 rounded-lg inline-block w-15 h-15 object-contain" // Adjust w- and h- as needed
-                  />
-                </div>
-                <h3 className="font-['Poppins']s text-[22px] md:text-[26px] font-semibold text-[#000000] tracking-[0.5px] leading-[100%] mb-3">
-                  Three-pillar Learning
-                </h3>
-                <ol className="font-['Poppins'] text-[text-[#191919] text-[14px] leading-relaxed  list-decimal">
-                  <li>
-                    <b>Concept Mastery</b>: Clarify tough topics through
-                    experiments.
-                  </li>
-                  <li>
-                    <b>Engineering & Application</b>: Apply concepts in
-                    real-world settings.
-                  </li>
-                  <li>
-                    <b>Emerging Technologies</b>: AI, AR/VR, 3D printing for
-                    future-ready exposure.
-                  </li>
-                </ol>
-              </div>
-            </div>
-
-            {/* { Card 3 */}
-            {/* <div className="bg-[#F3D805] bg-opacity-40 rounded-xl shadow-lg p-8 text-left hover:shadow-2xl transition">
-              <div className="mb-4">
-                <span className="bg-[#25337C] text-white p-3 rounded-lg inline-block">
-                  🎯
-                </span>
-              </div>
-              <h3 className="text-xl font-semibold text-[#25337C] mb-3">
-                Aligned with NEP 2020
-              </h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
-                Spirit of multidisciplinary, inquiry-driven, project-based learning.
-              </p>
-            </div> */}
-            {/* {Card 3 } */}
-            <div
-              className="relative rounded-xl shadow-lg p-8 text-left hover:shadow-2xl transition overflow-hidden"
-              style={{
-                backgroundImage: `url(${back3})`, // Replace with your actual background image path
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              {/* Overlay to dim the background image and show text clearly, similar to the original yellow overlay */}
-              <div className="absolute inset-0 bg-[#F3D805] opacity-40 rounded-xl"></div>
-
-              {/* Content wrapper to ensure text and icon are above the overlay */}
-              <div className="relative z-10">
-                <div className="mb-4">
-                  {/* Replace the emoji span with an actual image tag for the icon */}
-                  <img
-                    src={exp} // Replace with your actual icon image path
-                    alt="NEP 2020 Aligned"
-                    className="bg-[#25337C] p-3 rounded-lg inline-block w-15 h-15 object-contain" // Adjust w- and h- as needed
-                  />
-                </div>
-                <h3 className="ffont-['Poppins'] text-[22px] md:text-[26px] font-semibold text-[#000000] tracking-[0.5px] leading-[100%] mb-3">
-                  Aligned with NEP 2020
-                </h3>
-                <p className="font-['Poppins'] text-[text-[#191919] text-[14px] leading-relaxed">
-                  Spirit of multidisciplinary, inquiry-driven, project-based
-                  learning.
-                </p>
-              </div>
-            </div>
+              ))}
           </div>
         </div>
       </section>
@@ -823,140 +904,49 @@ function homepage() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Card 1 - AI & Robotics */}
-            <div className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition">
-              <img
-                src={aicodding}
-                alt="AI & Robotics"
-                className="w-full h-40 object-cover"
-              />
-              <div className="p-6 text-left">
-                <h3 className="font-['Poppins'] font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000]">
-                  AI & Robotics
-                </h3>
-                <p className="font-['Poppins'] font-normal text-[14px]  text-[#191919]">
-                  Build and program autonomous bots; test sensors; learn simple
-                  ML concepts through age-appropriate activities.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 2 - Coding & App Design */}
-            <div className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition">
-              <img
-                src={experienceAI}
-                // src="./assets/home/experienceAI.png"
-                alt="Coding & App Design"
-                className="w-full h-40 object-cover"
-              />
-              <div className="p-6 text-left">
-                <h3 className="font-['Poppins'] font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000]">
-                  Coding & App Design
-                </h3>
-                <p className="font-['Poppins'] font-normal text-[14px]  text-[#191919]">
-                  Block-based coding in early years → Python/JavaScript in
-                  middle & senior grades. UI/UX basics; publish simple apps and
-                  websites.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 3 - IoT & Automation */}
-            <div className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition">
-              <img
-                src={experienceAI3}
-                alt="IoT & Automation"
-                className="w-full h-40 object-cover"
-              />
-              <div className="p-6 text-left">
-                <h3 className="font-['Poppins'] font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000]">
-                  IoT & Automation
-                </h3>
-                <p className="font-['Poppins'] font-normal text-[14px]  text-[#191919]">
-                  Wire up microcontrollers; read sensor data; automate everyday
-                  tasks.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 4 - Drone Tech & Aerodynamics */}
-            <div className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition">
-              <img
-                src={experienceAI4}
-                alt="Drone Tech & Aerodynamics"
-                className="w-full h-40 object-cover"
-              />
-              <div className="p-6 text-left">
-                <h3 className="font-['Poppins'] font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000]">
-                  Drone Tech & Aerodynamics
-                </h3>
-                <p className="font-['Poppins'] font-normal text-[14px]  text-[#191919]">
-                  Safety-first flight basics; simulations; components and
-                  regulations (awareness sessions).
-                </p>
-              </div>
-            </div>
-
-            {/* Card 5 - AR/VR & Simulations */}
-            <div className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition">
-              <img
-                src={experienceAI5}
-                alt="AR/VR & Simulations"
-                className="w-full h-40 object-cover"
-              />
-              <div className="p-6 text-left">
-                <h3 className="font-['Poppins'] font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000]">
-                  AR/VR & Simulations
-                </h3>
-                <p className="font-['Poppins'] font-normal text-[14px]  text-[#191919]">
-                  Explore immersive content - virtual field trips, interactive
-                  science models — so complex ideas "click”.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 6 - Digital Creation & Communication */}
-            <div className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition">
-              <img
-                src={experienceAI6}
-                alt="Digital Creation & Communication"
-                className="w-full h-40 object-cover"
-              />
-              <div className="p-6 text-left">
-                <h3 className="font-['Poppins'] font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000]">
-                  Digital Creation & Communication
-                </h3>
-                <p className="font-['Poppins'] font-normal text-[14px]  text-[#191919]">
-                  Content creation, video editing, presentations, elocution &
-                  extempore because-ideas matter only when shared clearly.
-                </p>
-              </div>
-            </div>
+            {experienceData?.length > 0 &&
+              experienceData?.map((ele) => (
+                <div className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition">
+                  <img
+                    src={`${import.meta.env.VITE_APP_URL}${ele.image}`}
+                    alt="AI & Robotics"
+                    className="w-full h-40 object-cover"
+                  />
+                  <div className="p-6 text-left">
+                    <h3 className="font-['Poppins'] font-semibold text-[22px] leading-[100%] tracking-[0.5px] text-[#000000]">
+                      {ele?.title}
+                    </h3>
+                    <p className="font-['Poppins'] font-normal text-[14px]  text-[#191919]">
+                      {ele.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       </section>
 
       {/* new section */}
-      {/* ---------------- STEAM PROGRAM SECTION ---------------- */}
-      <section className="flex justify-center py-2 px-4">
+
+      {programData?.length>0 && 
+      programData?.map((ele)=>(
+
+              <section className="flex justify-center py-2 px-4">
         <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden flex">
-          {/* Left Yellow Accent */}
           <div className="w-8 md:w-12 bg-yellow-400"></div>{" "}
-          {/* Adjust width as needed */}
-          {/* Content Area */}
           <div className="p-6 md:p-10 flex-grow">
             <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6">
-              Grade-wise Pathway
+              {ele?.title}
             </h2>
 
             <ul className="space-y-4">
-              {pathways.map((item, index) => (
+              {ele?.section?.map((item, index) => (
                 <li key={index} className="flex items-start">
                   <span className="text-[#000000] font-semibold mr-2">•</span>{" "}
                   {/* Bullet point */}
                   <p className="font-['Poppins'] text-[#000000] text-[16px] leading-relaxed">
                     <span className="font-semibold text-[#000000]">
-                      {item.grade}
+                      {item.heading}
                     </span>{" "}
                     {item.description}
                   </p>
@@ -966,67 +956,8 @@ function homepage() {
           </div>
         </div>
       </section>
-
-      <section className="flex justify-center py-1 px-4">
-        <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden flex">
-          {/* Left Yellow Accent */}
-          <div className="w-8 md:w-12 bg-yellow-400"></div>{" "}
-          {/* Adjust width as needed */}
-          {/* Content Area */}
-          <div className="p-6 md:p-10 flex-grow">
-            <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6">
-              {" "}
-              {/* Adjust color and font as per image */}
-              How the Program Runs
-            </h2>
-
-            <ul className="space-y-4">
-              {pathways2.map((item, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="text-[#000000] font-semibold mr-2">•</span>{" "}
-                  {/* Bullet point */}
-                  <p className="font-['Poppins'] text-[#000000] text-[16px] leading-relaxed">
-                    <span className="font-semibold text-[#000000]">
-                      {item.grade}
-                    </span>{" "}
-                    {item.description}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-      <section className="flex justify-center py-2 px-4">
-        <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden flex">
-          {/* Left Yellow Accent */}
-          <div className="w-8 md:w-12 bg-yellow-400"></div>{" "}
-          {/* Adjust width as needed */}
-          {/* Content Area */}
-          <div className="p-6 md:p-10 flex-grow">
-            <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6">
-              {" "}
-              {/* Adjust color and font as per image */}
-              Outcomes You Can Expect
-            </h2>
-
-            <ul className="space-y-4">
-              {pathways3.map((item, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="text-[#000000] font-semibold mr-2">•</span>{" "}
-                  {/* Bullet point */}
-                  <p className="font-['Poppins'] text-[#000000] text-[16px] leading-relaxed">
-                    <span className="font-semibold text-[#000000]">
-                      {item.grade}
-                    </span>{" "}
-                    {item.description}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
+      ))}
+ 
       {/* ---------------- FAQ SECTION ---------------- */}
       <section className="w-full bg-white  flex items-center py-16 px-6 md:px-12 lg:px-20 ">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2  items-center">
@@ -1046,94 +977,33 @@ function homepage() {
 
           {/* Right FAQ Boxes */}
           <div className="space-y-4">
-            {/* Single FAQ */}
-            <details className="group bg-white rounded-xl shadow-md p-5 cursor-pointer">
-              <summary className="flex justify-between items-center font-semibold text-gray-800">
-                <div className="flex items-center gap-3 font-poppins font-medium text-[20px] leading-[20px] tracking-[0.5px]">
-                  <span className="bg-[#F3D805] text-[#000000] rounded-full w-9 h-9 flex items-center justify-center">
-                    <img src={ask1} alt="icon" className="h-6 w-6" />
-                  </span>
-                  Is prior coding experience needed?
-                </div>
-                <span className="transition-transform duration-300 group-open:rotate-180">
-                  <img
-                    src={Arrowdown}
-                    alt="arrow"
-                    className="h-5 w-5 text-[#000000]"
-                  />
-                </span>
-              </summary>
-              <p className="mt-3 text-gray-600 text-sm">
-                No. We start with block coding and gradually progress to
-                text-based languages.
-              </p>
-            </details>
-
-            <details className="group bg-white rounded-xl shadow-md p-5 cursor-pointer">
-              <summary className="flex justify-between items-center font-semibold text-gray-800">
-                <div className="flex items-center gap-3 font-poppins font-medium text-[20px] leading-[20px] tracking-[0.5px]">
-                  <span className="bg-[#F3D805] text-[#000000] rounded-full w-9 h-9 flex items-center justify-center">
-                    <img src={aks2} alt="icon" className="h-6 w-6" />
-                  </span>
-                  Is it safe?
-                </div>
-                <span className="transition-transform duration-300 group-open:rotate-180">
-                  <img
-                    src={Arrowdown}
-                    alt="arrow"
-                    className="h-5 w-5 text-[#000000]"
-                  />
-                </span>
-              </summary>
-              <p className="mt-3 text-gray-600 text-sm">
-                Yes. All activities follow strict safety SOPs; drone flying is
-                simulation-first and age-restricted.
-              </p>
-            </details>
-
-            <details className="group bg-white rounded-xl shadow-md p-5 cursor-pointer">
-              <summary className="flex justify-between items-center font-semibold text-gray-800">
-                <div className="flex items-center gap-3 font-poppins font-medium text-[20px] leading-[20px] tracking-[0.5px]">
-                  <span className="bg-[#F3D805] text-[#000000] rounded-full w-9 h-9 flex items-center justify-center">
-                    <img src={aks3} alt="icon" className="h-6 w-6" />
-                  </span>
-                  Will this add pressure?
-                </div>
-                <span className="transition-transform duration-300 group-open:rotate-180">
-                  <img
-                    src={Arrowdown}
-                    alt="arrow"
-                    className="h-5 w-5 text-[#000000]"
-                  />
-                </span>
-              </summary>
-              <p className="mt-3 text-gray-600 text-sm">
-                The lab replaces passive learning with active learning—many
-                students find it easier and more engaging.
-              </p>
-            </details>
-
-            <details className="group bg-white rounded-xl shadow-md p-5 cursor-pointer">
-              <summary className="flex justify-between items-center font-semibold text-gray-800">
-                <div className="flex items-center gap-3 font-poppins font-medium text-[20px] leading-[20px] tracking-[0.5px]">
-                  <span className="bg-[#F3D805] text-[#000000] rounded-full w-9 h-9 flex items-center justify-center">
-                    <img src={aks4} alt="icon" className="h-6 w-6" />
-                  </span>
-                  How is this different from a computer period?
-                </div>
-                <span className="transition-transform duration-300 group-open:rotate-180">
-                  <img
-                    src={Arrowdown}
-                    alt="arrow"
-                    className="h-5 w-5 text-[#000000]"
-                  />
-                </span>
-              </summary>
-              <p className="mt-3 text-gray-600 text-sm">
-                STEAM integrates science/math + engineering + emerging tech in a
-                makerspace with physical builds, not just screens.
-              </p>
-            </details>
+            {faqData?.length > 0 &&
+              faqData?.map((ele, index) => (
+                <details className="group bg-white rounded-xl shadow-md p-5 cursor-pointer">
+                  <summary className="flex justify-between items-center font-semibold text-gray-800">
+                    <div className="flex items-center gap-3 font-poppins font-medium text-[20px] leading-[20px] tracking-[0.5px]">
+                      <span className="bg-[#F3D805] text-[#000000] rounded-full w-9 h-9 flex items-center justify-center">
+                        <img
+                          src={faqIcon[index]}
+                          alt="icon"
+                          className="h-6 w-6"
+                        />
+                      </span>
+                      {ele?.title}
+                    </div>
+                    <span className="transition-transform duration-300 group-open:rotate-180">
+                      <img
+                        src={Arrowdown}
+                        alt="arrow"
+                        className="h-5 w-5 text-[#000000]"
+                      />
+                    </span>
+                  </summary>
+                  <p className="mt-3 text-gray-600 text-sm">
+                    {ele?.description}
+                  </p>
+                </details>
+              ))}
           </div>
         </div>
       </section>
