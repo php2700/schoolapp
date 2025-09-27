@@ -5,19 +5,27 @@ import homevector from "../assets/home/homevector.png";
 import Header from "../../component/Header";
 import Footer from "../../component/Footer";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const ContactUsPage = () => {
-      const [selected, setSelected] = useState("in");
-      const [contactBanner,setContactBanner]=useState();
-      const [error,setError]=useState();
+  const [contactBanner, setContactBanner] = useState();
+  const [error, setError] = useState();
+  const [formData, setFormData] = useState({
+    firstName: "",
+    email: "",
+    phone: "",
+    city: "",
+    state: "",
+    county: "",
+    message: "",
+  });
 
-
-      const getContactBanner = () => {
+  const getContactBanner = () => {
     axios
       .get(`${import.meta.env.VITE_APP_URL}api/user/contact-banner`)
       .then((res) => {
         setContactBanner(res?.data);
-        console.log(res.data)
+        console.log(res.data);
         // console.log(res.data,"hhh")
       })
       .catch((error) => {
@@ -32,17 +40,42 @@ const ContactUsPage = () => {
   useEffect(() => {
     getContactBanner();
   }, []);
-  
-      const countries = [
-          { code: "in", name: "India", flag: "https://flagcdn.com/w20/in.png" },
-          { code: "us", name: "USA", flag: "https://flagcdn.com/w20/us.png" },
-          { code: "gb", name: "UK", flag: "https://flagcdn.com/w20/gb.png" },
-          { code: "au", name: "Australia", flag: "https://flagcdn.com/w20/au.png" },
-          { code: "jp", name: "Japan", flag: "https://flagcdn.com/w20/jp.png" },
-          { code: "de", name: "Germany", flag: "https://flagcdn.com/w20/de.png" },
-          { code: "ae", name: "UAE", flag: "https://flagcdn.com/w20/ae.png" },
-          { code: "pk", name: "Pakistan", flag: "https://flagcdn.com/w20/pk.png" },
-      ];
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const phoneRegex = /^[6-9]\d{9}$/;
+    if (!phoneRegex.test(formData.phone)) {
+      toast.error("Please enter a valid 10-digit Indian mobile number");
+      return;
+    }
+
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_APP_URL}api/user/contact-us`,
+        formData
+      );
+
+      toast.success("Form submitted successfully!");
+
+      setFormData({
+        firstName: "",
+        email: "",
+        phone: "",
+        city: "",
+        state: "",
+        county: "",
+        message: "",
+      });
+    } catch (err) {
+      toast.error(
+        err?.response?.data?.message || err?.message || "something went wrong"
+      );
+    }
+  };
 
   return (
     <>
@@ -50,7 +83,11 @@ const ContactUsPage = () => {
       <div className="min-h-screen bg-white font-sans">
         <section
           className="relative h-100 bg-cover bg-center  rounded-bl-[45px] rounded-br-[45px] overflow-hidden"
-          style={{ backgroundImage: `url(${import.meta.env.VITE_APP_URL}${contactBanner?.banner})` }}
+          style={{
+            backgroundImage: `url(${import.meta.env.VITE_APP_URL}${
+              contactBanner?.banner
+            })`,
+          }}
         >
           <div className="absolute inset-0 bg-black opacity-50"></div>{" "}
           {/* Overlay for text readability */}
@@ -72,11 +109,9 @@ const ContactUsPage = () => {
           </div>
         </section>
 
-        {/* Main Content Section */}
+
         <div className="container mx-auto p-8 flex flex-col lg:flex-row gap-8 mt-4">
-          {" "}
-          {/* Adjust mt for overlapping */}
-          {/* Admission Sidebar */}
+
           <aside
             className="w-full lg:w-1/4 bg-white  rounded-lg p-6 font-['poppins'] shadow  rounded-tl-lg rounded-br-lg
                  [box-shadow:0_2px_6px_2px_rgba(60,64,67,0.15),0_1px_2px_0_rgba(60,64,67,0.30)]"
@@ -117,73 +152,74 @@ const ContactUsPage = () => {
               ))}
             </ul>
           </aside>
-          {/* Contact Form */}
           <main
             className="w-full lg:w-3/4 bg-white shadow-lg rounded-lg p-8  rounded-tl-lg rounded-br-lg
                  [box-shadow:0_2px_6px_2px_rgba(60,64,67,0.15),0_1px_2px_0_rgba(60,64,67,0.30)]"
           >
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[#A9A9A9] font-['poppins'] text-[15px]">
+            <form
+              onSubmit={handleSubmit}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[#A9A9A9] font-['poppins'] text-[15px]"
+            >
               <div>
                 <input
+                  required
                   type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
                   placeholder="First name"
                   className="w-full p-3  border border-[#D1D5DB] rounded-md focus:ring-blue-500 focus:border-blue-500 te"
                 />
               </div>
               <div>
                 <input
+                  required
                   type="email"
                   placeholder="Email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="w-full p-3 border border-[#D1D5DB rounded-md focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
-                                      <div className="flex border rounded overflow-hidden">
-                            {/* Custom Dropdown */}
-                            <select
-                                value={selected}
-                                onChange={(e) => setSelected(e.target.value)}
-                                className="px-2 bg-gray-100 outline-none text-sm"
-                            >
-                                {countries.map((c) => (
-                                    <option key={c.code} value={c.code}>
-                                        {c.name}
-                                    </option>
-                                ))}
-                            </select>
-
-                            {/* Show selected flag */}
-                            <div className="flex items-center px-2">
-                                <img
-                                    src={countries.find((c) => c.code === selected)?.flag}
-                                    alt="flag"
-                                    className="w-6 h-4"
-                                />
-                            </div>
-
-                            {/* Phone Input */}
-                            <input
-                                type="tel"
-                                placeholder="Phone"
-                                className="flex-1 p-3 outline-none"
-                            />
-                        </div>
+              <input
+                required
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Phone number"
+                maxLength={10}
+                className="w-full p-3 border border-[#D1D5DB] rounded-md focus:ring-blue-500 focus:border-blue-500"
+              />
 
               <div>
                 <input
-                  type="text"
-                  placeholder="City"
+                  required
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
+                  placeholder="Enter City"
                   className="w-full p-3 border border-[#D1D5DBrounded-md focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
               <div>
                 <input
+                  required
                   type="text"
+                  name="state"
+                  value={formData.state}
+                  onChange={handleChange}
                   placeholder="State"
                   className="w-full p-3 border border-[#D1D5DBrounded-md focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
               <div>
                 <input
+                  required
+                  name="county"
+                  value={formData.county}
+                  onChange={handleChange}
                   type="text"
                   placeholder="County"
                   className="w-full p-3 border border-[#D1D5DB rounded-md focus:ring-blue-500 focus:border-blue-500"
@@ -191,6 +227,10 @@ const ContactUsPage = () => {
               </div>
               <div className="md:col-span-2">
                 <textarea
+                  required
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Message"
                   rows="4"
                   className="w-full p-3 border border-[#D1D5DB rounded-md focus:ring-blue-500 focus:border-blue-500 resize-y"
