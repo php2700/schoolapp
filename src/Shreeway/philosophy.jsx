@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ChevronRightIcon from "../assets/home/shriArrow.png";
 import BannerImage from "../assets/home/Bannershree.png";
 import Header from "../../component/Header";
 import Footer from "../../component/Footer";
 import homevector from "../assets/home/homevector.png";
+import axios from "axios";
 
 const Philosophy = () => {
+  const [philosphyData, setPhilosphyData] = useState();
+  const [error, setError] = useState();
+
+  const getShriPhilosphyData = async () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/philosophy`)
+      .then((res) => {
+        setPhilosphyData(res?.data?.data);
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+      });
+  };
+
+  useEffect(() => {
+    getShriPhilosphyData();
+  }, []);
   return (
     <>
       <Header />
@@ -13,7 +35,7 @@ const Philosophy = () => {
         {/* Banner Section */}
         <section
           className="relative h-100 bg-cover bg-center rounded-bl-[45px] rounded-br-[45px] overflow-hidden"
-          style={{ backgroundImage: `url(${BannerImage})` }}
+          style={{ backgroundImage: `url(${import.meta.env.VITE_APP_URL}${philosphyData?.banner})` }}
         >
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-white">
@@ -112,66 +134,22 @@ const Philosophy = () => {
               </ul>
             </div>
           </aside>
-          {/* Right Content with Image */}
           <main className="w-full md:w-3/4 flex flex-col md:flex-row justify-center">
             <div className="md:w-2/3 md:ml-16">
               {" "}
-              {/* Added left margin to push content right */}
               <h2 className="text-2xl font-bold mb-4">SHRI Philosophy</h2>
-              <p>
-                The Shri Ram Universal School believes in the unique
-                individuality of each child and the entire curriculum is woven
-                around the child, to make the learning process challenging and
-                enjoyable. The emotional and physical well-being of the child is
-                of utmost importance. It is our endeavour to equip every child
-                with requisite skills through a comprehensive intermingling of
-                the most recent innovations in the field of education and
-                tutoring research.The cornerstone of the philosophy of the
-                school is the belief in each and every child, manifested in a
-                school calendar encompassing the academic and cocurricular
-                offering opportunities for fostering diverse interests.
-                Fostering creativity, independent thinking, experimentation
-                along with the development of sound ethical values will enable
-                our students to blossom to their fullest extent.
-              </p>
+              <p>{philosphyData?.description}</p>
               <p className="mt-4 font-bold">TSUS will enshrine the following</p>
               <ul className="list-none mt-2">
-                <li className="flex items-start mb-2">
-                  <span className="mr-2 text-[#25337C] font-bold">{">"}</span>
-                  Collaborative curricular approach, providing programmes of
-                  experiential active learning.
-                </li>
-                <li className="flex items-start mb-2">
-                  <span className="mr-2 text-[#25337C] font-bold">{">"}</span>
-                  Pupils will be actively involved in a process of meaning and
-                  knowledge construction, building on their previous knowledge.
-                </li>
-                <li className="flex items-start mb-2">
-                  <span className="mr-2 text-[#25337C] font-bold">{">"}</span>
-                  The students will apply critical thinking skills and be
-                  motivated to be independent learners.
-                </li>
-                <li className="flex items-start mb-2">
-                  <span className="mr-2 text-[#25337C] font-bold">{">"}</span>A
-                  diverse range of learning experiences suited to pupils’
-                  differing interests and abilities.
-                </li>
-                <li className="flex items-start mb-2">
-                  <span className="mr-2 text-[#25337C] font-bold">{">"}</span>
-                  Children will be encouraged to explore and develop their own
-                  ideas through games and role-play.
-                </li>
-                <li className="flex items-start mb-2">
-                  <span className="mr-2 text-[#25337C] font-bold">{">"}</span>
-                  Students will be motivated to express themselves, to listen to
-                  one another and construct their own value system.
-                </li>
-                <li className="flex items-start mb-2">
-                  <span className="mr-2 text-[#25337C] font-bold">{">"}</span>
-                  Tackle classroom and playground discipline issues in a
-                  collaborative manner allowing socio-emotional development in
-                  an atmosphere of democracy and belonging.
-                </li>
+                {philosphyData?.section?.length > 0 &&
+                  philosphyData?.section?.map((ele) => (
+                    <li className="flex items-start mb-2">
+                      <span className="mr-2 text-[#25337C] font-bold">
+                        {">"}
+                      </span>
+                      {ele}
+                    </li>
+                  ))}
               </ul>
             </div>
           </main>

@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ChevronRightIcon from "../assets/home/shriArrow.png";
 import BannerImage from "../assets/home/Bannershree.png";
 import Header from "../../component/Header";
 import Footer from "../../component/Footer";
 import homevector from "../assets/home/homevector.png";
+import axios from "axios";
 
 const Educators = () => {
+  const [educatorData, setEducatorData] = useState();
+  const [error, setError] = useState();
+
+  const getEducatorData = async () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/shri-educator`)
+      .then((res) => {
+        setEducatorData(res?.data?.data);
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+      });
+  };
+
+  useEffect(() => {
+    getEducatorData();
+  }, []);
+
   return (
     <>
       <Header />
@@ -13,7 +36,11 @@ const Educators = () => {
         {/* Banner Section */}
         <section
           className="relative h-100 bg-cover bg-center rounded-bl-[45px] rounded-br-[45px] overflow-hidden"
-          style={{ backgroundImage: `url(${BannerImage})` }}
+          style={{
+            backgroundImage: `url(${import.meta.env.VITE_APP_URL}${
+              educatorData?.banner
+            })`,
+          }}
         >
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-white">
@@ -112,45 +139,28 @@ const Educators = () => {
               </ul>
             </div>
           </aside>
-          {/* Right Content with Image */}
           <main className="w-full md:w-3/4 flex flex-col md:flex-row justify-center">
             <div className="md:w-2/3 md:ml-16">
               {" "}
-              {/* Added left margin to push content right */}
               <h2 className="text-2xl font-bold mb-4">SHRI Educator</h2>
               <p className="text-center text-lg font-bold">
                 न गुरोरधिकं तत्त्वं न गुरोरधिकं तपः ।
                 <br />
                 तत्त्वज्ञानात्परं नास्ति तस्मै श्रीगुरवे नमः॥
               </p>
-              <p className="mt-4 font-bold">
+              <p className="my-4 font-bold">
                 “Salutation to the noble Guru, beyond whom there is no higher
                 truth, there is no higher penance and there is nothing higher
                 attainable than true knowledge.”
               </p>
               <p>
-                <br />
-                The Shri Educator or Shri Shikshak is a facilitator who draws
-                forth the potential that already exists in a child, waiting to
-                be recognized – and who teaches children to use their higher
-                order thinking skills. Under the guidance of the Shri Educator
-                the classroom becomes a think tank where innovative pedagogy is
-                used to engage the learner. The Shri Educator is a leader in
-                his/her field of expertise, is intrinsically self – motivated
-                and an intuitive team player working for the welfare of the
-                children. Shri Educators comprise the finest teachers who will
-                provide individual attention to each child. A Shri Educator is
-                always keen to be abreast of the latest teaching methodologies
-                and professional development is an important part of the TSUS
-                culture. A mentor, a guide and a friend the Shri Educator will
-                always strive to bring the best into and outside the classroom
-                to align with children’s intellectual and emotional needs.
-                <br />
-                <br />
-                Constantly striving to better his/her best, a Shri Educator
-                seeks feedback and guidance unhesitatingly. With a deep
-                conviction about the Core values of the school, he/she leads by
-                example to ensure that the children imbibe them too.
+                {educatorData?.description?.length > 0 &&
+                  educatorData?.description?.map((ele) => (
+                    <>
+                      {ele}
+                      <br />
+                    </>
+                  ))}
               </p>
             </div>
           </main>

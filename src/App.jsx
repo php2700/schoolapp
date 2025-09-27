@@ -30,11 +30,17 @@ import Schedule from './Admission/ScheduleVisit'
 import Faq from './Admission/faq'
 // import allery from './Gallery/gallery'
 import Gallery from "./Gallery/gallery";
+import { Common } from "./common";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
+    <>
+    <ToastContainer/>
     <Router>
       {/* Navbar visible on all pages */}
+        <Common/>
 
       <Routes>
         {/* Home */}
@@ -91,6 +97,7 @@ function App() {
 
       </Routes>
     </Router>
+    </>
   );
 }
 

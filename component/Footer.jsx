@@ -2,8 +2,52 @@ import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
 import Vector from "../src/assets/home/vector.png";
 import FooterImg from "../src/assets/home/footer.png";
 import Logo from "../src/assets/home/logo.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
+  const navigate=useNavigate();
+
+  const handleAbout=()=>{
+navigate('/about/tsus-ludhiana')
+  }
+
+  const handleLeadership=()=>{
+    navigate('/about/leadership-team')
+  }
+  const handlevision=()=>{
+    navigate('/about/vision-mission')
+  }
+  const handleCore=()=>{
+    navigate('/about/core-values')
+  }
+  const handleEducare=()=>{
+    navigate('/shriWay/legacy')
+  }
+  const handleDiffrent=()=>{
+    navigate('/shriWay/differentiators')
+  }
+  const handleAdmissionProcess=()=>{
+    navigate('/admission/process')
+  }
+  const handleApplication=()=>{
+    navigate('/admission/form')
+  }
+  const handleSchedule=()=>{
+    navigate('/admission/visit')
+  }
+  const handleFaq=()=>{
+    navigate('/admission/Faq')
+  }
+  const handleHome=()=>{
+    navigate('/')
+  }
+  const handleGallery=()=>{
+    navigate('/gallery')
+  }
+  const handleContact=()=>{
+    navigate('/contact-us')
+  }
+ 
   return (
     <footer className=" relative bg-[#25337C] text-white">
       
@@ -26,33 +70,31 @@ export default function Footer() {
         <div>
           <h3 className="font-bold mb-3">About Us</h3>
           <ul className="space-y-2 text-sm">
-            <li>About TSUS Ludhiana</li>
-            <li>Leadership</li>
-            <li>Vision & Mission</li>
-            <li>Our Core Values</li>
-            <li>Shri Educare Legacy</li>
-            <li>What Makes Us Different</li>
+            <li className="cursor-pointer" onClick={handleAbout}  >About TSUS Ludhiana</li>
+            <li className="cursor-pointer" onClick={handleLeadership}>Leadership</li>
+            <li className="cursor-pointer" onClick={handlevision}>Vision & Mission</li>
+            <li className="cursor-pointer" onClick={handleCore}>Our Core Values</li>
+            <li className="cursor-pointer" onClick={handleEducare}>Shri Educare Legacy</li>
+            <li className="cursor-pointer" onClick={handleDiffrent}>What Makes Us Different</li>
           </ul>
         </div>
 
         <div>
           <h3 className="font-bold mb-3">Admission</h3>
           <ul className="space-y-2 text-sm">
-            <li>Admission Process</li>
-            <li>Application Form</li>
-            <li>Schedule a Visit</li>
-            <li>Brochure</li>
-            <li>FAQs</li>
+            <li className="cursor-pointer" onClick={handleAdmissionProcess}>Admission Process</li>
+            <li className="cursor-pointer" onClick={handleApplication}>Application Form</li>
+            <li className="cursor-pointer" onClick={handleSchedule}>Schedule a Visit</li>
+            <li className="cursor-pointer" onClick={handleFaq}>FAQs</li>
           </ul>
         </div>
 
         <div>
           <h3 className="font-bold mb-3">Navigation</h3>
           <ul className="space-y-2 text-sm">
-            <li>Home</li>
-            <li>Gallery</li>
-            <li>Career</li>
-            <li>Contact Us</li>
+            <li className="cursor-pointer" onClick={handleHome}>Home</li>
+            <li className="cursor-pointer" onClick={handleGallery}>Gallery</li>
+            <li className="cursor-pointer" onClick={handleContact}>Contact Us</li>
           </ul>
         </div>
 

@@ -1,12 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import BannerImage from "../assets/home/Bannershree.png";
 import homevector from "../assets/home/homevector.png";
 import Header from "../../component/Header";
 import Footer from "../../component/Footer";
+import axios from "axios";
 
 const ContactUsPage = () => {
       const [selected, setSelected] = useState("in");
+      const [contactBanner,setContactBanner]=useState();
+      const [error,setError]=useState();
+
+
+      const getContactBanner = () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/contact-banner`)
+      .then((res) => {
+        setContactBanner(res?.data);
+        console.log(res.data)
+        // console.log(res.data,"hhh")
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+      });
+  };
+
+  useEffect(() => {
+    getContactBanner();
+  }, []);
   
       const countries = [
           { code: "in", name: "India", flag: "https://flagcdn.com/w20/in.png" },
@@ -18,13 +43,14 @@ const ContactUsPage = () => {
           { code: "ae", name: "UAE", flag: "https://flagcdn.com/w20/ae.png" },
           { code: "pk", name: "Pakistan", flag: "https://flagcdn.com/w20/pk.png" },
       ];
+
   return (
     <>
       <Header />
       <div className="min-h-screen bg-white font-sans">
         <section
           className="relative h-100 bg-cover bg-center  rounded-bl-[45px] rounded-br-[45px] overflow-hidden"
-          style={{ backgroundImage: `url(${BannerImage})` }}
+          style={{ backgroundImage: `url(${import.meta.env.VITE_APP_URL}${contactBanner?.banner})` }}
         >
           <div className="absolute inset-0 bg-black opacity-50"></div>{" "}
           {/* Overlay for text readability */}

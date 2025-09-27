@@ -11,6 +11,7 @@ import icon from '../assets/home/arrowicon.png'
 // import university from '../../src/assets/home/universityimage.png';
 // import {heros} from '../../src/assets/home/hero.png';
 export default function society() {
+    
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Navbar */}

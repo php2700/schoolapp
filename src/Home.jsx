@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
 import Footer from "../component/Footer";
 
@@ -43,15 +43,37 @@ import blue from "./assets/home/blueVecter.png";
 import yellow from "./assets/home/yellowVector.png";
 import Header from "../component/Header";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const steamIconArray = [expfrontend, vectexp, exp];
 const faqIcon = [ask1, aks2, aks3, aks4];
+const activitiesUrl=['/learning/curriculum','/shriWay/philisophy','/learning/pedagogy']
+
+const sections = [
+  {
+    title: "Play Zone",
+    description:
+      "Equipped with spaces like a play gym, sand pit, texture garden, and sports courts, our play zones encourage both fine and gross motor development. Activities include cricket, basketball, skating, swimming, and more.",
+  },
+  {
+    title: "Learning Den",
+    description:
+      "A knowledge hub fostering a lifelong love for reading. The library offers a wide range of resources that spark intellectual curiosity and support emotional growth.",
+  },
+  {
+    title: "Robotics Lab",
+    description:
+      "A dedicated innovation lab where students engage in coding, physical computing, design thinking, and problem-solving. It fuels imagination, adaptive learning, and future-ready skills.",
+  },
+];
 function homepage() {
   const [error, setError] = useState();
+  const navigate = useNavigate();
   const [bannerData, setBannerData] = useState();
   const [welcomeData, setWelcomeData] = useState();
   const [everychildData, setEveryChildData] = useState();
   const [galleryData, setGalleryData] = useState([]);
+  const [activities,setActivities]=useState([])
   const [leftBtnGalleryIndex, setLeftBtnGalleryIndex] = useState(0);
   const [rightBtnGalleryIndex, setRightBtnGalleryIndex] = useState(3);
   const [cbseData, setCbseData] = useState();
@@ -59,6 +81,13 @@ function homepage() {
   const [experienceData, setExperienceData] = useState([]);
   const [faqData, setFaqData] = useState([]);
   const [programData, setProgramData] = useState([]);
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [email, setEmail] = useState();
+  const [phone, setPhone] = useState();
+  const [className, setClassName] = useState();
+  const [message, setMessages] = useState();
+
   // const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -130,6 +159,94 @@ function homepage() {
       description: " mindset—ideas that move from paper to prototype. ",
     },
   ];
+
+  useEffect(() => {
+    const loadAll = async () => {
+      try {
+        const [
+          bannersRes,
+          welcomeRes,
+          childRes,
+          activityRes,
+          galleryRes,
+          cbseRes,
+          steamRes,
+          experienceRes,
+          faqRes,
+          programRes,
+        ] = await Promise.all([
+          axios.get(`${import.meta.env.VITE_APP_URL}api/user/get-banner`),
+          axios.get(`${import.meta.env.VITE_APP_URL}api/user/welcome`),
+          axios.get(
+            `${import.meta.env.VITE_APP_URL}api/user/every-child-learn`
+          ),
+          axios.get(`${import.meta.env.VITE_APP_URL}api/user/activity-list`),
+          axios.get(`${import.meta.env.VITE_APP_URL}api/user/gallery-list`),
+          axios.get(`${import.meta.env.VITE_APP_URL}api/user/get-cbse-section`),
+          axios.get(`${import.meta.env.VITE_APP_URL}api/user/steam-list`),
+          axios.get(
+            `${import.meta.env.VITE_APP_URL}api/user/student-experience-list`
+          ),
+          axios.get(`${import.meta.env.VITE_APP_URL}api/user/faq-list`),
+          axios.get(`${import.meta.env.VITE_APP_URL}api/user/program-list`),
+        ]);
+        setBannerData(bannersRes?.data?.getBannerData);
+        setWelcomeData(welcomeRes.data);
+        setEveryChildData(childRes.data);
+        setActivities(activityRes?.data)
+        setGalleryData(galleryRes.data);
+        setCbseData(cbseRes.data);
+        setSteamData(steamRes.data);
+        setExperienceData(experienceRes.data);
+        setFaqData(faqRes.data);
+        setProgramData(programRes.data);
+      } catch (error) {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "Something went wrong"
+        );
+         toast.error(error.response?.data?.message || error?.message || "something wrong",{
+        position:'top-right'
+      })
+      }
+    };
+    loadAll();
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const enquiryData = {
+      firstName,
+      lastName,
+      email,
+      phone,
+      className,
+      message,
+    };
+
+    try {
+      const res = await axios.post(
+        `${import.meta.env.VITE_APP_URL}api/user/enquiry`,enquiryData
+      );
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhone("");
+      setMessages("");
+      setClassName("");
+      toast.success("Enquiry Added successfully",{
+        position:'top-right'
+      })
+    } catch (error) {
+      setError(
+        error.response?.data?.message || error?.message || "something wrong"
+      );
+      toast.error(error.response?.data?.message || error?.message || "something wrong",{
+        position:'top-right'
+      })
+    }
+  };
 
   const getBanner = async () => {
     axios
@@ -267,41 +384,41 @@ function homepage() {
       });
   };
 
-  useEffect(() => {
-    getBanner();
-  }, []);
+  // useEffect(() => {
+  //   getBanner();
+  // }, []);
 
-  useEffect(() => {
-    getWelcomeData();
-  }, []);
+  // useEffect(() => {
+  //   getWelcomeData();
+  // }, []);
 
-  useEffect(() => {
-    getEveryChildData();
-  }, []);
+  // useEffect(() => {
+  //   getEveryChildData();
+  // }, []);
 
-  useEffect(() => {
-    getGalleryData();
-  }, []);
+  // useEffect(() => {
+  //   getGalleryData();
+  // }, []);
 
-  useEffect(() => {
-    getCbseData();
-  }, []);
+  // useEffect(() => {
+  //   getCbseData();
+  // }, []);
 
-  useEffect(() => {
-    getSteamData();
-  }, []);
+  // useEffect(() => {
+  //   getSteamData();
+  // }, []);
 
-  useEffect(() => {
-    getExperienceData();
-  }, []);
+  // useEffect(() => {
+  //   getExperienceData();
+  // }, []);
 
-  useEffect(() => {
-    getFaq();
-  }, []);
+  // useEffect(() => {
+  //   getFaq();
+  // }, []);
 
-  useEffect(() => {
-    getprogramData();
-  }, []);
+  // useEffect(() => {
+  //   getprogramData();
+  // }, []);
 
   const handleBack = () => {
     if (leftBtnGalleryIndex > 0) {
@@ -316,6 +433,31 @@ function homepage() {
       setRightBtnGalleryIndex((prev) => prev + 3);
     }
   };
+
+  const handleGallery = () => {
+    navigate("/gallery");
+  };
+
+  const handleEnquiryForm = () => {
+    navigate("/admission/form");
+  };
+
+  const handleContact = () => {
+    navigate("/contact-us");
+  };
+
+  const handleFacility = () => {
+    navigate("/facilities");
+  };
+
+  const handleTour = () => {
+    navigate("/admission/visit");
+  };
+  
+  const handleNavigate=(index)=>{
+    navigate(`${activitiesUrl[index]}`)
+  }
+
   return (
     <>
       <Header />
@@ -586,24 +728,61 @@ function homepage() {
             {/* Grid Layout */}
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6">
               {/* Card 1 */}
-              <div
+{
+  activities?.length >0 && 
+  activities?.map((ele,index)=>(
+    
+               <div className="bg-[#25337C] rounded-2xl shadow-md overflow-hidden relative group p-6 min-h-[400px]">
+                {/* Background Image */}
+                <img
+                  src={`${import.meta.env.VITE_APP_URL}${ele?.image}`}
+                  alt="Learning"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-[#25337C] via-[#25337C]/80 to-transparent"></div>
+
+                <div className="relative z-10 p-6 text-white flex flex-col h-full justify-end">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="w-6 h-6 bg-white/20 rounded-md flex items-center justify-center">
+                      <img src={Learningplatform} alt="" />
+                    </span>
+                    <h3 className="text-lg font-bold">Learning</h3>
+                  </div>
+
+                  <h4 className="text-xl font-semibold text-yellow-400">
+                    {ele?.title}
+                  </h4>
+
+                  <p className="mt-3 text-sm text-gray-200 leading-relaxed">
+                    {ele?.description}
+                  </p>
+
+                  <div className="flex justify-end">
+                    <button onClick={()=>{handleNavigate(index)}} className="mt-5 cursor-pointer bg-white text-[#25337C] font-semibold text-sm px-5 py-2 rounded-lg">
+                      Read More
+                    </button>
+                  </div>
+                </div>
+              </div>
+  ))
+}
+
+              {/* <div
                 className="bg-white rounded-2xl shadow-md overflow-hidden relative"
                 style={{
                   clipPath:
                     "polygon(0px 0px, 100% 0px, 100% 101%, 50% 100%, 0px 96%)",
                 }}
               >
-                {/* Background Image */}
                 <img
                   src={Curriculum1}
                   alt="Co-curriculum"
                   className="w-full h-114 object-cover"
                 />
 
-                {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#25337C]/90 to-[#25337C]/0"></div>
 
-                {/* Text Content */}
                 <div className="absolute bottom-0 p-6 text-white">
                   <h3 className="text-lg font-bold">Co-curriculum</h3>
                   <p className="mt-2 text-sm text-gray-200">
@@ -615,23 +794,18 @@ function homepage() {
                     Read More
                   </button>
                 </div>
-              </div>
+              </div> */}
 
-              {/* Card 2 */}
-              <div className="bg-[#25337C] rounded-2xl shadow-md overflow-hidden relative group p-6 min-h-[400px]">
-                {/* Background Image */}
+              {/* <div className="bg-[#25337C] rounded-2xl shadow-md overflow-hidden relative group p-6 min-h-[400px]">
                 <img
                   src={Curriculum2}
                   alt="Learning"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
 
-                {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#25337C] via-[#25337C]/80 to-transparent"></div>
 
-                {/* Content */}
                 <div className="relative z-10 p-6 text-white flex flex-col h-full justify-end">
-                  {/* Icon + Title */}
                   <div className="flex items-center gap-2 mb-3">
                     <span className="w-6 h-6 bg-white/20 rounded-md flex items-center justify-center">
                       <img src={Learningplatform} alt="" />
@@ -656,9 +830,8 @@ function homepage() {
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
-              {/* Card 3 (Full Height Right, Shri Way) */}
               <div className="bg-[#25337C] rounded-2xl shadow-md overflow-hidden relative group text-center p-6">
                 <h3 className="text-white text-[32px] font-bold mb-4 mt-[50px]">
                   The Shri Way <br /> Meaning of "SHRI"
@@ -674,21 +847,16 @@ function homepage() {
                 </p>
               </div>
 
-              {/* Card 4 */}
-              <div className="bg-[#25337C] rounded-2xl shadow-md overflow-hidden relative group  p-6">
-                {/* Background Image */}
+              {/* <div className="bg-[#25337C] rounded-2xl shadow-md overflow-hidden relative group  p-6">
                 <img
                   src={Sport}
                   alt="Learning"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
 
-                {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#25337C] via-[#25337C]/80 to-transparent"></div>
 
-                {/* Content */}
                 <div className="relative z-10 p-6 text-white flex flex-col h-full justify-end">
-                  {/* Icon + Title */}
                   <div className="flex items-center gap-2 mb-3">
                     <span className="w-6 h-6 bg-white/20 rounded-md flex items-center justify-center">
                       <img src={Facilities} alt="" />
@@ -707,13 +875,12 @@ function homepage() {
 
                   <div className="flex justify-end">
                     {" "}
-                    {/* Parent div with flex and justify-end */}
                     <button className="mt-5 self-start bg-white text-[#25337C] font-semibold text-sm px-5 py-2 rounded-lg">
                       Read More
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="bg-[#25337C] rounded-2xl shadow-md overflow-hidden flex items-center justify-center h-64">
                 <div className="w-32 h-32 rounded-full  flex items-center justify-center">
@@ -735,13 +902,22 @@ function homepage() {
 
                 {/* Buttons center aligned */}
                 <div className="flex flex-col mt-3 space-y-2 items-center">
-                  <button className="w-full max-w-xs text-sm text-[#1F2B6C] bg-white border rounded-lg px-3 py-2 hover:bg-gray-50">
+                  <button
+                    onClick={handleEnquiryForm}
+                    className="w-full cursor-pointer max-w-xs text-sm text-[#1F2B6C] bg-white border rounded-lg px-3 py-2 hover:bg-gray-50"
+                  >
                     Inquiry form : Fill out form
                   </button>
-                  <button className="w-full max-w-xs text-sm text-[#1F2B6C] bg-white border rounded-lg px-3 py-2 hover:bg-gray-50">
+                  <button
+                    onClick={handleTour}
+                    className="cursor-pointer w-full max-w-xs text-sm text-[#1F2B6C] bg-white border rounded-lg px-3 py-2 hover:bg-gray-50"
+                  >
                     Take a tour : Schedule
                   </button>
-                  <button className="w-full max-w-xs text-sm text-[#1F2B6C] bg-white border rounded-lg px-3 py-2 hover:bg-gray-50">
+                  <button
+                    onClick={handleContact}
+                    className="w-full cursor-pointer max-w-xs text-sm text-[#1F2B6C] bg-white border rounded-lg px-3 py-2 hover:bg-gray-50"
+                  >
                     Email us : Contact us
                   </button>
                 </div>
@@ -753,7 +929,7 @@ function homepage() {
       <div className="w-full font-sans bg-white py-16">
         <div className="max-w-[98rem] mx-auto px-6">
           {/* -------- TOP HEADING -------- */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+          <div className="flex flex-col md:flex-row  justify-between items-start md:items-center">
             <div>
               <h3 className="text-yellow-400 font-semibold text-[30px]">
                 Photo Gallery
@@ -762,9 +938,11 @@ function homepage() {
                 Event & Happening
               </h2>
             </div>
-            <p className="text-gray-600 mt-4 md:mt-0 max-w-lg">
-              Celebrating every smile, every achievement, and every moment that
-              makes learning joyful
+            <p
+              onClick={handleGallery}
+              className="text-gray-600 font-semibold cursor-pointer mt-4 md:mt-0 max-w-lg"
+            >
+              See More
             </p>
           </div>
 
@@ -809,11 +987,11 @@ function homepage() {
           </div>
 
           {/* Show More Button */}
-          <div className="flex justify-center mt-8">
+          {/* <div className="flex justify-center mt-8">
             <button className="px-6 py-2 bg-[#1F2B6C] text-white font-semibold rounded-lg hover:bg-[#16225a]">
               Show More
             </button>
-          </div>
+          </div> */}
 
           {/* -------- KIDS IMAGE + TEXT -------- */}
           <div className="md:mt-16 mt-30 flex flex-col items-center text-center">
@@ -874,6 +1052,37 @@ function homepage() {
         </div>
       </section>
 
+      {/* facilities */}
+      <div className="max-w-6xl mx-auto px-6 py-10">
+        {/* Header row */}
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="font-semibold text-3xl text-[#25337C]">
+            Holistic Facilities & Enriching Programs
+          </h1>
+          <button
+            onClick={handleFacility}
+            className="text-blue-600 cursor-pointer hover:text-blue-800 font-medium"
+          >
+            See More
+          </button>
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {sections.map((section, index) => (
+            <div
+              key={index}
+              className="p-6 rounded-2xl shadow-lg bg-[#f7f9fc] border rounded-lg hover:shadow-xl transition"
+            >
+              <h2 className="text-xl font-bold mb-3 text-gray-800">
+                {section.title}
+              </h2>
+              <p className="text-gray-600">{section.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* ---------------- WHAT STUDENTS EXPERIENCE ---------------- */}
       <section className="relative py-20 bg-white">
         <img
@@ -928,36 +1137,37 @@ function homepage() {
 
       {/* new section */}
 
-      {programData?.length>0 && 
-      programData?.map((ele)=>(
+      {programData?.length > 0 &&
+        programData?.map((ele) => (
+          <section className="flex justify-center py-2 px-4">
+            <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden flex">
+              <div className="w-8 md:w-12 bg-yellow-400"></div>{" "}
+              <div className="p-6 md:p-10 flex-grow">
+                <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6">
+                  {ele?.title}
+                </h2>
 
-              <section className="flex justify-center py-2 px-4">
-        <div className="relative w-full max-w-4xl bg-white rounded-lg shadow-xl overflow-hidden flex">
-          <div className="w-8 md:w-12 bg-yellow-400"></div>{" "}
-          <div className="p-6 md:p-10 flex-grow">
-            <h2 className="font-['Poppins'] font-semibold text-[40px] leading-[100%] tracking-[0.5px] text-[#25337C] mb-6">
-              {ele?.title}
-            </h2>
+                <ul className="space-y-4">
+                  {ele?.section?.map((item, index) => (
+                    <li key={index} className="flex items-start">
+                      <span className="text-[#000000] font-semibold mr-2">
+                        •
+                      </span>{" "}
+                      {/* Bullet point */}
+                      <p className="font-['Poppins'] text-[#000000] text-[16px] leading-relaxed">
+                        <span className="font-semibold text-[#000000]">
+                          {item.heading}
+                        </span>{" "}
+                        {item.description}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
+        ))}
 
-            <ul className="space-y-4">
-              {ele?.section?.map((item, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="text-[#000000] font-semibold mr-2">•</span>{" "}
-                  {/* Bullet point */}
-                  <p className="font-['Poppins'] text-[#000000] text-[16px] leading-relaxed">
-                    <span className="font-semibold text-[#000000]">
-                      {item.heading}
-                    </span>{" "}
-                    {item.description}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-      ))}
- 
       {/* ---------------- FAQ SECTION ---------------- */}
       <section className="w-full bg-white  flex items-center py-16 px-6 md:px-12 lg:px-20 ">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2  items-center">
@@ -1027,7 +1237,7 @@ function homepage() {
               Take the first step towards your child’s bright future
             </p>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               {/* Row 1 - First/Last Name */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col">
@@ -1040,6 +1250,9 @@ function homepage() {
                   <input
                     id="firstName"
                     type="text"
+                    required 
+                    value={firstName}
+                    onChange={(e)=>setFirstName(e.target.value)}
                     className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#25337C] outline-none"
                   />
                 </div>
@@ -1054,6 +1267,9 @@ function homepage() {
                   <input
                     id="lastName"
                     type="text"
+                    required
+                     value={lastName}
+                    onChange={(e)=>setLastName(e.target.value)}
                     className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#25337C] outline-none"
                   />
                 </div>
@@ -1064,6 +1280,7 @@ function homepage() {
                 <div className="flex flex-col">
                   <label
                     htmlFor="email"
+                    required
                     className="font-['Inter'] mb-2 text-[15px] font-bold  leading-[20px] text-[#334155]"
                   >
                     Email Address
@@ -1071,6 +1288,9 @@ function homepage() {
                   <input
                     id="email"
                     type="email"
+                    required
+                     value={email}
+                    onChange={(e)=>setEmail(e.target.value)}
                     className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#25337C] outline-none"
                   />
                 </div>
@@ -1084,6 +1304,9 @@ function homepage() {
                   </label>
                   <input
                     id="phone"
+                    required
+                     value={phone}
+                    onChange={(e)=>setPhone(e.target.value)}
                     type="tel"
                     className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#25337C] outline-none"
                   />
@@ -1101,6 +1324,9 @@ function homepage() {
                 <input
                   id="class"
                   type="text"
+                  required
+                   value={className}
+                    onChange={(e)=>setClassName(e.target.value)}
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#25337C] outline-none"
                 />
               </div>
@@ -1115,8 +1341,11 @@ function homepage() {
                 </label>
                 <textarea
                   id="message"
+                  required
                   placeholder="Tell Us about your enquiry"
                   rows="4"
+                   value={message}
+                    onChange={(e)=>setMessages(e.target.value)}
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#25337C] outline-none"
                 ></textarea>
               </div>
@@ -1132,7 +1361,6 @@ function homepage() {
           </div>
         </div>
       </section>
-      {/* ---------------- ENQUIRE NOW SECTION ---------------- */}
       <section className="py-25 bg-white"></section>
 
       <diV className="mt-[200px]">
