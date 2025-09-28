@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
 import Header from "../../component/Header";
@@ -9,6 +9,35 @@ import ChevronRightIcon from "../assets/home/shriArrow.png";
 import icon from "../assets/home/arrowicon.png";
 
 export default function AdmissionForm() {
+
+const [admisssionBannerData, setAdmissionBannerData] = useState();
+  const [error, setError] = useState();
+
+  const getAdmissionBannerData = async () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/application-form-banner`)
+      .then((res) => {
+        setAdmissionBannerData(res?.data);
+        // console.log(res.data)
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+        toast.error(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+      });
+  };
+
+  useEffect(() => {
+    getAdmissionBannerData();
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     gender: "",
@@ -175,7 +204,7 @@ export default function AdmissionForm() {
       <Header />
       <section
         className="relative h-120 bg-cover bg-center rounded-bl-[45px] rounded-br-[45px] overflow-hidden"
-        style={{ backgroundImage: `url(${Banner})` }}
+        style={{ backgroundImage: `url(${import.meta.env.VITE_APP_URL}${admisssionBannerData?.banner})` }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="font-['poppins'] relative z-10 flex flex-col items-center justify-center h-full text-white">

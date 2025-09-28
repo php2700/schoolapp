@@ -5,17 +5,47 @@ import Banner from '../assets/home/Bannerleder.png'
 import homevector from '../assets/home/homevector.png'
 import ChevronRightIcon from '../assets/home/shriArrow.png';
 import icon from '../assets/home/arrowicon.png'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 // import university from '../../src/assets/home/universityimage.png';
 // import {heros} from '../../src/assets/home/hero.png';
 export default function Different() {
+     const [diffrentFromData, setDiffrentFromData] = useState();
+      const [error, setError] = useState();
+    
+      const getDiffrentFromData = async () => {
+        axios
+          .get(`${import.meta.env.VITE_APP_URL}api/user/diffrent-quality`)
+          .then((res) => {
+            setDiffrentFromData(res?.data?.data);
+            console.log(res.data);
+          })
+          .catch((error) => {
+            setError(
+              error?.response?.data?.message ||
+                error?.message ||
+                "something went wrong"
+            );
+            toast.error(
+              error?.response?.data?.message ||
+                error?.message ||
+                "something went wrong"
+            );
+          });
+      };
+    
+      useEffect(() => {
+        getDiffrentFromData();
+      }, []);
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Navbar */}
             <Header />
 
             {/* Hero Section */}
-            <section className="relative h-120 bg-cover bg-center  rounded-bl-[45px] rounded-br-[45px] overflow-hidden" style={{ backgroundImage: `url(${Banner})` }}>
+            <section className="relative h-120 bg-cover bg-center  rounded-bl-[45px] rounded-br-[45px] overflow-hidden" style={{ backgroundImage: `url(${import.meta.env.VITE_APP_URL}${diffrentFromData?.image})` }}>
                 <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay for text readability */}
                 <div className=" font-['poppins'] relative z-10 flex flex-col items-center justify-center h-full text-white">
                     <h1 className="font-['poppins'] font-semibold text-[55px] leading-tight text-white">What makes us different from others</h1>
@@ -132,21 +162,14 @@ export default function Different() {
 
                     {/* Hindi Content */}
                     <div className="mb-8 text-[#333333]  text-[18px] tracking-normal text-center font-['poppins'] font-medium">
-                        <p className="mb-6">
-                            We at The Shri Ram Universal School understand the importance of quality education in a fun and playful way.<br /> Education that bores a child and doesn’t catch his interest affects the productivity of the kid and helps in no way.<br /> Educating your child in a way which helps in building a strong foundation that helps him succeed in life and become a<br /> champion is an essential necessity..
+                        {diffrentFromData?.description?.length>0 && 
+                        diffrentFromData?.description?.map((ele)=>(
+                               <p className="mb-2">
+                           {ele}
                         </p>
-                        <p className="mb-6">
-                            In today’s world, we worry about what a child will be tomorrow, yet we forget that he is someone today. At TSUS, we<br /> believe every child is unique and help them shine bright from within. Located in the heart of Financial District, the<br /> school is spread across 6 acres of green pastures. This offers the children a healthy learning environment, away from<br /> pollution.
-                        </p>
-
-
-
+                        ))
+                        }
                     </div>
-
-
-
-
-
                 </main>
             </div>
             <diV className="mt-[200px]">

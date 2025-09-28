@@ -7,19 +7,80 @@ import ChevronRightIcon from '../assets/home/shriArrow.png';
 import icon from '../assets/home/arrowicon.png'
 import image from '../assets/home/kidsimage.png'
 import image2 from '../assets/home/kidimage2.jpg'
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import axios from 'axios';
 
 
 
 // import university from '../../src/assets/home/universityimage.png';
 // import {heros} from '../../src/assets/home/hero.png';
 export default function Classroom() {
+const [classroomData, setClassroomData] = useState();
+const [classroomList,setClassroomList]=useState([])
+  const [error, setError] = useState();
+
+  const getClassroomkData = async () => {
+ axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/classroom-banner`)
+      .then((res) => {
+        setClassroomData(res?.data?.data);
+        console.log(res.data)
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+        toast.error(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+      });
+  };
+
+  const getClassroomList=async()=>{
+ axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/classrooms`)
+      .then((res) => {
+        setClassroomList(res?.data?.data);
+        console.log(res.data)
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+        toast.error(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+      });
+  }
+
+  useEffect(() => {
+    getClassroomkData();
+  }, []);
+
+
+  
+
+  useEffect(() => {
+    getClassroomList();
+  }, []);
+
+
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Navbar */}
             <Header />
 
             {/* Hero Section */}
-            <section className="relative h-120 bg-cover bg-center  rounded-bl-[45px] rounded-br-[45px] overflow-hidden" style={{ backgroundImage: `url(${Banner})` }}>
+            <section className="relative h-120 bg-cover bg-center  rounded-bl-[45px] rounded-br-[45px] overflow-hidden" style={{ backgroundImage: `url(${import.meta.env.VITE_APP_URL}${classroomData?.banner})` }}>
                 <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay for text readability */}
                 <div className=" font-['poppins'] relative z-10 flex flex-col items-center justify-center h-full text-white">
                     <h1 className="font-['poppins'] font-semibold text-[55px] leading-tight text-white">Beyond the Classroom</h1>
@@ -122,58 +183,18 @@ export default function Classroom() {
 
     {/* Grid Section */}
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left font-['poppins'] text-[#333] text-[16px] px-4">
-        {/* Card 1 */}
-        <div>
-            <img src={image} alt="School Trips" className="w-full h-auto rounded mb-4 transition-transform duration-300 hover:scale-105" />
-            <h3 className="font-semibold text-lg mb-2">School Trips</h3>
-            <p>
-                Students from each grade have the opportunity to go for educational and fun trips within the city and also outside it.
-                Students from Grade IV onwards undertake outstation trips every year. Besides the huge learning that students carry back
-                from the great outdoors, they develop a close bond with teachers and friends.
-            </p>
-        </div>
 
-        {/* Card 2 */}
-        <div>
-            <img src={image} alt="Circle Time" className="w-full h-auto rounded mb-4 transition-transform duration-300 hover:scale-105" />
-            <h3 className="font-semibold text-lg mb-2">Circle Time</h3>
+        {classroomList?.length >0 &&
+        classroomList?.map((ele)=>(
+             <div>
+            <img src={`${import.meta.env.VITE_APP_URL}${ele?.image}`} alt="School Trips" className="w-full h-auto rounded mb-4 transition-transform duration-300 hover:scale-105" />
+            <h3 className="font-semibold text-lg mb-2">{ele?.title}</h3>
             <p>
-                Circle Time activities act as team building exercises that enhance the self esteem of the children.
-                The teacher acts as the facilitator during the class. Each child is encouraged to speak and voice his/her views
-                while the others learn the importance of listening.
+                {ele?.description}
             </p>
         </div>
-
-        {/* Card 3 */}
-        <div>
-            <img src={image2} alt="Discovery Hour" className="w-full h-auto rounded mb-4 transition-transform duration-300 hover:scale-105" />
-            <h3 className="font-semibold text-lg mb-2">Discovery Hour</h3>
-            <p>
-                An hour of observing, experimenting and learning through, as the name suggests—discovering!
-                Activities that promote these skills with an element of fun are incorporated into the time table.
-                Activities develop logical thinking, reasoning, and motor/analytical skills.
-            </p>
-        </div>
-
-        {/* Card 4 */}
-        <div>
-            <img src={image2} alt="Writer's Workshop" className="w-full h-auto rounded mb-4 transition-transform duration-300 hover:scale-105" />
-            <h3 className="font-semibold text-lg mb-2">Writer’s Workshop</h3>
-            <p>
-                From October to December, students of Grades IV and V participate in Writers’ Workshop. A life-changing experience for students,
-                it enhances writing, creativity, and thinking.
-            </p>
-        </div>
-
-        {/* Card 5 */}
-        <div>
-            <img src={image} alt="Reading Club" className="w-full h-auto rounded mb-4 transition-transform duration-300 hover:scale-105" />
-            <h3 className="font-semibold text-lg mb-2">Reading Club</h3>
-            <p>
-                To ensure every child takes interest in reading, a Reading Club has been set up. Teachers identify books, encourage vocabulary discussions,
-                and build reading habits.
-            </p>
-        </div>
+        ))
+        }
     </div>
 </main>
 

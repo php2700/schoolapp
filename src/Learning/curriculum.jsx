@@ -7,6 +7,7 @@ import ChevronRightIcon from "../assets/home/shriArrow.png";
 import icon from "../assets/home/arrowicon.png";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 // import university from '../../src/assets/home/universityimage.png';
 // import {heros} from '../../src/assets/home/hero.png';
@@ -26,6 +27,9 @@ export default function Curriculum() {
             error?.message ||
             "something went wrong"
         );
+        toast.error(error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong")
       });
   };
 

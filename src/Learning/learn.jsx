@@ -15,6 +15,7 @@ import {
   IoCubeOutline,
 } from "react-icons/io5"; // More icons for methodology
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const LearningPage = () => {
   const [curriculumData, setCurriculumData] = useState();
@@ -32,6 +33,9 @@ const LearningPage = () => {
             error?.message ||
             "something went wrong"
         );
+        toast.error(error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong")
       });
   };
 

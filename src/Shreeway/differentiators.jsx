@@ -5,6 +5,7 @@ import Header from "../../component/Header";
 import Footer from "../../component/Footer";
 import homevector from "../assets/home/homevector.png";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Differentiators = () => {
    const [diffrentiatorData, setDiffrentiatorData] = useState();
@@ -22,6 +23,11 @@ const Differentiators = () => {
             error?.message ||
             "something went wrong"
         );
+         toast.error(
+                  error?.response?.data?.message ||
+                    error?.message ||
+                    "something went wrong"
+                );
       });
   };
 

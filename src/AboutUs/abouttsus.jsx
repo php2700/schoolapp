@@ -5,17 +5,46 @@ import Banner from '../assets/home/Bannerleder.png'
 import homevector from '../assets/home/homevector.png'
 import ChevronRightIcon from '../assets/home/shriArrow.png';
 import icon from '../assets/home/arrowicon.png'
+import { toast } from 'react-toastify';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 // import university from '../../src/assets/home/universityimage.png';
 // import {heros} from '../../src/assets/home/hero.png';
 export default function AboutUs() {
+  const [aboutData, setAboutData] = useState();
+  const [error, setError] = useState();
+
+  const getAboutData = async () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/about`)
+      .then((res) => {
+        setAboutData(res?.data)
+        console.log(res.data)
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+        toast.error(error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong")
+      });
+      
+  };
+
+  useEffect(() => {
+    getAboutData();
+  }, []);
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navbar */}
       <Header />
 
       {/* Hero Section */}
-      <section className="relative h-120 bg-cover bg-center  rounded-bl-[45px] rounded-br-[45px] overflow-hidden" style={{ backgroundImage: `url(${Banner})` }}>
+      <section className="relative h-120 bg-cover bg-center  rounded-bl-[45px] rounded-br-[45px] overflow-hidden" style={{ backgroundImage: `url(${import.meta.env.VITE_APP_URL}${aboutData?.image})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay for text readability */}
         <div className=" font-['poppins'] relative z-10 flex flex-col items-center justify-center h-full text-white">
           <h1 className="font-['poppins'] font-semibold text-[55px] leading-tight text-white">What makes us different from others</h1>
@@ -126,24 +155,15 @@ export default function AboutUs() {
         <main className="w-full max-w-6xl mx-auto px-4 py-8 bg-white text-center
                    rounded-tl-lg rounded-br-lg
                    [box-shadow:0_2px_6px_2px_rgba(60,64,67,0.15),0_1px_2px_0_rgba(60,64,67,0.30)]">
-          <h2 className="font-['poppins'] font-semibold text-[24px] leading-tight text-[#25337C] mb-6 mt-6">Welcome to The Shri Ram Universal School, Ludhiana (TSUS Ludhiana)</h2>
+          <h2 className="font-['poppins'] font-semibold text-[24px] leading-tight text-[#25337C] mb-6 mt-6">{aboutData?.title}</h2>
 
           {/* Hindi Content */}
           <div className="mb-8 text-[#333333]  text-[18px] tracking-normal text-center font-['poppins'] font-medium">
-            <p className="mb-6">
-              The Shri Ram Universal School, Ludhiana in collaboration with Shri Educare Limited (SEL) adapts the value system, teaching methodologies and best practices of The Shri Ram School Ludhiana, Delhi and Gurgaon.
-            </p>
-            <p className="mb-6">
-              We at TSUS Ludhiana believe that every child is unique and hence strive to offer a platform that lets our children discover their own special talents at their own pace. Our prime focus is on creating awareness in students and providing them with the experiences that they could apply to real-life situations.
-            </p>
-            <p className="mb-6">
-              A ‘Happy School’ can contribute significantly to create responsible and caring human beings. We have created an environment that “fosters a global outlook” yet retains the rich Indian cultural heritage and values.
-            </p>
-            <p className="mb-6">
-              We are open for admissions in Ludhiana from L.K.G to Grade IX. We invite you to become a part of your child’s exciting and enriching journey at TSUS, Ludhiana which is poised to be one of the top ranked schools in the area.
-            </p>
-
-
+            {aboutData?.description?.length>0 &&
+            aboutData?.description?.map((ele)=>(
+              <p className="mb-6">{ele}</p>
+            ))
+            }
           </div>
 
 

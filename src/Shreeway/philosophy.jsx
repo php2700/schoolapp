@@ -5,6 +5,7 @@ import Header from "../../component/Header";
 import Footer from "../../component/Footer";
 import homevector from "../assets/home/homevector.png";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Philosophy = () => {
   const [philosphyData, setPhilosphyData] = useState();
@@ -22,6 +23,11 @@ const Philosophy = () => {
             error?.message ||
             "something went wrong"
         );
+         toast.error(
+                  error?.response?.data?.message ||
+                    error?.message ||
+                    "something went wrong"
+                );
       });
   };
 

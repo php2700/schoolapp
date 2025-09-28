@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../../component/Header";
 import Footer from "../../component/Footer";
 import Banner from "../assets/home/Bannerleder.png";
@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 export default function Schedule() {
+  const [scheduleBannerData, setScheduleBannerData] = useState();
   const [formData, setFormData] = useState({
     studentName: "",
     parentName: "",
@@ -18,6 +19,26 @@ export default function Schedule() {
     studentSection: "",
     message: "",
   });
+
+  const getScheduleBannerData = async () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/schedule-banner`)
+      .then((res) => {
+        setScheduleBannerData(res?.data);
+        // console.log(res.data)
+      })
+      .catch((error) => {
+        toast.error(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+      });
+  };
+
+  useEffect(() => {
+    getScheduleBannerData();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -62,7 +83,11 @@ export default function Schedule() {
       {/* Hero Section */}
       <section
         className="relative h-120 bg-cover bg-center rounded-bl-[45px] rounded-br-[45px] overflow-hidden"
-        style={{ backgroundImage: `url(${Banner})` }}
+        style={{
+          backgroundImage: `url(${import.meta.env.VITE_APP_URL}${
+            scheduleBannerData?.banner
+          })`,
+        }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="font-['poppins'] relative z-10 flex flex-col items-center justify-center h-full text-white">

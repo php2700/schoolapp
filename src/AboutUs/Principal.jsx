@@ -6,18 +6,47 @@ import homevector from '../assets/home/homevector.png'
 import ChevronRightIcon from '../assets/home/shriArrow.png';
 import gujralImage from '../assets/home/principalimage.png';
 import icon from '../assets/home/arrowicon.png'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 
 // import university from '../../src/assets/home/universityimage.png';
 // import {heros} from '../../src/assets/home/hero.png';
 export default function Principal() {
+  const [principalData, setPrincipalData] = useState();
+  const [error, setError] = useState();
+
+  const getPrincipalData = async () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/principals`)
+      .then((res) => {
+        setPrincipalData(res?.data?.data)
+        console.log(res.data)
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+        toast.error(error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong")
+      });
+      
+  };
+
+  useEffect(() => {
+    getPrincipalData();
+  }, []);
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navbar */}
       <Header />
 
       {/* Hero Section */}
-      <section className="relative h-120 bg-cover bg-center  rounded-bl-[45px] rounded-br-[45px] overflow-hidden" style={{ backgroundImage: `url(${Banner})` }}>
+      <section className="relative h-120 bg-cover bg-center  rounded-bl-[45px] rounded-br-[45px] overflow-hidden" style={{ backgroundImage: `url(${import.meta.env.VITE_APP_URL}${principalData?.bannerImage})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay for text readability */}
         <div className=" font-['poppins'] relative z-10 flex flex-col items-center justify-center h-full text-white">
           <h1 className="font-['poppins'] font-semibold text-[55px] leading-tight text-white">Founder Principal's Messages</h1>
@@ -129,39 +158,20 @@ export default function Principal() {
                    rounded-tl-lg rounded-br-lg
                    [box-shadow:0_2px_6px_2px_rgba(60,64,67,0.15),0_1px_2px_0_rgba(60,64,67,0.30)]">
 
-      <div className="flex flex-col md:flex-row items-start md:items-center text-left mb-8">
+      <div className="flex flex-col md:flex-row  text-left mb-8">
         <div className="md:w-1/3 flex-shrink-0 mb-4 md:mb-0 md:mr-6">
           {/* Replace with your actual image path */}
-          <img src={gujralImage} alt="Dr. Navneet Kaur" className="w-full h-auto rounded-md" />
+          <img src={`${import.meta.env.VITE_APP_URL}${principalData?.image}`} alt="Dr. Navneet Kaur" className="w-full h-auto rounded-md" />
         </div>
         <div className="md:w-2/3">
-          <h2 className="font-['poppins'] font-semibold text-[24px] leading-tight text-[#25337C] mb-4">Dr. Navneet Kaur</h2>
+          <h2 className="font-['poppins'] font-semibold text-[24px] leading-tight text-[#25337C] mb-4">{principalData?.name}</h2>
           <p className=" text-[#333333]] text-[18px] tracking-normal font-['poppins'] font-medium mb-4">
-            The Shri Ram Universal School, Ludhiana is an heir to the rich Shri legacy: this
-            ascertains our potential and commitment to raise an institution matchless not only
-            in infrastructure, but also in academic delivery, governed by the healthy motive of
-            nurturing the future of our country and the world at large. The Shri Ram Universal
-            School is here with a promise to be a thorough preparatory for life. We aim at
-            nurturing skills essential to live a full life. Envisaging this, we are all set to surge
-            ahead and create a learning space that nurtures every child's inherent ability to
-            learn and create.
+            {principalData?.message}
           </p>
         </div>
       </div>
 
-      <div className="text-left text-[#333333] text-[18px] tracking-normal font-['poppins'] font-medium">
-        <p className="mb-4">
-          The Shri Ram Universal School offers a perfect blend of learning facilitated by technology and led by the personal
-          connect of the teacher in the classroom. To ensure active learning for all learners with varied learning levels and needs,
-          we amalgamate academics with activities and thus make learning more meaningful for our students. The state-of-the-
-          art infrastructure facilitates et al. A gamut of sports activities in addition to performing arts sessions lends an
-          endearing joy to school day. The Shri Educators are professionally qualified to deliver the curriculum, create happy
-          classrooms, connect with families and community to contribute to a world that is empathetic and creative enough to
-          seek problems and solutions well in time. We are governed by a positive belief to offer equal as well as equitable
-          learning opportunities to our students. We begin our journey with a commitment to provide our children with the best
-          learning experiences they can ever receive.
-        </p>
-      </div>
+    
     </main>
       </div>
       <diV className="mt-[200px]">

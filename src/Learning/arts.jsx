@@ -7,6 +7,7 @@ import ChevronRightIcon from '../assets/home/shriArrow.png';
 import icon from '../assets/home/arrowicon.png'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 
 
@@ -29,6 +30,9 @@ export default function Art() {
             error?.message ||
             "something went wrong"
         );
+        toast.error(error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong")
       });
   };
 

@@ -34,6 +34,11 @@ const ContactUsPage = () => {
             error?.message ||
             "something went wrong"
         );
+         toast.error(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
       });
   };
 

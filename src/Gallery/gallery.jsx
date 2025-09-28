@@ -107,9 +107,9 @@ export default function Gallery() {
                   alt="test"
                   className="w-full h-[220px] object-cover transform group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {/* <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <p className="font-medium text-sm">'xyz'</p>
-                </div>
+                </div> */}
               </div>
             ))}
           </div>

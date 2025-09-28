@@ -5,19 +5,48 @@ import Banner from '../assets/home/Bannerleder.png'
 import homevector from '../assets/home/homevector.png'
 import ChevronRightIcon from '../assets/home/shriArrow.png';
 import icon from '../assets/home/arrowicon.png'
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import axios from 'axios';
 
 
 
 // import university from '../../src/assets/home/universityimage.png';
 // import {heros} from '../../src/assets/home/hero.png';
 export default function Mission() {
+      const [missionData, setMissionData] = useState();
+  const [error, setError] = useState();
+
+  const getMissionData = async () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/vision`)
+      .then((res) => {
+        setMissionData(res?.data?.data)
+        console.log(res.data)
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+        toast.error(error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong")
+      });
+      
+  };
+
+  useEffect(() => {
+    getMissionData();
+  }, []);
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Navbar */}
             <Header />
 
             {/* Hero Section */}
-            <section className="relative h-120 bg-cover bg-center  rounded-bl-[45px] rounded-br-[45px] overflow-hidden" style={{ backgroundImage: `url(${Banner})` }}>
+            <section className="relative h-120 bg-cover bg-center  rounded-bl-[45px] rounded-br-[45px] overflow-hidden" style={{ backgroundImage: `url(${import.meta.env.VITE_APP_URL}${missionData?.image})` }}>
                 <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay for text readability */}
                 <div className=" font-['poppins'] relative z-10 flex flex-col items-center justify-center h-full text-white">
                     <h1 className="font-['poppins'] font-semibold text-[55px] leading-tight text-white">Vision & Mission</h1>
@@ -134,25 +163,22 @@ export default function Mission() {
 
                     {/* Hindi Content */}
                     <div className="mb-8 text-[#333333]  text-[18px] tracking-normal text-center font-['poppins'] font-medium">
-                        <p className="mb-6">
-                            To nurture a vibrant, innovative and caring environment that is committed to all round excellence in education.
+                        {missionData?.mission?.length>0 &&
+                        missionData?.mission?.map((ele)=>(
+                               <p className="mb-6">
+                            {ele}
                         </p>
+                        ))
+                        }
+                     
                         <h2 className="font-['poppins'] font-semibold text-[24px] leading-tight text-[#25337C] mb-6 mt-6">Vission</h2>
-                        <p className="mb-6">
-                            Recognize the uniqueness and individuality of each child
+                        {missionData?.vision?.length>0 &&
+                        missionData?.vision?.map((ele)=>(
+                               <p className="mb-6">
+                            {ele}
                         </p>
-                        <p className="mb-6">
-                            Provide all students a diverse education and equip them with lifelong skills
-                        </p>
-                        <p className="mb-6">
-                            Inspire all students to lead with courage, confidence and conviction
-                        </p>
-                        <p className="mb-6">
-                            Collaborate with parents and community to create independent global citizens of tomorrow
-                        </p>
-
-
-
+                        ))
+                    }
                     </div>
 
 

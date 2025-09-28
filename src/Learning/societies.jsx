@@ -5,20 +5,48 @@ import Banner from '../assets/home/Bannerleder.png'
 import homevector from '../assets/home/homevector.png'
 import ChevronRightIcon from '../assets/home/shriArrow.png';
 import icon from '../assets/home/arrowicon.png'
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 
 
 // import university from '../../src/assets/home/universityimage.png';
 // import {heros} from '../../src/assets/home/hero.png';
 export default function society() {
-    
+         const [societyData, setSocietyData] = useState();
+  const [error, setError] = useState();
+
+  const getSocietyData = async () => {
+    axios
+      .get(`${import.meta.env.VITE_APP_URL}api/user/society`)
+      .then((res) => {
+        setSocietyData(res?.data?.data);
+      })
+      .catch((error) => {
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+        toast.error(
+          error?.response?.data?.message ||
+            error?.message ||
+            "something went wrong"
+        );
+      });
+  };
+
+  useEffect(() => {
+    getSocietyData();
+  }, []);
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Navbar */}
             <Header />
 
             {/* Hero Section */}
-            <section className="relative h-120 bg-cover bg-center  rounded-bl-[45px] rounded-br-[45px] overflow-hidden" style={{ backgroundImage: `url(${Banner})` }}>
+            <section className="relative h-120 bg-cover bg-center  rounded-bl-[45px] rounded-br-[45px] overflow-hidden" style={{ backgroundImage: `url(${import.meta.env.VITE_APP_URL}${societyData?.banner})` }}>
                 <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay for text readability */}
                 <div className=" font-['poppins'] relative z-10 flex flex-col items-center justify-center h-full text-white">
                     <h1 className="font-['poppins'] font-semibold text-[55px] leading-tight text-white">Societies And Clubs</h1>
@@ -37,13 +65,6 @@ export default function society() {
                 </div>
             </section>
 
-            {/* Breadcrumb */}
-            {/* <div className="max-w-6xl mx-auto px-6 py-4 text-sm text-gray-600">
-        Home <span className="mx-2">›</span>{" "}
-        <span className="text-blue-700 font-medium">
-          What makes us different from others
-        </span>
-      </div> */}
 
             {/* Content Section */}
             <div className=" bg-white container mx-auto py-12 px-4 md:flex">
@@ -118,38 +139,34 @@ export default function society() {
                     {/* Hindi Content */}
                     <div className="mb-8 text-[#333333]  text-[18px] tracking-normal text-center font-['poppins'] font-medium">
                         <p className="mb-6">
-                            These Societies & Clubs are offered after-school to students in order to enable them to explore their interests and develop their latent talents under expert guidance.
+                            {societyData?.description}
                         </p>
                      
-
-
-
-
                     </div>
                     <div className="flex flex-col md:flex-row justify-between gap-10 text-left font-['poppins'] text-[16px] font-medium text-[#1a1a1a] px-4">
         {/* Societies */}
         <div className="w-full md:w-1/2">
             <h3 className="text-[18px] font-semibold  text-[24px] leading-tight text-[#25337C] mb-4">Societies</h3>
             <ul className="space-y-2 list-disc list-inside">
-                <li>Debating Society</li>
-                <li>Heritage Society</li>
-                <li>Science Society</li>
-                <li>MUN Society</li>
-                <li>Community Outreach Society</li>
+
+            {societyData?.society?.length >0 &&
+            societyData?.society?.map((ele)=>(
+                <li>{ele}</li>
+            ))
+            }
             </ul>
+            
         </div>
 
         {/* Clubs */}
         <div className="w-full md:w-1/2">
             <h3 className="text-[18px] font-semibold text-[24px] leading-tight text-[#25337C] mb-4">Clubs</h3>
             <ul className="space-y-2 list-disc list-inside">
-                <li>Aero-modelling Club</li>
-                <li>Chess Club</li>
-                <li>Environment Club</li>
-                <li>Robotics Club</li>
-                <li>Theatre Club</li>
-                <li>Astronomy Club</li>
-                <li>Robotics Club</li> {/* Duplicate as per image */}
+                 {societyData?.clubs?.length >0 &&
+            societyData?.clubs?.map((ele)=>(
+                <li>{ele}</li>
+            ))
+            }
             </ul>
         </div>
     </div>
