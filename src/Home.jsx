@@ -420,19 +420,21 @@ function homepage() {
   //   getprogramData();
   // }, []);
 
-  const handleBack = () => {
-    if (leftBtnGalleryIndex > 0) {
-      setLeftBtnGalleryIndex((prev) => prev - 3);
-      setRightBtnGalleryIndex((prev) => prev - 3);
-    }
-  };
 
-  const handleForward = (totalItems) => {
-    if (rightBtnGalleryIndex < totalItems) {
-      setLeftBtnGalleryIndex((prev) => prev + 3);
-      setRightBtnGalleryIndex((prev) => prev + 3);
-    }
-  };
+
+  // const handleBack = () => {
+  //   if (leftBtnGalleryIndex > 0) {
+  //     setLeftBtnGalleryIndex((prev) => prev - 3);
+  //     setRightBtnGalleryIndex((prev) => prev - 3);
+  //   }
+  // };
+
+  // const handleForward = (totalItems) => {
+  //   if (rightBtnGalleryIndex < totalItems) {
+  //     setLeftBtnGalleryIndex((prev) => prev + 3);
+  //     setRightBtnGalleryIndex((prev) => prev + 3);
+  //   }
+  // };
 
   const handleGallery = () => {
     navigate("/gallery");
@@ -457,6 +459,30 @@ function homepage() {
   const handleNavigate=(index)=>{
     navigate(`${activitiesUrl[index]}`)
   }
+
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [startIndex, setStartIndex] = useState(0);
+
+  // Update window width on resize
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Determine how many images to show
+  const visibleCount = windowWidth >= 768 ? 3 : 1;
+
+  const handleBack = () => {
+    setStartIndex((prev) => Math.max(prev - visibleCount, 0));
+  };
+
+  const handleForward = () => {
+    setStartIndex((prev) =>
+      Math.min(prev + visibleCount, galleryData.length - visibleCount)
+    );
+  };
+
 
   return (
     <>
@@ -669,7 +695,7 @@ function homepage() {
 </section> */}
 
         {/* ---------------- EVERY CHILD CAN LEARN ---------------- */}
-        <section className="text-center py-16 bg-white relative">
+        <section className="text-center py-4  py-16 bg-white relative">
           <h2 className="text-3xl font-bold text-[#25337C]">
             Every Child Can Learn
           </h2>
@@ -947,7 +973,7 @@ function homepage() {
           </div>
 
           {/* -------- SLIDER IMAGES -------- */}
-          <div className="relative mt-10">
+          {/* <div className="relative mt-10">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {galleryData?.length &&
                 galleryData
@@ -960,8 +986,6 @@ function homepage() {
                     />
                   ))}
             </div>
-
-            {/* Left Gradient + Arrow */}
             <div className="absolute left-0 top-0 h-full w-45 bg-gradient-to-r from-white to-transparent flex items-center justify-start">
               <button
                 onClick={handleBack}
@@ -971,8 +995,6 @@ function homepage() {
                 <img src={Lefticon} alt="" className="w-[30px]" />
               </button>
             </div>
-
-            {/* Right Gradient + Arrow */}
             <div className="absolute right-0 top-0 h-full w-45 bg-gradient-to-l from-white to-transparent flex items-center justify-end">
               <button
                 onClick={() => {
@@ -984,7 +1006,46 @@ function homepage() {
                 <img src={Righticon} alt="" className="w-[30px]" />
               </button>
             </div>
-          </div>
+          </div> */}
+
+            <div className="relative mt-10">
+      <div className={`grid gap-6 ${windowWidth >= 768 ? "grid-cols-3" : "grid-cols-1"}`}>
+        {galleryData
+          ?.slice(startIndex, startIndex + visibleCount)
+          ?.map((gallery, idx) => (
+            <img
+              key={idx}
+              src={`${import.meta.env.VITE_APP_URL}${gallery.image}`}
+              alt={`Event ${idx + 1}`}
+              className="rounded-lg w-full h-64 object-cover shadow"
+            />
+          ))}
+      </div>
+
+      {/* Left Button */}
+      <div className="absolute left-0 top-0 h-full w-12 md:w-16 flex items-center justify-start bg-gradient-to-r from-white to-transparent">
+        <button
+          onClick={handleBack}
+          disabled={startIndex === 0}
+          className="rounded-full p-2 md:p-3 hover:bg-gray-100 ml-2"
+        >
+          <img src={Lefticon} alt="Left" className="w-6 md:w-8" />
+        </button>
+      </div>
+
+      {/* Right Button */}
+      <div className="absolute right-0 top-0 h-full w-12 md:w-16 flex items-center justify-end bg-gradient-to-l from-white to-transparent">
+        <button
+          onClick={handleForward}
+          disabled={startIndex + visibleCount >= galleryData.length}
+          className="rounded-full p-2 md:p-3 hover:bg-gray-100 mr-2"
+        >
+          <img src={Righticon} alt="Right" className="w-6 md:w-8" />
+        </button>
+      </div>
+    </div>
+
+          
 
           {/* Show More Button */}
           {/* <div className="flex justify-center mt-8">
