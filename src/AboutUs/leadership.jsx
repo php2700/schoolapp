@@ -8,8 +8,10 @@ import rotation from "../assets/home/rotationVector.png";
 import icon from "../assets/home/arrowicon.png";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const LeadershipTeamPage = () => {
+  const navigate=useNavigate()
   const [leadershipData, setLeadershipData] = useState([]);
   const [leadershiBanner, setLeadershipBanner] = useState();
   const [error, setError] = useState();
@@ -61,6 +63,10 @@ const LeadershipTeamPage = () => {
   useEffect(() => {
     getLeadershipBannerData();
   }, []);
+
+  const handleUrl=(url)=>{
+    navigate(url)
+  }
   return (
     <>
       <Header />
@@ -111,8 +117,7 @@ const LeadershipTeamPage = () => {
               <nav>
                 <ul>
                   <li className="mb-2">
-                    <a
-                      href="#"
+                    <div onClick={()=>handleUrl('/about/tsus-ludhiana')}
                       className=" font-['poppins'] flex justify-between items-center py-2 px-3 rounded-md hover:bg-blue-50 text-[#737373] text-[14px] hover:text-blue-600"
                     >
                       <span>About TLMD L. Educational</span>
@@ -130,11 +135,10 @@ const LeadershipTeamPage = () => {
                           d="M9 5l7 7-7 7"
                         ></path>
                       </svg>
-                    </a>
+                    </div>
                   </li>
                   <li className="mb-2">
-                    <a
-                      href="#"
+                   <div onClick={()=>handleUrl('/about/leadership-team')}
                       className="flex justify-between items-center py-2 px-3 rounded-md bg-[#25337C] text-white font-medium"
                     >
                       <span>Leadership</span>
@@ -152,11 +156,10 @@ const LeadershipTeamPage = () => {
                           d="M9 5l7 7-7 7"
                         ></path>
                       </svg>
-                    </a>
+                    </div>
                   </li>
                   <li className="mb-2">
-                    <a
-                      href="#"
+                    <div onClick={()=>handleUrl('/about/principals-message')}
                       className="flex justify-between items-center py-2 px-3 rounded-md hover:bg-blue-50 text-[#737373] text-[14px] hover:text-blue-600"
                     >
                       <span>Chairman Message</span>
@@ -174,11 +177,10 @@ const LeadershipTeamPage = () => {
                           d="M9 5l7 7-7 7"
                         ></path>
                       </svg>
-                    </a>
+                    </div>
                   </li>
                   <li className="mb-2">
-                    <a
-                      href="#"
+                    <div onClick={()=>handleUrl('/about/vision-mission')}
                       className="flex justify-between items-center py-2 px-3 rounded-md hover:bg-blue-50 text-[#737373] text-[14px] hover:text-blue-600"
                     >
                       <span>Vision & Mission</span>
@@ -196,11 +198,10 @@ const LeadershipTeamPage = () => {
                           d="M9 5l7 7-7 7"
                         ></path>
                       </svg>
-                    </a>
+                    </div>
                   </li>
                   <li className="mb-2">
-                    <a
-                      href="#"
+                   <div onClick={()=>handleUrl('/about/core-values')}
                       className="flex justify-between items-center py-2 px-3 rounded-md hover:bg-blue-50 text-[#737373] text-[14px] hover:text-blue-600"
                     >
                       <span>Core Values</span>
@@ -218,11 +219,10 @@ const LeadershipTeamPage = () => {
                           d="M9 5l7 7-7 7"
                         ></path>
                       </svg>
-                    </a>
+                    </div>
                   </li>
                   <li className="mb-2">
-                    <a
-                      href="#"
+                    <div onClick={()=>handleUrl('/about/what-makes-us-different')}
                       className="flex justify-between items-center py-2 px-3 rounded-md hover:bg-blue-50 text-[#737373] text-[14px] hover:text-blue-600"
                     >
                       <span>What Makes Us Different?</span>
@@ -240,11 +240,10 @@ const LeadershipTeamPage = () => {
                           d="M9 5l7 7-7 7"
                         ></path>
                       </svg>
-                    </a>
+                    </div>
                   </li>
                   <li className="mb-2">
-                    <a
-                      href="#"
+                   <div onClick={()=>handleUrl('/about/mandats')}
                       className="flex justify-between items-center py-2 px-3 rounded-md hover:bg-blue-50 text-[#737373] text-[14px] hover:text-blue-600"
                     >
                       <span>Mandatory Public Disclosure</span>
@@ -262,7 +261,7 @@ const LeadershipTeamPage = () => {
                           d="M9 5l7 7-7 7"
                         ></path>
                       </svg>
-                    </a>
+                    </div>
                   </li>
                 </ul>
               </nav>

@@ -9,12 +9,13 @@ import icon from '../assets/home/arrowicon.png'
 import myblog from '../assets/home/blogimage.png'
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 // import blogimg from '../assets/home/blogimage.png'
 
 
 export default function BlogPage() {
-
+const navigate=useNavigate()
      const [blogBannerData, setBlogBannerData] = useState();
      const [blogData,setBlogData]=useState([])
       const [error, setError] = useState();
@@ -67,6 +68,8 @@ export default function BlogPage() {
       useEffect(() => {
         getBlogData();
       }, []);
+
+  
     return (
         <>
         <Header/>

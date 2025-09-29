@@ -8,12 +8,14 @@ import icon from '../assets/home/arrowicon.png'
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 
 // import university from '../../src/assets/home/universityimage.png';
 // import {heros} from '../../src/assets/home/hero.png';
 export default function Admissionprocess() {
+  const navigate=useNavigate()
      const [admisssionProcessData, setAdmissionProcessData] = useState();
   const [error, setError] = useState();
 
@@ -41,6 +43,10 @@ export default function Admissionprocess() {
   useEffect(() => {
     getAdmissionData();
   }, []);
+
+  const handleUrl=(url)=>{
+    navigate(url)
+  }
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Navbar */}
@@ -76,54 +82,45 @@ export default function Admissionprocess() {
                         <h3 className=" font-['poppins'] text-xl font-semibold text-[#25337C] mb-4">Admission</h3>
                         <ul>
                             <li className="mb-2">
-                                <a href="#" className="flex items-center justify-between py-2 px-3 rounded-md  bg-[#25337c]  text-white">
+                                <div onClick={()=>{handleUrl("/admission/process")}}  className="flex items-center justify-between py-2 px-3 rounded-md  bg-[#25337c]  text-white">
                                     Addmission Process
                                     <img
                                         src={ChevronRightIcon}   // apna icon ka path yaha lagao
                                         alt="chevron right"
                                         className="h-6 w-3 text-[#737373]"
                                     />
-                                </a>
+                                </div>
                             </li>
                             <li className="mb-2">
-                                <a href="#" className="flex items-center justify-between py-2 px-3 rounded-md  hover:bg-gray-200  text-[#737373]">
+                                <div onClick={()=>{handleUrl("/admission/form")}}  className="flex items-center justify-between py-2 px-3 rounded-md  hover:bg-gray-200  text-[#737373]">
                                     Application Form
                                     <img
                                         src={ChevronRightIcon}   // apna icon ka path yaha lagao
                                         alt="chevron right"
                                         className="h-6 w-3 text-[#737373]"
                                     />
-                                </a>
+                                </div>
                             </li>
                             <li className="mb-2">
-                                <a href="#" className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
+                                <div onClick={()=>{handleUrl("/admission/visit")}}  className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
                                     Schedule a Visit
                                     <img
                                         src={ChevronRightIcon}   // apna icon ka path yaha lagao
                                         alt="chevron right"
                                         className="h-6 w-3 text-[#737373]"
                                     />
-                                </a>
+                                </div>
                             </li>
+                       
                             <li className="mb-2">
-                                <a href="#" className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
-                                    e-Brochure
-                                    <img
-                                        src={ChevronRightIcon}   // apna icon ka path yaha lagao
-                                        alt="chevron right"
-                                        className="h-6 w-3"
-                                    />
-                                </a>
-                            </li>
-                            <li className="mb-2">
-                                <a href="#" className="flex items-center justify-between py-2 px-3 rounded-md  hover:bg-gray-200 text-[#737373]">
+                                <div onClick={()=>{handleUrl("/admission/Faq")}}  className="flex items-center justify-between py-2 px-3 rounded-md  hover:bg-gray-200 text-[#737373]">
                                     FAQs
                                     <img
                                         src={ChevronRightIcon}   // apna icon ka path yaha lagao
                                         alt="chevron right"
                                         className="h-6 w-3"
                                     />
-                                </a>
+                                </div>
                             </li>
 
 
@@ -155,7 +152,7 @@ export default function Admissionprocess() {
       </h2>
 
       <div className="mb-8 text-[#333333] text-[18px] tracking-normal font-['poppins'] font-medium flex justify-center">
-        <ol className="list-decimal space-y-3 text-left inline-block">
+        <ol className="list-decimal space-y-3 text-left inline-block px-4">
           {ele?.description?.map((item, index) => (
             <li key={index}>
               {item?.text}

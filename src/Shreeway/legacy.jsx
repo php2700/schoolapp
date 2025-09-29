@@ -9,8 +9,14 @@ import legacyImg2 from "../assets/Legacy/legacy2.jpg";
 import legacyImg3 from "../assets/Legacy/legacy3.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDove } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const Legacy = () => {
+  const navigate=useNavigate();
+
+  const handleUrl=(url)=>{
+    navigate(url)
+  }
   const legacyItems = [
     {
       id: 1,
@@ -122,8 +128,7 @@ const Legacy = () => {
                 </h3>
                 <ul>
                   <li className="mb-2">
-                    <a
-                      href="/shriWay"
+                    <div onClick={()=>handleUrl("/shriWay")}
                       className="flex items-center justify-between py-2 px-3 rounded-md bg-[#25337C] text-white text-sm sm:text-base"
                     >
                       Meaning of "SHRI"
@@ -132,11 +137,10 @@ const Legacy = () => {
                         alt="chevron right"
                         className="h-5 w-2 sm:h-6 sm:w-3"
                       />
-                    </a>
+                    </div>
                   </li>
                   <li className="mb-2">
-                    <a
-                      href="/shriWay/legacy"
+                    <div onClick={()=>handleUrl("/shriWay/legacy")}
                       className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373] text-sm sm:text-base"
                     >
                       SHRI Educate Legacy
@@ -145,11 +149,10 @@ const Legacy = () => {
                         alt="chevron right"
                         className="h-5 w-2 sm:h-6 sm:w-3"
                       />
-                    </a>
+                    </div>
                   </li>
                   <li className="mb-2">
-                    <a
-                      href="/shriWay/philisophy"
+                    <div onClick={()=>handleUrl("/shriWay/philisophy")}
                       className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373] text-sm sm:text-base"
                     >
                       SHRI Philosophy
@@ -158,11 +161,10 @@ const Legacy = () => {
                         alt="chevron right"
                         className="h-5 w-2 sm:h-6 sm:w-3"
                       />
-                    </a>
+                    </div>
                   </li>
                   <li className="mb-2">
-                    <a
-                      href="/shriWay/differentiators"
+                    <div onClick={()=>handleUrl("/shriWay/differentiators")}
                       className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373] text-sm sm:text-base"
                     >
                       SHRI Differentiators
@@ -171,11 +173,10 @@ const Legacy = () => {
                         alt="chevron right"
                         className="h-5 w-2 sm:h-6 sm:w-3"
                       />
-                    </a>
+                    </div>
                   </li>
                   <li>
-                    <a
-                      href="/shriWay/educators"
+                    <div onClick={()=>handleUrl("/shriWay/educators")}
                       className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373] text-sm sm:text-base"
                     >
                       SHRI Educators
@@ -184,7 +185,7 @@ const Legacy = () => {
                         alt="chevron right"
                         className="h-5 w-2 sm:h-6 sm:w-3"
                       />
-                    </a>
+                    </div>
                   </li>
                 </ul>
               </div>

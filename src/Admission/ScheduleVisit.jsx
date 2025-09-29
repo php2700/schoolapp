@@ -7,8 +7,11 @@ import ChevronRightIcon from "../assets/home/shriArrow.png";
 import icon from "../assets/home/arrowicon.png";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Schedule() {
+const navigate=useNavigate()
+
   const [scheduleBannerData, setScheduleBannerData] = useState();
   const [formData, setFormData] = useState({
     studentName: "",
@@ -75,6 +78,11 @@ export default function Schedule() {
     }
   };
 
+  const handleUrl=(url)=>{
+    navigate(url)
+  }
+
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navbar */}
@@ -125,8 +133,7 @@ export default function Schedule() {
             </h3>
             <ul>
               <li className="mb-2">
-                <a
-                  href="#"
+                <div onClick={()=>handleUrl('/admission/process')}
                   className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]"
                 >
                   Admission Process
@@ -135,11 +142,10 @@ export default function Schedule() {
                     alt="chevron right"
                     className="h-6 w-3"
                   />
-                </a>
+                </div>
               </li>
               <li className="mb-2">
-                <a
-                  href="#"
+                <div onClick={()=>handleUrl("/admission/form")}
                   className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]"
                 >
                   Application Form
@@ -148,11 +154,10 @@ export default function Schedule() {
                     alt="chevron right"
                     className="h-6 w-3"
                   />
-                </a>
+                </div>
               </li>
               <li className="mb-2">
-                <a
-                  href="#"
+                <div onClick={()=>handleUrl("/admission/visit")}
                   className="flex items-center justify-between py-2 px-3 rounded-md bg-[#25337C] text-white"
                 >
                   Schedule a Visit
@@ -161,24 +166,11 @@ export default function Schedule() {
                     alt="chevron right"
                     className="h-6 w-3"
                   />
-                </a>
+                </div>
               </li>
+              
               <li className="mb-2">
-                <a
-                  href="#"
-                  className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]"
-                >
-                  e-Brochure
-                  <img
-                    src={ChevronRightIcon}
-                    alt="chevron right"
-                    className="h-6 w-3"
-                  />
-                </a>
-              </li>
-              <li className="mb-2">
-                <a
-                  href="#"
+                <div onClick={()=>handleUrl("/admission/Faq")}
                   className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]"
                 >
                   FAQs
@@ -187,7 +179,7 @@ export default function Schedule() {
                     alt="chevron right"
                     className="h-6 w-3"
                   />
-                </a>
+                </div>
               </li>
             </ul>
           </div>

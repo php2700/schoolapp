@@ -633,69 +633,45 @@ function homepage() {
 
       {/* ---------------- WELCOME SECTION ---------------- */}
 
-      <div className="w-full font-sans mt-[100px]">
-        <div>
-          <section
-            className="relative bg-[#1F2B6C] text-white w-full max-w-[1000px] mx-auto rounded-[50px] overflow-visible"
-            style={{
-              clipPath: "polygon(0px 0%, 254% 387px, 100% 100%, 0px 104%)",
-            }}
-          >
-            <div className="relative flex flex-col md:flex-row items-center px-6 py-12 md:py-20 overflow-visible">
-              <div className="flex-1 text-center md:text-left z-10 ml-[50px]">
-                <h3 className="uppercase tracking-wide text-sm font-bold">
-                  Welcome to
-                </h3>
-                <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mt-2 text-[#F3D805]">
-                  {welcomeData?.title}
-                </h1>
-                <p className="mt-4 text-base md:text-lg max-w-lg mx-auto md:mx-0">
-                  {welcomeData?.description}
-                </p>
-              </div>
-            </div>
-          </section>
+      <div className="w-full font-sans mt-[30px]">
 
-          <div className="relative w-full flex justify-center md:justify-end -mt-[400px] md:-mt-[500px] overflow-visible z-0 pointer-events-none">
-            <img
-              src={Welcome}
-              alt="Hero"
-              className="rounded-2xl w-[350px] md:w-[500px] h-[450px] md:h-[600px] -mt-[99px] mr-[322px]"
-            />
-          </div>
-        </div>
 
-        {/* <section
-  className="relative bg-[#1F2B6C] text-white w-full max-w-[1000px] mx-auto rounded-[50px] overflow-visible"
-  style={{
-    clipPath: "polygon(0 0, 100% 0, 100% 85%, 0 100%)",
-  }}
->
-  <div className="flex flex-col md:flex-row items-center px-6 md:px-12 py-12 md:py-20 relative z-10">
-    <div className="flex-1 text-center md:text-left">
-      <h3 className="uppercase tracking-wide text-sm font-bold">
-        Welcome to
-      </h3>
-      <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mt-2 text-[#F3D805]">
-        The Shri Ram <br /> Universal School
-      </h1>
-      <p className="mt-4 text-base md:text-lg max-w-xl mx-auto md:mx-0">
-        We, at one of the top schools in Ludhiana, believe in the individuality and unique identity of each child. Our educational philosophy is emphatic about providing a child-centric education and keeping this in view, one of the best schools in Ludhiana offers learning that is interactive, experiential, innovative and evolving.
-      </p>
+  <section
+    className="relative bg-[#1F2B6C] text-white w-full max-w-[1000px] mx-auto rounded-[50px] overflow-visible"
+    style={{
+      clipPath: "polygon(0px 0%, 254% 387px, 100% 100%, 0px 104%)",
+    }}
+  >
+    <div className="relative flex flex-col-reverse md:flex-row items-center px-6 py-12 md:py-20">
+      
+      {/* Left Side: Text */}
+      <div className="flex-1 text-center md:text-left z-10 md:ml-[50px]">
+        <h3 className="uppercase tracking-wide text-sm font-bold">
+          Welcome to
+        </h3>
+        <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mt-2 text-[#F3D805]">
+          {welcomeData?.title}
+        </h1>
+        <p className="mt-4 text-base md:text-lg max-w-lg mx-auto md:mx-0">
+          {welcomeData?.description}
+        </p>
+      </div>
+
+      {/* Right Side: Image */}
+      <div className="flex-1 flex justify-center md:justify-end mb-6 md:mb-0">
+        <img
+          src={Welcome}
+          alt="Hero"
+          className="rounded-2xl w-[250px] sm:w-[300px] md:w-[400px] lg:w-[500px] h-auto"
+        />
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div className="absolute bottom-0 right-0 w-full flex justify-center md:justify-end pointer-events-none z-0 -mb-20 md:-mb-32">
-    <img
-      src={Welcome}
-      alt="Hero"
-      className="rounded-2xl w-[80%] max-w-[500px] h-auto md:h-[600px] object-cover"
-    />
-  </div>
-</section> */}
+
 
         {/* ---------------- EVERY CHILD CAN LEARN ---------------- */}
-        <section className="text-center py-4  py-16 bg-white relative">
+        <section className="text-center py-12 md:py-16 bg-white relative">
           <h2 className="text-3xl font-bold text-[#25337C]">
             Every Child Can Learn
           </h2>
@@ -734,13 +710,13 @@ function homepage() {
                 everychildData?.images[0]
               }`}
               alt="Educator"
-              className="md:w-300 md:h-400 w-[300px] h-[300px] object-contain z-10 md:mt-[300px]"
+              className="md:w-300 md:h-400 w-[90%] h-auto object-contain z-10 md:mt-[300px]"
             />
           </div>
         </section>
 
         {/* ---------------- ACTIVITIES SECTION ---------------- */}
-        <section className="bg-white-50 py-16 mt-[150px]">
+        <section className="bg-white-50 py-16 md:mt-[150px]">
           <div className="max-w-7xl mx-auto px-6">
             {/* Heading */}
             <h2 className="text-3xl font-bold text-center text-[#1F2B6C] md:mt-10 -mt-0">
@@ -955,7 +931,7 @@ function homepage() {
       <div className="w-full font-sans bg-white py-16">
         <div className="max-w-[98rem] mx-auto px-6">
           {/* -------- TOP HEADING -------- */}
-          <div className="flex flex-col md:flex-row  justify-between items-start md:items-center">
+          <div className="flex flex-row md:flex-row  justify-between items-center md:items-center">
             <div>
               <h3 className="text-yellow-400 font-semibold text-[30px]">
                 Photo Gallery
@@ -1424,7 +1400,7 @@ function homepage() {
       </section>
       <section className="py-25 bg-white"></section>
 
-      <diV className="mt-[200px]">
+      <diV >
         <Footer />
       </diV>
     </>

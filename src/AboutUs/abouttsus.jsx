@@ -8,10 +8,12 @@ import icon from '../assets/home/arrowicon.png'
 import { toast } from 'react-toastify';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 // import university from '../../src/assets/home/universityimage.png';
 // import {heros} from '../../src/assets/home/hero.png';
 export default function AboutUs() {
+  const navigate=useNavigate();
   const [aboutData, setAboutData] = useState();
   const [error, setError] = useState();
 
@@ -38,6 +40,10 @@ export default function AboutUs() {
   useEffect(() => {
     getAboutData();
   }, []);
+
+  const handleUrl=(url)=>{
+    navigate(url)
+  }
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navbar */}
@@ -78,74 +84,74 @@ export default function AboutUs() {
             <h3 className=" font-['poppins'] text-xl font-semibold text-[#25337C] mb-4">About Us</h3>
             <ul>
               <li className="mb-2">
-                <a href="#" className="flex items-center justify-between py-2 px-3 rounded-md bg-[#25337C] text-white">
+                <div onClick={()=>handleUrl('/about/tsus-ludhiana')} className="flex items-center justify-between py-2 px-3 rounded-md bg-[#25337C] text-white">
                   About TSUS Ludhiana
                   <img
                     src={ChevronRightIcon}   // apna icon ka path yaha lagao
                     alt="chevron right"
                     className="h-6 w-3 text-[#737373]"
                   />
-                </a>
+                </div>
               </li>
               <li className="mb-2">
-                <a href="#" className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
+               <div onClick={()=>handleUrl('/about/leadership-team')} className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
                   Leadership
                   <img
                     src={ChevronRightIcon}   // apna icon ka path yaha lagao
                     alt="chevron right"
                     className="h-6 w-3 text-[#737373]"
                   />
-                </a>
+                </div>
               </li>
               <li className="mb-2">
-                <a href="#" className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
+                <div onClick={()=>handleUrl('/about/principals-message')} className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
                   Principal's Message
                   <img
                     src={ChevronRightIcon}   // apna icon ka path yaha lagao
                     alt="chevron right"
                     className="h-6 w-3"
                   />
-                </a>
+                </div>
               </li>
               <li className="mb-2">
-                <a href="#" className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
+                <div onClick={()=>handleUrl('/about/vision-mission')} className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
                   Vision & Mission
                   <img
                     src={ChevronRightIcon}   // apna icon ka path yaha lagao
                     alt="chevron right"
                     className="h-6 w-3"
                   />
-                </a>
+                </div>
               </li>
               <li>
-                <a href="#" className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
+                <div onClick={()=>handleUrl('/about/core-values')} className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
                   Core Values
                   <img
                     src={ChevronRightIcon}   // apna icon ka path yaha lagao
                     alt="chevron right"
                     className="h-6 w-3"
                   />
-                </a>
+                </div>
               </li>
               <li>
-                <a href="#" className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
+                <div onClick={()=>handleUrl('/about/what-makes-us-different')} className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
                   What makes us different from others 
                   <img
                     src={ChevronRightIcon}   // apna icon ka path yaha lagao
                     alt="chevron right"
                     className="h-6 w-3"
                   />
-                </a>
+                </div>
               </li>
               <li>
-                <a href="#" className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
+                <div onClick={()=>handleUrl('/about/mandats')} className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
                   Mandatory Public Disclosure
                   <img
                     src={ChevronRightIcon}   // apna icon ka path yaha lagao
                     alt="chevron right"
                     className="h-6 w-3"
                   />
-                </a>
+                </div>
               </li>
             </ul>
           </div>

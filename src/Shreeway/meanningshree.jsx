@@ -4,9 +4,15 @@ import BannerImage from "../assets/home/Bannershree.png";
 import Header from "../../component/Header";
 import Footer from "../../component/Footer";
 import homevector from "../assets/home/homevector.png";
+import { useNavigate } from "react-router-dom";
 
 const MeaningOfShriPage = () => {
-  return (
+  const navigate=useNavigate();
+
+  const handleUrl=(url)=>{
+    navigate(url)
+  }
+    return (
     <>
       <Header />
       <div className="bg-white min-h-screen">
@@ -50,8 +56,7 @@ const MeaningOfShriPage = () => {
               </h3>
               <ul>
                 <li className="mb-2">
-                  <a
-                    href="/shriWay"
+                  <div onClick={()=>handleUrl("/shriWay")}
                     className="flex items-center justify-between py-2 px-3 rounded-md bg-[#25337C] text-white"
                   >
                     Meaning of "SHRI"
@@ -60,11 +65,10 @@ const MeaningOfShriPage = () => {
                       alt="chevron right"
                       className="h-6 w-3 text-[#737373]"
                     />
-                  </a>
+                 </div>
                 </li>
                 <li className="mb-2">
-                  <a
-                    href="/shriWay/legacy"
+                   <div onClick={()=>handleUrl("/shriWay/legacy")}
                     className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]"
                   >
                     SHRI Educate Legacy
@@ -73,11 +77,10 @@ const MeaningOfShriPage = () => {
                       alt="chevron right"
                       className="h-6 w-3 text-[#737373]"
                     />
-                  </a>
+                  </div>
                 </li>
                 <li className="mb-2">
-                  <a
-                    href="/shriWay/philisophy"
+                  <div onClick={()=>handleUrl("/shriWay/philisophy")}
                     className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]"
                   >
                     SHRI Philosophy
@@ -86,11 +89,11 @@ const MeaningOfShriPage = () => {
                       alt="chevron right"
                       className="h-6 w-3"
                     />
-                  </a>
+                  </div>
                 </li>
                 <li className="mb-2">
-                  <a
-                    href="/shriWay/differentiators"
+                  <div onClick={()=>handleUrl("/shriWay/differentiators")}
+                   
                     className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]"
                   >
                     SHRI Differentiators
@@ -99,11 +102,11 @@ const MeaningOfShriPage = () => {
                       alt="chevron right"
                       className="h-6 w-3"
                     />
-                  </a>
+                  </div>
                 </li>
                 <li>
-                  <a
-                    href="/shriWay/educators"
+                 <div onClick={()=>handleUrl("/shriWay/educators")}
+                
                     className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]"
                   >
                     SHRI Educators
@@ -112,7 +115,7 @@ const MeaningOfShriPage = () => {
                       alt="chevron right"
                       className="h-6 w-3"
                     />
-                  </a>
+                  </div>
                 </li>
               </ul>
             </div>

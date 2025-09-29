@@ -7,10 +7,11 @@ import Banner from "../assets/home/Bannerleder.png";
 import homevector from "../assets/home/homevector.png";
 import ChevronRightIcon from "../assets/home/shriArrow.png";
 import icon from "../assets/home/arrowicon.png";
+import { useNavigate } from "react-router-dom";
 
 export default function AdmissionForm() {
-
-const [admisssionBannerData, setAdmissionBannerData] = useState();
+  const navigate = useNavigate();
+  const [admisssionBannerData, setAdmissionBannerData] = useState();
   const [error, setError] = useState();
 
   const getAdmissionBannerData = async () => {
@@ -199,12 +200,20 @@ const [admisssionBannerData, setAdmissionBannerData] = useState();
     }
   };
 
+  const handleUrl = (url) => {
+    navigate(url);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
       <section
         className="relative h-120 bg-cover bg-center rounded-bl-[45px] rounded-br-[45px] overflow-hidden"
-        style={{ backgroundImage: `url(${import.meta.env.VITE_APP_URL}${admisssionBannerData?.banner})` }}
+        style={{
+          backgroundImage: `url(${import.meta.env.VITE_APP_URL}${
+            admisssionBannerData?.banner
+          })`,
+        }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="font-['poppins'] relative z-10 flex flex-col items-center justify-center h-full text-white">
@@ -234,8 +243,8 @@ const [admisssionBannerData, setAdmissionBannerData] = useState();
             </h3>
             <ul>
               <li className="mb-2">
-                <a
-                  href="#"
+                <div
+                  onClick={() => handleUrl("/admission/process")}
                   className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]"
                 >
                   Admission Process
@@ -244,11 +253,11 @@ const [admisssionBannerData, setAdmissionBannerData] = useState();
                     alt="chevron right"
                     className="h-6 w-3 text-[#737373]"
                   />
-                </a>
+                </div>
               </li>
               <li className="mb-2">
-                <a
-                  href="#"
+                <div
+                  onClick={() => handleUrl("/admission/form")}
                   className="flex items-center justify-between py-2 px-3 rounded-md bg-[#25337C] text-white"
                 >
                   Application Form
@@ -257,11 +266,11 @@ const [admisssionBannerData, setAdmissionBannerData] = useState();
                     alt="chevron right"
                     className="h-6 w-3 text-[#737373]"
                   />
-                </a>
+                </div>
               </li>
               <li className="mb-2">
-                <a
-                  href="#"
+                <div
+                  onClick={() => handleUrl("/admission/visit")}
                   className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]"
                 >
                   Schedule a Visit
@@ -270,24 +279,11 @@ const [admisssionBannerData, setAdmissionBannerData] = useState();
                     alt="chevron right"
                     className="h-6 w-3 text-[#737373]"
                   />
-                </a>
+                </div>
               </li>
               <li className="mb-2">
-                <a
-                  href="#"
-                  className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]"
-                >
-                  e-Brochure
-                  <img
-                    src={ChevronRightIcon}
-                    alt="chevron right"
-                    className="h-6 w-3"
-                  />
-                </a>
-              </li>
-              <li className="mb-2">
-                <a
-                  href="#"
+                <div
+                  onClick={() => handleUrl("/admission/Faq")}
                   className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]"
                 >
                   FAQs
@@ -296,7 +292,7 @@ const [admisssionBannerData, setAdmissionBannerData] = useState();
                     alt="chevron right"
                     className="h-6 w-3"
                   />
-                </a>
+                </div>
               </li>
             </ul>
           </div>
@@ -312,77 +308,93 @@ const [admisssionBannerData, setAdmissionBannerData] = useState();
               <h3 className="text-lg font-semibold text-[#25337C] mb-4">
                 Student Information
               </h3>
-              <div className="grid md:grid-cols-3 gap-4">
-                <input
-                  required
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Name of Child"
-                  className="border p-2 rounded"
-                />
-                <select
-                  required
-                  name="gender"
-                  value={formData.gender}
-                  onChange={handleChange}
-                  className="border p-2 rounded"
-                >
-                  <option value="">Select Gender</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
-                </select>
-                <input
-                  required
-                  type="date"
-                  name="dob"
-                  value={formData.dob}
-                  onChange={handleChange}
-                  className="border p-2 rounded"
-                />
-                <input
-                  required
-                  type="text"
-                  name="nationality"
-                  value={formData.nationality}
-                  onChange={handleChange}
-                  placeholder="Nationality"
-                  className="border p-2 rounded"
-                />
-                <input
-                  required
-                  type="text"
-                  name="classForAdmission"
-                  value={formData.classForAdmission}
-                  onChange={handleChange}
-                  placeholder="Class to which admission"
-                  className="border p-2 rounded"
-                />
-                <input
-                  name="schoolAndClassLastAttended"
-                  value={formData.schoolAndClassLastAttended}
-                  onChange={handleChange}
-                  placeholder="School and Class last attended"
-                  className="border p-2 rounded"
-                />
-                <input
-                  type="text"
-                  name="lastSchoolAffiliation"
-                  value={formData.lastSchoolAffiliation}
-                  onChange={handleChange}
-                  placeholder="Affiliation of last school attended"
-                  className="border p-2 rounded col-span-2"
-                />
-                <input
-                  type="text"
-                  name="previousClassResult"
-                  value={formData.previousClassResult}
-                  onChange={handleChange}
-                  placeholder="Result of Previous Class Grade / Percentage"
-                  className="border p-2 rounded"
-                />
+              <div className="grid grid-cols-1  md:grid-cols-3 gap-4">
+                <div>
+                  <input
+                    required
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Name of Child"
+                    className="border p-2 rounded w-full"
+                  />
+                </div>
+                <div>
+                  <select
+                    required
+                    name="gender"
+                    value={formData.gender}
+                    onChange={handleChange}
+                    className="border p-2 rounded w-full"
+                  >
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div>
+                  <input
+                    required
+                    type="date"
+                    name="dob"
+                    value={formData.dob}
+                    onChange={handleChange}
+                    className="border p-2 rounded w-full"
+                  />
+                </div>
+                <div>
+                  <input
+                    required
+                    type="text"
+                    name="nationality"
+                    value={formData.nationality}
+                    onChange={handleChange}
+                    placeholder="Nationality"
+                    className="border p-2 rounded w-full"
+                  />
+                </div>
+                <div>
+                  <input
+                    required
+                    type="text"
+                    name="classForAdmission"
+                    value={formData.classForAdmission}
+                    onChange={handleChange}
+                    placeholder="Class to which admission"
+                    className="border p-2 rounded w-full"
+                  />
+                </div>
+                <div>
+                  <input
+                    name="schoolAndClassLastAttended"
+                    value={formData.schoolAndClassLastAttended}
+                    onChange={handleChange}
+                    placeholder="School and Class last attended"
+                    className="border p-2 rounded w-full"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    name="lastSchoolAffiliation"
+                    value={formData.lastSchoolAffiliation}
+                    onChange={handleChange}
+                    placeholder="Affiliation of last school attended"
+                    className="border p-2 rounded w-full col-span-2"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    name="previousClassResult"
+                    value={formData.previousClassResult}
+                    onChange={handleChange}
+                    placeholder="Result of Previous Class Grade / Percentage"
+                    className="border p-2 rounded w-full"
+                  />
+                </div>
               </div>
             </section>
 
@@ -390,46 +402,58 @@ const [admisssionBannerData, setAdmissionBannerData] = useState();
               <h3 className="text-lg font-semibold text-[#25337C] mb-4">
                 Mother Information
               </h3>
-              <div className="grid md:grid-cols-3 gap-4">
-                <input
-                  type="text"
-                  name="motherName"
-                  value={formData.motherName}
-                  onChange={handleChange}
-                  placeholder="Mother Name"
-                  className="border p-2 rounded"
-                />
-                <input
-                  type="date"
-                  name="motherDob"
-                  value={formData.motherDob}
-                  onChange={handleChange}
-                  className="border p-2 rounded"
-                />
-                <input
-                  name="motherEducation"
-                  value={formData.motherEducation}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Education"
-                  className="border p-2 rounded"
-                />
-                <input
-                  type="email"
-                  name="motherEmail"
-                  value={formData.motherEmail}
-                  onChange={handleChange}
-                  placeholder="Email"
-                  className="border p-2 rounded col-span-2"
-                />
-                <input
-                  name="motherMobile"
-                  value={formData.motherMobile}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Mobile"
-                  className="border p-2 rounded"
-                />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <input
+                    type="text"
+                    name="motherName"
+                    value={formData.motherName}
+                    onChange={handleChange}
+                    placeholder="Mother Name"
+                    className="border p-2 rounded w-full"
+                  />
+                </div>
+                <div>
+                  {" "}
+                  <input
+                    type="date"
+                    name="motherDob"
+                    value={formData.motherDob}
+                    onChange={handleChange}
+                    className="border p-2 rounded w-full"
+                  />
+                </div>
+                <div>
+                  <input
+                    name="motherEducation"
+                    value={formData.motherEducation}
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Education"
+                    className="border p-2 rounded w-full"
+                  />
+                </div>
+                <div>
+                  {" "}
+                  <input
+                    type="email"
+                    name="motherEmail"
+                    value={formData.motherEmail}
+                    onChange={handleChange}
+                    placeholder="Email"
+                    className="border p-2 rounded col-span-2 w-full"
+                  />
+                </div>
+                <div>
+                  <input
+                    name="motherMobile"
+                    value={formData.motherMobile}
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Mobile"
+                    className="border p-2 rounded w-full"
+                  />
+                </div>
               </div>
               <h3 className="text-lg font-semibold text-[#25337C] mb-4 mt-4">
                 Please specify the following: (If applicable)
@@ -474,46 +498,60 @@ const [admisssionBannerData, setAdmissionBannerData] = useState();
               <h3 className="text-lg font-semibold text-[#25337C] mb-4">
                 Father Information
               </h3>
-              <div className="grid md:grid-cols-3 gap-4">
-                <input
-                  name="fatherName"
-                  value={formData.fatherName}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Father Name"
-                  className="border p-2 rounded"
-                />
-                <input
-                  name="fatherDob"
-                  value={formData.fatherDob}
-                  onChange={handleChange}
-                  type="date"
-                  className="border p-2 rounded"
-                />
-                <input
-                  name="fatherEducation"
-                  value={formData.fatherEducation}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Education"
-                  className="border p-2 rounded"
-                />
-                <input
-                  name="fatherEmail"
-                  value={formData.fatherEmail}
-                  onChange={handleChange}
-                  type="email"
-                  placeholder="Email"
-                  className="border p-2 rounded col-span-2"
-                />
-                <input
-                  name="fatherMobile"
-                  value={formData.fatherMobile}
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Mobile"
-                  className="border p-2 rounded"
-                />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <input
+                    name="fatherName"
+                    value={formData.fatherName}
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Father Name"
+                    className="border p-2 rounded w-full"
+                  />
+                </div>
+                <div>
+                  {" "}
+                  <input
+                    name="fatherDob"
+                    value={formData.fatherDob}
+                    onChange={handleChange}
+                    type="date"
+                    className="border p-2 rounded w-full"
+                  />
+                </div>
+                <div>
+                  {" "}
+                  <input
+                    name="fatherEducation"
+                    value={formData.fatherEducation}
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Education"
+                    className="border p-2 rounded w-full"
+                  />
+                </div>
+                <div>
+                  {" "}
+                  <input
+                    name="fatherEmail"
+                    value={formData.fatherEmail}
+                    onChange={handleChange}
+                    type="email"
+                    placeholder="Email"
+                    className="border p-2 rounded col-span-2 w-full"
+                  />
+                </div>
+                <div>
+                  {" "}
+                  <input
+                    name="fatherMobile"
+                    value={formData.fatherMobile}
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Mobile"
+                    className="border p-2 rounded w-full"
+                  />
+                </div>
               </div>
               <h3 className="text-lg font-semibold text-[#25337C] mb-4 mt-4">
                 Please specify the following: (If applicable)
@@ -584,39 +622,47 @@ const [admisssionBannerData, setAdmissionBannerData] = useState();
                 Details of sisters and brothers in chronological order including
                 the applicant
               </h3>
-              <div className="grid md:grid-cols-5 gap-4">
-                <input
-                  type="text"
-                  name="serialNo"
-                  value={siblingsInput.serialNo}
-                  onChange={handleSiblingChange}
-                  placeholder="S.No"
-                  className="border p-2 rounded"
-                />
-                <input
-                  type="text"
-                  name="name"
-                  value={siblingsInput.name}
-                  onChange={handleSiblingChange}
-                  placeholder="Name of the Child"
-                  className="border p-2 rounded"
-                />
-                <input
-                  type="text"
-                  name="class"
-                  value={siblingsInput.class}
-                  onChange={handleSiblingChange}
-                  placeholder="Class"
-                  className="border p-2 rounded"
-                />
-                <input
-                  type="text"
-                  name="school"
-                  value={siblingsInput.school}
-                  onChange={handleSiblingChange}
-                  placeholder="Name of the School"
-                  className="border p-2 rounded col-span-2"
-                />
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div>
+                  <input
+                    type="text"
+                    name="serialNo"
+                    value={siblingsInput.serialNo}
+                    onChange={handleSiblingChange}
+                    placeholder="S.No"
+                    className="border p-2 rounded w-full"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    name="name"
+                    value={siblingsInput.name}
+                    onChange={handleSiblingChange}
+                    placeholder="Name of the Child"
+                    className="border p-2 rounded w-full"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    name="class"
+                    value={siblingsInput.class}
+                    onChange={handleSiblingChange}
+                    placeholder="Class"
+                    className="border p-2 rounded w-full"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    name="school"
+                    value={siblingsInput.school}
+                    onChange={handleSiblingChange}
+                    placeholder="Name of the School"
+                    className="border p-2 rounded w-full col-span-2"
+                  />
+                </div>
               </div>
               <button
                 type="button"

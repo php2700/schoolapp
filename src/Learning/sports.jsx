@@ -9,10 +9,12 @@ import image from "../assets/home/sportsimage.jpg";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 // import university from '../../src/assets/home/universityimage.png';
 // import {heros} from '../../src/assets/home/hero.png';
 export default function Sports() {
+  const navigate=useNavigate()
   const [sportData, setSportData] = useState();
   const [error, setError] = useState();
 
@@ -40,6 +42,10 @@ export default function Sports() {
   useEffect(() => {
     getSportData();
   }, []);
+
+  const handleUrl=(url)=>{
+    navigate(url);
+  }
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navbar */}
@@ -99,8 +105,7 @@ export default function Sports() {
             </h3>
             <ul>
               <li className="mb-2">
-                <a
-                  href="#"
+                <div onClick={()=>handleUrl('/learning/Art')}
                   className="flex items-center justify-between py-2 px-3 rounded-md   hover:bg-gray-200 text-[#737373]"
                 >
                   Art and Visual Art
@@ -109,11 +114,10 @@ export default function Sports() {
                     alt="chevron right"
                     className="h-6 w-3 text-[#737373]"
                   />
-                </a>
+                </div>
               </li>
               <li className="mb-2">
-                <a
-                  href="#"
+                <div onClick={()=>handleUrl('/learning/Society')}
                   className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]"
                 >
                   TSUS Societies And Clubs
@@ -122,11 +126,10 @@ export default function Sports() {
                     alt="chevron right"
                     className="h-6 w-3 text-[#737373]"
                   />
-                </a>
+                </div>
               </li>
               <li className="mb-2">
-                <a
-                  href="#"
+                <div onClick={()=>handleUrl('/learning/Sports')}
                   className="flex items-center justify-between py-2 px-3 rounded-md bg-[#25337C] text-white"
                 >
                   Sports
@@ -135,11 +138,10 @@ export default function Sports() {
                     alt="chevron right"
                     className="h-6 w-3"
                   />
-                </a>
+                </div>
               </li>
               <li className="mb-2">
-                <a
-                  href="#"
+                <div onClick={()=>handleUrl('/learning/Classroom')}
                   className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373] "
                 >
                   Beyond the Classroom
@@ -148,11 +150,10 @@ export default function Sports() {
                     alt="chevron right"
                     className="h-6 w-3"
                   />
-                </a>
+                </div>
               </li>
               <li>
-                <a
-                  href="#"
+                <div onClick={()=>handleUrl('/learning/Environment')}
                   className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]"
                 >
                   Environment Initiatives
@@ -161,7 +162,7 @@ export default function Sports() {
                     alt="chevron right"
                     className="h-6 w-3"
                   />
-                </a>
+                </div>
               </li>
             </ul>
           </div>

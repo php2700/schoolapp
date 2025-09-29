@@ -8,13 +8,14 @@ import icon from '../assets/home/arrowicon.png'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 
 
 // import university from '../../src/assets/home/universityimage.png';
 // import {heros} from '../../src/assets/home/hero.png';
 export default function Art() {
-
+const navigate=useNavigate()
       const [artData, setArtData] = useState();
   const [error, setError] = useState();
 
@@ -39,6 +40,10 @@ export default function Art() {
   useEffect(() => {
     getArtData();
   }, []);
+
+  const handleUrl=(url)=>{
+    navigate(url)
+  }
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Navbar */}
@@ -75,54 +80,54 @@ export default function Art() {
                         <h3 className=" font-['poppins'] text-xl font-semibold text-[#25337C] mb-4">Co-curriculum Pursuit</h3>
                         <ul>
                             <li className="mb-2">
-                                <a href="#" className="flex items-center justify-between py-2 px-3 rounded-md   bg-[#25337C] text-white">
+                                <div onClick={()=>handleUrl('/learning/Art')} className="flex items-center justify-between py-2 px-3 rounded-md   bg-[#25337C] text-white">
                                     Art and Visual Art
                                     <img
                                         src={ChevronRightIcon}   // apna icon ka path yaha lagao
                                         alt="chevron right"
                                         className="h-6 w-3 text-[#737373]"
                                     />
-                                </a>
+                                </div>
                             </li>
                             <li className="mb-2">
-                                <a href="#" className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
+                                <div onClick={()=>handleUrl('/learning/Society')} className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
                                     TSUS Societies And Clubs
                                     <img
                                         src={ChevronRightIcon}   // apna icon ka path yaha lagao
                                         alt="chevron right"
                                         className="h-6 w-3 text-[#737373]"
                                     />
-                                </a>
+                                </div>
                             </li>
                             <li className="mb-2">
-                                <a href="#" className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
+                                <div onClick={()=>handleUrl('/learning/Sports')} className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
                                     Sports
                                     <img
                                         src={ChevronRightIcon}   // apna icon ka path yaha lagao
                                         alt="chevron right"
                                         className="h-6 w-3"
                                     />
-                                </a>
+                                </div>
                             </li>
                             <li className="mb-2">
-                                <a href="#" className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373] ">
+                                <div onClick={()=>handleUrl('/learning/Classroom')} className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373] ">
                                     Beyond the Classroom
                                     <img
                                         src={ChevronRightIcon}   // apna icon ka path yaha lagao
                                         alt="chevron right"
                                         className="h-6 w-3"
                                     />
-                                </a>
+                                </div>
                             </li>
                             <li>
-                                <a href="#" className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
+                                <div onClick={()=>handleUrl('/learning/Environment')} className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]">
                                     Environment Initiatives
                                     <img
                                         src={ChevronRightIcon}   // apna icon ka path yaha lagao
                                         alt="chevron right"
                                         className="h-6 w-3"
                                     />
-                                </a>
+                                </div>
                             </li>
                         </ul>
                     </div>

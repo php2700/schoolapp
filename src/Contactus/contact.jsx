@@ -6,8 +6,10 @@ import Header from "../../component/Header";
 import Footer from "../../component/Footer";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const ContactUsPage = () => {
+  const navigate=useNavigate()
   const [contactBanner, setContactBanner] = useState();
   const [error, setError] = useState();
   const [formData, setFormData] = useState({
@@ -82,6 +84,9 @@ const ContactUsPage = () => {
     }
   };
 
+  const handleUrl=(url)=>{
+    navigate(url)
+  }
   return (
     <>
       <Header />
@@ -126,18 +131,17 @@ const ContactUsPage = () => {
             </h2>
             <ul>
               {[
-                "Admission Process",
-                "Application Form",
-                "Schedule a Visit",
-                "E-Brochure",
-                "FAQs",
+                {"key":"Admission Process",url:"/admission/process"},
+                {"key": "Application Form",url:"/admission/form"},
+                {"key":"Schedule a Visit",url:"/admission/visit"},
+                {"key":"FAQs",url:"/admission/Faq"}
               ].map((item, index) => (
                 <li key={index} className="mb-4">
-                  <a
-                    href="#"
+                  <div
+                    onClick={()=>{handleUrl(item?.url)}}
                     className="flex justify-between items-center text-lg text-[#737373] hover:text-blue-600 transition duration-300"
                   >
-                    {item}
+                    {item?.key}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5 text-gray-400"
@@ -152,7 +156,7 @@ const ContactUsPage = () => {
                         d="M9 5l7 7-7 7"
                       />
                     </svg>
-                  </a>
+                  </div>
                 </li>
               ))}
             </ul>

@@ -13,10 +13,13 @@ import ask1 from "../assets/home/freqimg1.png";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 // import university from '../../src/assets/home/universityimage.png';
 // import {heros} from '../../src/assets/home/hero.png';
 export default function Faq() {
+const navigate=useNavigate()
+
   const [faqBannerData, setFaqBannerData] = useState();
   const [faqData, setFaqData] = useState([]);
   const getFaqBannerData = async () => {
@@ -58,6 +61,11 @@ export default function Faq() {
     getFaqData();
   }, []);
 
+   const handleUrl=(url)=>{
+    navigate(url)
+  }
+
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navbar */}
@@ -96,13 +104,6 @@ export default function Faq() {
         </div>
       </section>
 
-      {/* Breadcrumb */}
-      {/* <div className="max-w-6xl mx-auto px-6 py-4 text-sm text-gray-600">
-        Home <span className="mx-2">›</span>{" "}
-        <span className="text-blue-700 font-medium">
-          What makes us different from others
-        </span>
-      </div> */}
 
       {/* Content Section */}
       <div className=" bg-white container mx-auto py-12 px-4 md:flex">
@@ -117,8 +118,7 @@ export default function Faq() {
             </h3>
             <ul>
               <li className="mb-2">
-                <a
-                  href="#"
+                <div onClick={()=>handleUrl("/admission/form")}
                   className="flex items-center justify-between py-2 px-3 rounded-md  hover:bg-gray-200  text-[#737373]"
                 >
                   Application Form
@@ -127,11 +127,10 @@ export default function Faq() {
                     alt="chevron right"
                     className="h-6 w-3 text-[#737373]"
                   />
-                </a>
+                </div>
               </li>
               <li className="mb-2">
-                <a
-                  href="#"
+                <div onClick={()=>handleUrl("/admission/visit")}
                   className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]"
                 >
                   Schedule a Visit
@@ -140,24 +139,10 @@ export default function Faq() {
                     alt="chevron right"
                     className="h-6 w-3 text-[#737373]"
                   />
-                </a>
+                </div>
               </li>
               <li className="mb-2">
-                <a
-                  href="#"
-                  className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-200 text-[#737373]"
-                >
-                  e-Brochure
-                  <img
-                    src={ChevronRightIcon} // apna icon ka path yaha lagao
-                    alt="chevron right"
-                    className="h-6 w-3"
-                  />
-                </a>
-              </li>
-              <li className="mb-2">
-                <a
-                  href="#"
+                <div onClick={()=>handleUrl("/admission/Faq")}
                   className="flex items-center justify-between py-2 px-3 rounded-md  bg-[#25337c] text-white"
                 >
                   FAQs
@@ -166,7 +151,7 @@ export default function Faq() {
                     alt="chevron right"
                     className="h-6 w-3"
                   />
-                </a>
+                </div>
               </li>
             </ul>
           </div>
