@@ -51,7 +51,7 @@ navigate('/about/tsus-ludhiana')
   return (
     <footer className=" relative bg-[#25337C] text-white">
       
-      <div className="absolute -top-[194px] inset-x-0 overflow-hidden leading-[0]">
+      <div className="absolute -top-[60px] md::-top-[120px] lg:-top-[170px] xl:-top-[250px] inset-x-0 overflow-hidden leading-[0]">
         <img src={Vector} alt="" className="w-full" />
       </div>
 
@@ -114,7 +114,7 @@ navigate('/about/tsus-ludhiana')
         </div>
       </div>
 
-      <div className="absolute bottom-0 right-4 hidden md:block">
+      <div className="absolute bottom-0 right-4 block">
         <img src={FooterImg} alt="Kids" className="h-65 object-contain" />
       </div>
     </footer>
