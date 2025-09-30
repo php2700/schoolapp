@@ -49,7 +49,7 @@ navigate('/about/tsus-ludhiana')
   }
  
   return (
-    <footer className=" relative bg-[#25337C] text-white">
+    <footer className=" relative bg-[#25337C] text-white mt-72">
       
       <div className="absolute -top-[60px] md::-top-[120px] lg:-top-[170px] xl:-top-[250px] inset-x-0 overflow-hidden leading-[0]">
         <img src={Vector} alt="" className="w-full" />

@@ -17,7 +17,7 @@ import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { FaHandshake } from "react-icons/fa";
 // import Footer from './assets/home/footer.png';
 import "./App.css";
-import Logo from "./assets/home/logo.png";
+import Logo from "./assets/home/shree.png";
 import BottomTop from "./assets/home/bottom_top.png";
 import Lefticon from "./assets/home/Lefticon.png";
 import Righticon from "./assets/home/Righticon.png";
@@ -87,78 +87,7 @@ function homepage() {
   const [phone, setPhone] = useState();
   const [className, setClassName] = useState();
   const [message, setMessages] = useState();
-
-  // const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
-
   const [isOpen, setIsOpen] = useState(false);
-
-  const pathways = [
-    {
-      grade: "Foundational (K-II):",
-      description:
-        "Tinker time, simple machines, patterns, storytelling with block coding.",
-    },
-    {
-      grade: "Preparatory (III-V):",
-      description:
-        "Robotics starters, circuits, Scratch apps, design thinking mini-challenges.",
-    },
-    {
-      grade: "Middle (VI-VIII):",
-      description:
-        "IoT builds, Python, 3D design/printing, drones (simulated), public-speaking projects.",
-    },
-    {
-      grade: "Secondary (IX-XII):",
-      description:
-        "Capstone projects integrating AI/ML, data, automation, and digital media portfolios.",
-    },
-  ];
-  const pathways2 = [
-    {
-      grade: "Weekly Lab Sessions",
-      description:
-        " embedded into the timetable; flexible plans for club hours and intensives.",
-    },
-    {
-      grade: "Certified Facilitators",
-      description:
-        "(Myra Academy) co-teach with TSUS faculty for smooth delivery and classroom integration.",
-    },
-    {
-      grade: "Safety & SOPs",
-      description: " for tools, drones, and electronics; age-appropriate kits.",
-    },
-    {
-      grade: "ssessment & Portfolio",
-      description:
-        "rubrics for creativity, collaboration, problem-solving; each child builds a digital portfolio of projects",
-    },
-  ];
-
-  const pathways3 = [
-    {
-      grade: "Conceptual clarity",
-      description: "via experiments and models.",
-    },
-    {
-      grade: "Stronger problem-solving & logical reasoning. ",
-      description:
-        "across grades with 400+ hands-on topics style coverage typical of best-in-class experiential programs.",
-    },
-    {
-      grade: "Tech fluency",
-      description: " (AI/Robotics/IoT/3D, AR/VR exposure).",
-    },
-    {
-      grade: "Communication & leadership",
-      description: " through demos, pitches and team roles.",
-    },
-    {
-      grade: "C Real-world application ",
-      description: " mindset—ideas that move from paper to prototype. ",
-    },
-  ];
 
   useEffect(() => {
     const loadAll = async () => {
@@ -248,195 +177,7 @@ function homepage() {
     }
   };
 
-  const getBanner = async () => {
-    axios
-      .get(`${import.meta.env.VITE_APP_URL}api/user/get-banner`)
-      .then((res) => {
-        setBannerData(res?.data?.getBannerData);
-      })
-      .catch((error) => {
-        setError(
-          error?.response?.data?.message ||
-            error?.message ||
-            "something went wrong"
-        );
-      });
-  };
-
-  const getWelcomeData = async () => {
-    axios
-      .get(`${import.meta.env.VITE_APP_URL}api/user/welcome`)
-      .then((res) => {
-        setWelcomeData(res?.data);
-      })
-      .catch((error) => {
-        setError(
-          error?.response?.data?.message ||
-            error?.message ||
-            "something went wrong"
-        );
-      });
-  };
-
-  const getEveryChildData = async () => {
-    axios
-      .get(`${import.meta.env.VITE_APP_URL}api/user/every-child-learn`)
-      .then((res) => {
-        setEveryChildData(res?.data);
-      })
-      .catch((error) => {
-        setError(
-          error?.response?.data?.message ||
-            error?.message ||
-            "something went wrong"
-        );
-      });
-  };
-
-  const getGalleryData = async () => {
-    axios
-      .get(`${import.meta.env.VITE_APP_URL}api/user/gallery-list`)
-      .then((res) => {
-        setGalleryData(res?.data);
-      })
-      .catch((error) => {
-        setError(
-          error?.response?.data?.message ||
-            error?.message ||
-            "something went wrong"
-        );
-      });
-  };
-
-  const getCbseData = () => {
-    axios
-      .get(`${import.meta.env.VITE_APP_URL}api/user/get-cbse-section`)
-      .then((res) => {
-        setCbseData(res?.data);
-      })
-      .catch((error) => {
-        setError(
-          error?.response?.data?.message ||
-            error?.message ||
-            "something went wrong"
-        );
-      });
-  };
-
-  const getSteamData = () => {
-    axios
-      .get(`${import.meta.env.VITE_APP_URL}api/user/steam-list`)
-      .then((res) => {
-        // console.log(res.data,"ggg")
-        setSteamData(res?.data);
-      })
-      .catch((error) => {
-        setError(
-          error?.response?.data?.message ||
-            error?.message ||
-            "something went wrong"
-        );
-      });
-  };
-
-  const getExperienceData = () => {
-    axios
-      .get(`${import.meta.env.VITE_APP_URL}api/user/student-experience-list`)
-      .then((res) => {
-        setExperienceData(res?.data);
-      })
-      .catch((error) => {
-        setError(
-          error?.response?.data?.message ||
-            error?.message ||
-            "something went wrong"
-        );
-      });
-  };
-
-  const getFaq = () => {
-    axios
-      .get(`${import.meta.env.VITE_APP_URL}api/user/faq-list`)
-      .then((res) => {
-        setFaqData(res?.data);
-      })
-      .catch((error) => {
-        setError(
-          error?.response?.data?.message ||
-            error?.message ||
-            "something went wrong"
-        );
-      });
-  };
-
-  const getprogramData = () => {
-    axios
-      .get(`${import.meta.env.VITE_APP_URL}api/user/program-list`)
-      .then((res) => {
-        setProgramData(res?.data);
-      })
-      .catch((error) => {
-        setError(
-          error?.response?.data?.message ||
-            error?.message ||
-            "something went wrong"
-        );
-      });
-  };
-
-  // useEffect(() => {
-  //   getBanner();
-  // }, []);
-
-  // useEffect(() => {
-  //   getWelcomeData();
-  // }, []);
-
-  // useEffect(() => {
-  //   getEveryChildData();
-  // }, []);
-
-  // useEffect(() => {
-  //   getGalleryData();
-  // }, []);
-
-  // useEffect(() => {
-  //   getCbseData();
-  // }, []);
-
-  // useEffect(() => {
-  //   getSteamData();
-  // }, []);
-
-  // useEffect(() => {
-  //   getExperienceData();
-  // }, []);
-
-  // useEffect(() => {
-  //   getFaq();
-  // }, []);
-
-  // useEffect(() => {
-  //   getprogramData();
-  // }, []);
-
-
-
-  // const handleBack = () => {
-  //   if (leftBtnGalleryIndex > 0) {
-  //     setLeftBtnGalleryIndex((prev) => prev - 3);
-  //     setRightBtnGalleryIndex((prev) => prev - 3);
-  //   }
-  // };
-
-  // const handleForward = (totalItems) => {
-  //   if (rightBtnGalleryIndex < totalItems) {
-  //     setLeftBtnGalleryIndex((prev) => prev + 3);
-  //     setRightBtnGalleryIndex((prev) => prev + 3);
-  //   }
-  // };
-
-  const handleGallery = () => {
+    const handleGallery = () => {
     navigate("/gallery");
   };
 
@@ -463,7 +204,6 @@ function homepage() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [startIndex, setStartIndex] = useState(0);
 
-  // Update window width on resize
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -483,6 +223,10 @@ function homepage() {
     );
   };
 
+
+  const handleAdmission=()=>{
+    navigate("/admission/form")
+  }
 
   return (
     <>
@@ -508,7 +252,7 @@ function homepage() {
           <p className="text-white mt-4 text-base sm:text-lg md:text-lg lg:text-xl max-w-full md:max-w-xl">
             {bannerData?.description}
           </p>
-          <button className="mt-6 px-4 sm:px-6 py-2 sm:py-3 bg-[#25337C] text-white font-semibold rounded-lg hover:bg-blue-800 w-fit text-sm sm:text-base md:text-lg">
+          <button onClick={handleAdmission} className="mt-6 px-4 sm:px-6 py-2 sm:py-3 bg-[#25337C] text-white font-semibold rounded-lg hover:bg-blue-800 w-fit text-sm sm:text-base md:text-lg">
             Apply for Admission
           </button>
         </div>

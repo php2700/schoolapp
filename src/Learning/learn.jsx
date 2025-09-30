@@ -111,15 +111,14 @@ const LearningPage = () => {
                   {/* content */}
                   <div className="ml-15">
                     <h3 className="text-xl font-semibold text-black group-hover:text-white transition-all duration-300">
-                      Integrity
+                      Innovative
                     </h3>
                     <div
                       className="w-20 h-1 bg-yellow-400 rounded mt-3 mb-4 opacity-0 
                                       group-hover:opacity-100 transition-all duration-300"
                     ></div>
                     <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-200 transition-all duration-300">
-                      Developing the value of Integrity through healthy and
-                      supportive student–teacher relationships.
+                      Creative teaching methods that spark curiosity  and   engagement
                     </p>
                   </div>
                 </div>
@@ -141,15 +140,14 @@ const LearningPage = () => {
                   {/* content */}
                   <div className="ml-15">
                     <h3 className="text-xl font-semibold text-black group-hover:text-white transition-all duration-300">
-                      Integrity
+                      Interactive
                     </h3>
                     <div
                       className="w-20 h-1 bg-yellow-400 rounded mt-3 mb-4 opacity-0 
                                       group-hover:opacity-100 transition-all duration-300"
                     ></div>
                     <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-200 transition-all duration-300">
-                      Developing the value of Integrity through healthy and
-                      supportive student–teacher relationships.
+                      collabrative learning experiences that build social skills
                     </p>
                   </div>
                 </div>
@@ -171,15 +169,14 @@ const LearningPage = () => {
                   {/* content */}
                   <div className="ml-15">
                     <h3 className="text-xl font-semibold text-black group-hover:text-white transition-all duration-300">
-                      Integrity
+                      Experiential
                     </h3>
                     <div
                       className="w-20 h-1 bg-yellow-400 rounded mt-3 mb-4 opacity-0 
                                       group-hover:opacity-100 transition-all duration-300"
                     ></div>
                     <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-200 transition-all duration-300">
-                      Developing the value of Integrity through healthy and
-                      supportive student–teacher relationships.
+                     hands-on activities that make learning memorable  & practical
                     </p>
                   </div>
                 </div>
@@ -201,15 +198,14 @@ const LearningPage = () => {
                   {/* content */}
                   <div className="ml-15">
                     <h3 className="text-xl font-semibold text-black group-hover:text-white transition-all duration-300">
-                      Integrity
+                      Child Centric 
                     </h3>
                     <div
                       className="w-20 h-1 bg-yellow-400 rounded mt-3 mb-4 opacity-0 
                                       group-hover:opacity-100 transition-all duration-300"
                     ></div>
                     <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-200 transition-all duration-300">
-                      Developing the value of Integrity through healthy and
-                      supportive student–teacher relationships.
+                      Personalized approach focusing on each child's unique potential
                     </p>
                   </div>
                 </div>
